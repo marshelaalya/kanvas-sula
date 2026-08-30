@@ -422,176 +422,6 @@
       justify-content: center;
       gap: 1rem;
       flex-wrap: wrap;
-      max-width: 460px;
-      width: 100%;
-      margin: 0 auto;
-    }
-
-    .hero-actions .btn {
-      flex: 1;
-      min-width: 190px;
-      justify-content: center;
-      white-space: nowrap;
-    }
-
-    /* ─── HERO GLOBAL SEARCH BAR ─── */
-    .hero-search-wrapper {
-      max-width: 460px;
-      width: 100%;
-      margin: 0 auto 1.25rem auto;
-      position: relative;
-      text-align: left;
-    }
-
-    .hero-search-bar {
-      display: flex;
-      align-items: center;
-      background-color: #FFFFFF;
-      border: 1.5px solid #CBD5E1;
-      border-radius: 999px;
-      padding: 0.45rem 0.55rem 0.45rem 1.15rem;
-      box-shadow: 0 10px 25px -5px rgba(116, 141, 174, 0.12), 0 8px 10px -6px rgba(116, 141, 174, 0.08);
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .hero-search-bar:focus-within {
-      border-color: #748DAE;
-      box-shadow: 0 0 0 4px rgba(158, 202, 214, 0.25), 0 12px 28px -4px rgba(116, 141, 174, 0.18);
-      transform: translateY(-2px);
-    }
-
-    .hero-search-icon {
-      color: #748DAE;
-      font-size: 1rem;
-      margin-right: 0.75rem;
-      flex-shrink: 0;
-    }
-
-    .hero-search-input {
-      width: 100%;
-      border: none;
-      background: transparent;
-      font-size: 0.9375rem;
-      font-family: inherit;
-      font-weight: 500;
-      color: #0F172A;
-      outline: none;
-    }
-
-    .hero-search-input::placeholder {
-      color: #94A3B8;
-      font-weight: 400;
-    }
-
-    .hero-search-submit-btn {
-      background-color: #0F172A;
-      color: white;
-      border: none;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8125rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      flex-shrink: 0;
-    }
-
-    .hero-search-submit-btn:hover {
-      background-color: var(--color-muted-indigo);
-      transform: scale(1.06);
-    }
-
-    /* ─── SEARCH RESULTS DEDICATED PAGE ─── */
-    .search-results-page-container {
-      min-height: 80vh;
-      background: linear-gradient(180deg, #FFFFFF 0%, var(--color-surface-subtle) 100%);
-    }
-
-    .search-page-hero {
-      padding: 2.25rem 0 1.5rem 0;
-      text-align: center;
-    }
-
-    .search-page-hero-content {
-      max-width: 720px;
-      margin: 0 auto;
-    }
-
-    .search-page-title {
-      font-size: 2.25rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      color: var(--color-text-primary);
-      margin-bottom: 0.65rem;
-    }
-
-    .search-page-subtitle {
-      font-size: 0.9375rem;
-      color: var(--color-text-secondary);
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
-
-    .search-page-input-wrapper {
-      max-width: 540px;
-      margin: 0 auto 1.5rem auto;
-    }
-
-    .search-page-input-bar {
-      display: flex;
-      align-items: center;
-      background-color: #FFFFFF;
-      border: 1.5px solid #CBD5E1;
-      border-radius: 999px;
-      padding: 0.4rem 0.5rem 0.4rem 1.15rem;
-      box-shadow: 0 4px 14px rgba(116, 141, 174, 0.12);
-      transition: all 0.25s ease;
-    }
-
-    .search-page-input-bar:focus-within {
-      border-color: #748DAE;
-      box-shadow: 0 0 0 4px rgba(158, 202, 214, 0.25);
-    }
-
-    .search-filter-pills-bar {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-top: 1rem;
-      margin-bottom: 1.75rem;
-    }
-
-    .search-filter-pill {
-      font-size: 0.8125rem;
-      font-weight: 600;
-      padding: 0.35rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid var(--color-border);
-      background-color: white;
-      color: #475569;
-      cursor: pointer;
-      transition: var(--transition-smooth);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .search-filter-pill:hover {
-      border-color: var(--color-muted-indigo);
-      color: #0F172A;
-      background-color: #F8FAFC;
-    }
-
-    .search-filter-pill.active {
-      background-color: #0F172A;
-      border-color: #0F172A;
-      color: white;
-      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
     }
 
     /* ─── ANIMATED STATS ─── */
@@ -1263,8 +1093,7 @@
       gap: 0.35rem;
     }
 
-    .pagination-btn,
-    .pagination-page-btn {
+    .pagination-btn, .pagination-page-btn {
       font-size: 0.8125rem;
       font-weight: 600;
       padding: 0.4rem 0.75rem;
@@ -1287,8 +1116,7 @@
       color: white;
     }
 
-    .pagination-btn:hover:not(:disabled),
-    .pagination-page-btn:hover:not(.active) {
+    .pagination-btn:hover:not(:disabled), .pagination-page-btn:hover:not(.active) {
       border-color: #FBCFE8;
       background-color: #FFF1F2;
       color: #0F172A;
@@ -2127,7 +1955,7 @@
 
     .telemetry-progress-fill {
       height: 100%;
-      background: #16A34A;
+      background: linear-gradient(90deg, #F472B6, #38BDF8);
       border-radius: 999px;
       transition: width 0.6s ease;
     }
@@ -2733,14 +2561,11 @@
     }
 
     .footer {
-      background-color: #0F172A;
-      color: #94A3B8;
-      border-top: 1px solid #1E293B;
-      padding: 2.25rem 0;
-      font-size: 0.84375rem;
-      margin-top: 3rem;
-      position: relative;
-      z-index: 10;
+      background-color: white;
+      border-top: 1px solid var(--color-border);
+      padding: 2rem 0;
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
     }
 
     .footer-content {
@@ -2758,26 +2583,21 @@
     }
 
     .social-icon-link {
-      color: #94A3B8;
-      font-size: 1.25rem;
+      color: var(--color-muted-indigo);
+      font-size: 1.35rem;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: all 0.2s ease;
+      transition: var(--transition-smooth);
       cursor: pointer;
       text-decoration: none;
       line-height: 1;
     }
 
     .social-icon-link:hover {
-      color: white;
-      background: rgba(255, 255, 255, 0.15);
-      transform: translateY(-2px);
+      color: #BE185D;
+      transform: translateY(-2px) scale(1.15);
+      filter: drop-shadow(0 4px 8px rgba(158, 202, 214, 0.45));
     }
 
     .back-to-top-btn {
@@ -2999,18 +2819,6 @@
               Platform korporat resmi Badan Pusat Statistik untuk mendokumentasikan, mengarsipkan, memonitor seluruh
               kegiatan statistik, dan sinkronisasi data scraping FASIH secara terpadu.
             </p>
-
-            <!-- GLOBAL QUICK SEARCH BAR (Pencarian Cepat 64 Kegiatan Statistik) -->
-            <form class="hero-search-wrapper" id="heroSearchWrapper" onsubmit="event.preventDefault(); submitHeroSearch();">
-              <div class="hero-search-bar">
-                <i class="fa-solid fa-magnifying-glass hero-search-icon"></i>
-                <input type="text" id="heroGlobalSearchInput" class="hero-search-input"
-                  placeholder="Cari survei atau kegiatan statistik..." autocomplete="off">
-                <button type="submit" class="hero-search-submit-btn" title="Cari Kegiatan">
-                  <i class="fa-solid fa-arrow-right"></i>
-                </button>
-              </div>
-            </form>
 
             <div class="hero-actions">
               <button onclick="navigateTo('tim')" class="btn btn-primary">
@@ -3708,11 +3516,17 @@
               <!-- Badges rendered dynamically -->
             </div>
 
-
+            <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+              <button onclick="openManualModal()" class="btn-manual-form">
+                <i class="fa-solid fa-pen-to-square"></i> Input Progress Manual
+              </button>
+              <button id="btnTriggerScraping" onclick="openScrapingModal()" class="btn-scraping">
+                <i class="fa-solid fa-bolt-lightning"></i> Jalankan Scraping FASIH
+              </button>
+            </div>
           </div>
 
           <h1 id="surveyHeaderTitle" class="survey-hero-title"></h1>
-          <div id="surveyHeaderFullname" style="font-size: 0.9375rem; font-weight: 600; color: #475569; margin-top: -0.15rem; margin-bottom: 0.45rem; line-height: 1.4; display: none;"></div>
           <p id="surveyHeaderSubtitle" class="survey-hero-subtitle"></p>
         </div>
       </div>
@@ -3770,72 +3584,6 @@
         </div>
       </div>
     </div>
-
-    <!-- ═══════════════════════════════════════════════════════════════════════ -->
-    <!-- VIEW 6: SEARCH RESULTS PAGE (Halaman Hasil Pencarian Terpadu)           -->
-    <!-- ═══════════════════════════════════════════════════════════════════════ -->
-    <div id="pageSearchResults" class="page-view" style="padding-top: var(--nav-height);">
-      <!-- Clean & Symmetric Sticky Top Bar (Breadcrumbs on Left + Back Button on Right) -->
-      <div class="single-team-header">
-        <div class="container">
-          <div class="team-nav-top-bar">
-            <div class="breadcrumb-trail" id="searchResultsBreadcrumbs">
-              <a href="javascript:void(0)" onclick="navigateTo('home')"><i class="fa-solid fa-house"></i> Beranda</a>
-              <span>/</span>
-              <a href="javascript:void(0)" onclick="navigateTo('cari')">Pencarian</a>
-              <span>/</span>
-              <span id="searchBreadcrumbTitle" style="color: var(--color-text-primary); font-weight: 600;">Semua Kegiatan</span>
-            </div>
-            <button onclick="navigateTo('home')" class="btn btn-secondary" style="padding: 0.4rem 1rem; font-size: 0.8125rem;">
-              <i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="search-results-page-container">
-        <div class="container">
-          <div class="search-page-hero">
-            <div class="search-page-hero-content">
-              <div class="hero-badge" style="margin-bottom: 0.85rem;">
-                <i class="fa-solid fa-magnifying-glass"></i> Katalog Pencarian Terpadu 5 Tim BPS
-              </div>
-              <h1 class="search-page-title" id="searchPageTitle">
-                Hasil Pencarian Kegiatan Statistik
-              </h1>
-              <p class="search-page-subtitle" id="searchPageSubtitle">
-                Menjelajahi master katalog survei, sensus, dan layanan statistik BPS Kabupaten Kepulauan Sula
-              </p>
-
-              <!-- Search Bar on Results Page for quick query refinement -->
-              <div class="search-page-input-wrapper">
-                <form class="search-page-input-bar" onsubmit="event.preventDefault(); executeSearchResultsPageSearch();">
-                  <i class="fa-solid fa-magnifying-glass hero-search-icon"></i>
-                  <input 
-                    type="text" 
-                    id="searchPageInput" 
-                    class="hero-search-input" 
-                    placeholder="Ketik kata kunci kegiatan atau singkatan..." 
-                    autocomplete="off"
-                  >
-                  <button type="button" id="searchPageClearBtn" class="hero-search-clear" onclick="clearSearchPageInput()" title="Hapus pencarian" style="display: none; margin-right: 0.5rem;">
-                    <i class="fa-solid fa-xmark"></i>
-                  </button>
-                  <button type="submit" class="btn btn-primary" style="padding: 0.45rem 1.25rem; font-size: 0.8125rem; border-radius: 999px; white-space: nowrap;">
-                    Cari
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-
-          <!-- Dynamic Results Content Container -->
-          <div id="searchResultsDynamicContent" style="padding-bottom: 4rem;">
-            <!-- Injected by renderSearchResultsPage() -->
-          </div>
-        </div>
-      </div>
-    </div>
   </main>
 
   <!-- ═════════════════════════════════════════════════════════════════════════ -->
@@ -3847,21 +3595,11 @@
         <span style="display: inline-flex; align-items: center; gap: 0.45rem;">
           <svg viewBox="0 0 500 500" width="16" height="16" style="vertical-align: middle;">
             <defs>
-              <linearGradient id="modalFasihTop" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#9ECAD6" />
-                <stop offset="100%" stop-color="#748DAE" />
-              </linearGradient>
-              <linearGradient id="modalFasihBody" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#748DAE" />
-                <stop offset="100%" stop-color="#4E6582" />
-              </linearGradient>
+              <linearGradient id="modalFasihTop" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#9ECAD6"/><stop offset="100%" stop-color="#748DAE"/></linearGradient>
+              <linearGradient id="modalFasihBody" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#748DAE"/><stop offset="100%" stop-color="#4E6582"/></linearGradient>
             </defs>
-            <path
-              d="M 160 45 L 455 45 C 472 45 483 58 478 74 L 438 185 C 434 195 424 202 412 202 L 132 202 C 114 202 103 186 109 169 L 123 125 C 127 114 137 106 149 106 L 172 106 L 191 48 C 193 46 195 45 197 45 Z"
-              fill="url(#modalFasihTop)" />
-            <path
-              d="M 152 225 L 305 225 C 318 225 329 233 325 246 L 315 278 C 312 288 320 298 331 298 L 388 298 C 405 298 416 313 410 329 L 362 460 C 358 471 347 478 335 478 L 248 478 C 236 478 226 470 223 458 L 202 375 C 199 364 190 357 179 357 L 140 357 L 98 473 C 94 484 83 491 71 491 L 18 491 C 4 491 -5 477 2 464 L 131 236 C 135 229 143 225 152 225 Z"
-              fill="url(#modalFasihBody)" />
+            <path d="M 160 45 L 455 45 C 472 45 483 58 478 74 L 438 185 C 434 195 424 202 412 202 L 132 202 C 114 202 103 186 109 169 L 123 125 C 127 114 137 106 149 106 L 172 106 L 191 48 C 193 46 195 45 197 45 Z" fill="url(#modalFasihTop)"/>
+            <path d="M 152 225 L 305 225 C 318 225 329 233 325 246 L 315 278 C 312 288 320 298 331 298 L 388 298 C 405 298 416 313 410 329 L 362 460 C 358 471 347 478 335 478 L 248 478 C 236 478 226 470 223 458 L 202 375 C 199 364 190 357 179 357 L 140 357 L 98 473 C 94 484 83 491 71 491 L 18 491 C 4 491 -5 477 2 464 L 131 236 C 135 229 143 225 152 225 Z" fill="url(#modalFasihBody)"/>
           </svg>
           KANVAS SULA FASIH Scraper Engine v2.4
         </span>
@@ -3892,8 +3630,7 @@
             <i class="fa-solid fa-table-list"></i>
           </div>
           <div>
-            <h3 style="font-size: 1.0625rem; font-weight: 700; margin: 0; color: var(--color-text-primary);"
-              id="modalTitleText">
+            <h3 style="font-size: 1.0625rem; font-weight: 700; margin: 0; color: var(--color-text-primary);" id="modalTitleText">
               Input & Pemutakhiran Progres Manual
             </h3>
             <p style="font-size: 0.75rem; color: var(--color-text-muted); margin: 0;">
@@ -3906,233 +3643,139 @@
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
+
       <div class="manual-modal-body">
-        <!-- STEP 1: PILIHAN METODE SELECTION SCREEN (LANDING CHOICE) -->
-        <div id="modalStepSelection" style="padding: 0.5rem 0;">
-          <div style="text-align: center; margin-bottom: 1.75rem;">
-            <h4 style="font-size: 1.0625rem; font-weight: 700; color: #0F172A; margin-bottom: 0.4rem;">
-              Pilih Metode Pengelolaan Monitoring Lapangan
-            </h4>
-            <p style="font-size: 0.8125rem; color: #64748B; margin: 0;">
-              Silakan pilih salah satu mekanisme pencatatan atau pengunggahan data di bawah ini:
-            </p>
+        <!-- 1. Ringkasan Status Berjenjang & Periode Tahun -->
+        <div class="manual-status-summary-grid">
+          <div class="manual-summary-card">
+            <div class="manual-summary-card-label"><i class="fa-solid fa-layer-group" style="color: var(--color-muted-indigo);"></i> Sampel</div>
+            <div class="manual-summary-card-val" id="modalSummarySampel" style="color: #0F172A;">0 <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">Sampel</span></div>
           </div>
-
-          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
-            <!-- Card 1: Upload File Direct -->
-            <div onclick="selectModalStepMode('file')" class="modal-mode-card" style="background: #F8FAFC; border: 2px solid #CBD5E1; border-radius: 14px; padding: 1.5rem 1rem; text-align: center; cursor: pointer; transition: all 0.2s ease;">
-              <div style="width: 52px; height: 52px; border-radius: 14px; background: #DCFCE7; color: #166534; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 1rem auto; border: 1px solid #BBF7D0;">
-                <i class="fa-solid fa-file-excel"></i>
-              </div>
-              <h5 style="font-size: 0.9375rem; font-weight: 700; color: #0F172A; margin-bottom: 0.4rem;">1. Upload File Direct</h5>
-              <p style="font-size: 0.75rem; color: #64748B; margin-bottom: 1.25rem; line-height: 1.5;">
-                Upload file Excel, PDF, atau CSV. Disimpan &amp; ditampilkan <strong>plek ketiplek</strong> di Seksi 5.
-              </p>
-              <button type="button" class="btn btn-secondary" style="font-size: 0.75rem; padding: 0.45rem 0.85rem; font-weight: 700; background: #166534; color: white; border: none; width: 100%;">
-                Pilih Mode File &rarr;
-              </button>
-            </div>
-
-            <!-- Card 2: Cantumkan Link Online -->
-            <div onclick="selectModalStepMode('link')" class="modal-mode-card" style="background: #F0F9FF; border: 2px solid #BAE6FD; border-radius: 14px; padding: 1.5rem 1rem; text-align: center; cursor: pointer; transition: all 0.2s ease;">
-              <div style="width: 52px; height: 52px; border-radius: 14px; background: #0284C7; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 1rem auto;">
-                <i class="fa-solid fa-link"></i>
-              </div>
-              <h5 style="font-size: 0.9375rem; font-weight: 700; color: #0369A1; margin-bottom: 0.4rem;">2. Cantumkan Link Online</h5>
-              <p style="font-size: 0.75rem; color: #0284C7; margin-bottom: 1.25rem; line-height: 1.5;">
-                Masukkan URL tautan Google Sheets, BPS Cloud, atau Spreadsheet online.
-              </p>
-              <button type="button" class="btn btn-secondary" style="font-size: 0.75rem; padding: 0.45rem 0.85rem; font-weight: 700; background: #0284C7; color: white; border: none; width: 100%;">
-                Pilih Mode Link &rarr;
-              </button>
-            </div>
-
-            <!-- Card 3: Entri Baris Sampel Tabel -->
-            <div onclick="selectModalStepMode('table')" class="modal-mode-card" style="background: #EEF2FF; border: 2px solid #C7D2FE; border-radius: 14px; padding: 1.5rem 1rem; text-align: center; cursor: pointer; transition: all 0.2s ease;">
-              <div style="width: 52px; height: 52px; border-radius: 14px; background: #4338CA; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 1rem auto;">
-                <i class="fa-solid fa-table-list"></i>
-              </div>
-              <h5 style="font-size: 0.9375rem; font-weight: 700; color: #3730A3; margin-bottom: 0.4rem;">3. Entri Baris Tabel</h5>
-              <p style="font-size: 0.75rem; color: #4338CA; margin-bottom: 1.25rem; line-height: 1.5;">
-                Catat dan perbarui baris sampel responden per desa/kecamatan secara rinci.
-              </p>
-              <button type="button" class="btn btn-secondary" style="font-size: 0.75rem; padding: 0.45rem 0.85rem; font-weight: 700; background: #4338CA; color: white; border: none; width: 100%;">
-                Pilih Mode Tabel &rarr;
-              </button>
-            </div>
+          <div class="manual-summary-card">
+            <div class="manual-summary-card-label"><span style="color: #2563EB;">●</span> Submitted by Pencacah</div>
+            <div class="manual-summary-card-val" id="modalSummarySubmitted" style="color: #2563EB;">0 <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">Sampel</span></div>
+          </div>
+          <div class="manual-summary-card">
+            <div class="manual-summary-card-label"><span style="color: #D97706;">●</span> Approve PML</div>
+            <div class="manual-summary-card-val" id="modalSummaryPml" style="color: #D97706;">0 <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">Sampel</span></div>
+          </div>
+          <div class="manual-summary-card">
+            <div class="manual-summary-card-label"><span style="color: #16A34A;">●</span> Approval Admin</div>
+            <div class="manual-summary-card-val" id="modalSummaryAdmin" style="color: #16A34A;">0 <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">Sampel</span></div>
           </div>
         </div>
 
-        <!-- STEP 2: PANEL TERPILIH + KEMBALI KE PILIHAN METODE -->
-        <div id="modalStepContent" style="display: none;">
-          <!-- Top Navigation Header inside Step 2 -->
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--color-border); flex-wrap: wrap; gap: 0.5rem;">
-            <button type="button" onclick="goToStepSelection()" class="btn btn-secondary" style="font-size: 0.8125rem; padding: 0.4rem 0.9rem; font-weight: 700; color: #0F172A; background: #F1F5F9; border: 1px solid #CBD5E1;">
-              <i class="fa-solid fa-arrow-left"></i> Kembali ke Pilihan Metode
+        <!-- 2. Tabel Rincian Data Sampel & Cell Status Interaktif -->
+        <div style="margin-bottom: 1.5rem;">
+          <div style="font-size: 0.8125rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.4rem;">
+              <i class="fa-solid fa-list-check" style="color: var(--color-muted-indigo);"></i>
+              <span>Daftar Sampel & Status Lapangan</span>
+              <span id="modalTableCountBadge" style="font-size: 0.6875rem; background: var(--color-surface-subtle); padding: 0.15rem 0.5rem; border-radius: 4px; border: 1px solid var(--color-border); font-weight: 600;">0 Sampel</span>
+            </div>
+            
+            <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+              <button type="button" onclick="loadSampleTemplate()" class="btn btn-secondary" style="font-size: 0.75rem; padding: 0.3rem 0.65rem;">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> Muat Template Desa Sula
+              </button>
+              <button type="button" onclick="clearAllSamples()" class="btn btn-secondary" style="font-size: 0.75rem; padding: 0.3rem 0.65rem; color: #DC2626;">
+                <i class="fa-solid fa-trash-can"></i> Kosongkan (Mulai Awal)
+              </button>
+            </div>
+          </div>
+
+          <div style="max-height: 280px; overflow-y: auto; border: 1px solid var(--color-border); border-radius: 8px;">
+            <table class="district-progress-table" style="margin-bottom: 0; width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr>
+                  <th style="width: 5%;">No</th>
+                  <th style="width: 25%;">Identitas Responden / SLS</th>
+                  <th style="width: 18%;">Kecamatan</th>
+                  <th style="width: 18%;">Desa / Kelurahan</th>
+                  <th style="width: 24%;">Status Progres (Pencacah &rarr; PML &rarr; Admin)</th>
+                  <th style="width: 10%; text-align: center;">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="modalSamplesTableBody">
+                <!-- Injected Dynamically by renderModalSamplesTable() -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 3. Form Input / Penambahan Sampel Baru -->
+        <form id="manualEntryForm" onsubmit="handleManualEntrySubmit(event)"
+          style="border-top: 1px solid var(--color-border); padding-top: 1.25rem;">
+          <div
+            style="font-size: 0.8125rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 0.75rem;">
+            <i class="fa-solid fa-plus-circle" style="color: #0369A1; margin-right: 0.35rem;"></i> Tambah Baris Sampel Baru
+          </div>
+
+          <div class="stativa-form-grid">
+            <div class="stativa-form-group">
+              <label class="stativa-label">Wilayah Kecamatan *</label>
+              <select id="modalFormKecamatan" class="stativa-select" required>
+                <option value="Kec. Sanana">Kec. Sanana</option>
+                <option value="Kec. Sanana Utara">Kec. Sanana Utara</option>
+                <option value="Kec. Sulabesi Barat">Kec. Sulabesi Barat</option>
+                <option value="Kec. Sulabesi Tengah">Kec. Sulabesi Tengah</option>
+                <option value="Kec. Sulabesi Timur">Kec. Sulabesi Timur</option>
+                <option value="Kec. Sulabesi Selatan">Kec. Sulabesi Selatan</option>
+                <option value="Kec. Mangoli Barat">Kec. Mangoli Barat</option>
+                <option value="Kec. Mangoli Tengah">Kec. Mangoli Tengah</option>
+                <option value="Kec. Mangoli Timur">Kec. Mangoli Timur</option>
+                <option value="Kec. Mangoli Utara">Kec. Mangoli Utara</option>
+                <option value="Kec. Mangoli Selatan">Kec. Mangoli Selatan</option>
+                <option value="Kec. Mangoli Timur Selatan">Kec. Mangoli Timur Selatan</option>
+              </select>
+            </div>
+            <div class="stativa-form-group">
+              <label class="stativa-label">Nama Desa / Kelurahan *</label>
+              <input type="text" id="modalFormDesa" class="stativa-input"
+                placeholder="Misal: Desa Fagudu, Desa Waibau, Desa Mangon" required>
+            </div>
+          </div>
+
+          <div class="stativa-form-grid">
+            <div class="stativa-form-group">
+              <label class="stativa-label">Nama Sampel / Responden / SLS *</label>
+              <input type="text" id="modalFormSampleName" class="stativa-input"
+                placeholder="Misal: Ruta 01 - Bpk. Usman" required>
+            </div>
+            <div class="stativa-form-group">
+              <label class="stativa-label">Status Progres Lapangan *</label>
+              <select id="modalFormSampleStatus" class="stativa-select" required>
+                <option value="Submitted">🔵 Submitted by Pencacah (Selesai Pencacahan PCL)</option>
+                <option value="Approve PML">🟡 Approve PML (Disetujui Pengawas)</option>
+                <option value="Approve Admin">🟢 Approve Admin (Disetujui Admin Selesai)</option>
+                <option value="Open">⚪ Open (Belum Dicacah)</option>
+                <option value="Rejected">🔴 Rejected / Revisi (Anomali / Perlu Perbaikan)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="stativa-form-grid">
+            <div class="stativa-form-group">
+              <label class="stativa-label">Petugas Pencacah (PCL)</label>
+              <input type="text" id="modalFormPcl" class="stativa-input"
+                placeholder="Nama Petugas Lapangan">
+            </div>
+            <div class="stativa-form-group">
+              <label class="stativa-label">Petugas Pengawas (PML)</label>
+              <input type="text" id="modalFormPml" class="stativa-input"
+                placeholder="Nama Pengawas Lapangan">
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1rem;">
+            <button type="button" onclick="closeManualModal()" class="btn btn-secondary"
+              style="padding: 0.55rem 1.25rem;">Tutup</button>
+            <button type="submit" class="btn btn-primary"
+              style="padding: 0.55rem 1.5rem; background: #0F172A; border: none; color: white; font-weight: 700;">
+              <i class="fa-solid fa-plus"></i> Tambah Sampel
             </button>
-            <span id="activeModeBadgeTag" style="font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 999px; background: #F1F5F9; color: #475569;">
-              Mode Terpilih
-            </span>
           </div>
-
-          <!-- PANEL MODE 1: UPLOAD FILE DIRECT ("PLEK KETIPLEK") -->
-          <div id="modalPanelFile" style="display: none; padding: 1.5rem; background: #F8FAFC; border-radius: 12px; border: 1px dashed #CBD5E1; text-align: center; margin-bottom: 1.25rem;">
-            <i class="fa-solid fa-cloud-arrow-up" style="font-size: 2.5rem; color: #0284C7; margin-bottom: 0.75rem;"></i>
-            <h4 style="font-size: 0.9375rem; font-weight: 700; color: #0F172A; margin-bottom: 0.35rem;">
-              Upload File Dokumentasi / Excel Lapangan Direct ("Plek Ketiplek")
-            </h4>
-            <p style="font-size: 0.8125rem; color: #64748B; margin-bottom: 1.25rem; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.5;">
-              File yang Anda upload (Excel, CSV, PDF) akan disimpan dan ditampilkan <strong>secara langsung (plek ketiplek)</strong> di Seksi 5 Monitoring Lapangan.
-            </p>
-            <label class="btn btn-primary" style="padding: 0.65rem 1.6rem; background: #0F172A; color: white; cursor: pointer; font-weight: 700; display: inline-flex; align-items: center; gap: 0.5rem; border: none;">
-              <i class="fa-solid fa-folder-open"></i> Pilih & Upload File (.xlsx / .pdf / .csv)
-              <input type="file" id="modalPlekFileDirectInput" onchange="handleDirectFileUpload(event)" style="display: none;">
-            </label>
-            <div id="modalFileCurrentInfo" style="margin-top: 1.25rem;"></div>
-          </div>
-
-          <!-- PANEL MODE 2: TAUTAN LINK SPREADSHEET ONLINE -->
-          <div id="modalPanelLink" style="display: none; padding: 1.5rem; background: #F0F9FF; border-radius: 12px; border: 1px solid #BAE6FD; margin-bottom: 1.25rem;">
-            <h4 style="font-size: 0.9375rem; font-weight: 700; color: #0369A1; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
-              <i class="fa-solid fa-link"></i> Cantumkan Tautan / Link Spreadsheet External
-            </h4>
-            <p style="font-size: 0.8125rem; color: #0284C7; margin-bottom: 1rem; line-height: 1.5;">
-              Masukkan URL tautan Google Sheets, BPS Cloud, atau dokumen online monitoring. Tautan akan aktif dan ditampilkan langsung di Seksi 5.
-            </p>
-            <form onsubmit="handleLinkSubmit(event)" style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
-              <input type="url" id="modalLinkUrlInput" class="stativa-input" placeholder="https://docs.google.com/spreadsheets/d/..." style="flex: 1; min-width: 260px;" required>
-              <button type="submit" class="btn btn-primary" style="padding: 0.6rem 1.25rem; background: #0284C7; border: none; color: white; font-weight: 700;">
-                <i class="fa-solid fa-check"></i> Simpan Tautan Link
-              </button>
-            </form>
-            <div id="modalLinkCurrentInfo" style="margin-top: 1.25rem;"></div>
-          </div>
-
-          <!-- PANEL MODE 3: TABEL BARIS SAMPEL -->
-          <div id="modalPanelTable" style="display: none;">
-            <!-- 1. Ringkasan Status Berjenjang & Periode Tahun -->
-            <div class="manual-status-summary-grid">
-              <div class="manual-summary-card">
-                <div class="manual-summary-card-label"><i class="fa-solid fa-layer-group" style="color: var(--color-muted-indigo);"></i> Sampel</div>
-                <div class="manual-summary-card-val" id="modalSummarySampel" style="color: #0F172A;">0 <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">Sampel</span></div>
-              </div>
-              <div class="manual-summary-card">
-                <div class="manual-summary-card-label"><span style="color: #2563EB;">●</span> Submitted by Pencacah</div>
-                <div class="manual-summary-card-val" id="modalSummarySubmitted" style="color: #2563EB;">0 <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">Sampel</span></div>
-              </div>
-              <div class="manual-summary-card">
-                <div class="manual-summary-card-label"><span style="color: #D97706;">●</span> Approve PML</div>
-                <div class="manual-summary-card-val" id="modalSummaryPml" style="color: #D97706;">0 <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">Sampel</span></div>
-              </div>
-              <div class="manual-summary-card">
-                <div class="manual-summary-card-label"><span style="color: #16A34A;">●</span> Approval Admin</div>
-                <div class="manual-summary-card-val" id="modalSummaryAdmin" style="color: #16A34A;">0 <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">Sampel</span></div>
-              </div>
-            </div>
-
-            <!-- 2. Tabel Rincian Data Sampel & Cell Status Interaktif -->
-            <div style="margin-bottom: 1.5rem;">
-              <div style="font-size: 0.8125rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
-                <div style="display: flex; align-items: center; gap: 0.4rem;">
-                  <i class="fa-solid fa-list-check" style="color: var(--color-muted-indigo);"></i>
-                  <span>Daftar Sampel & Status Lapangan</span>
-                  <span id="modalTableCountBadge" style="font-size: 0.6875rem; background: var(--color-surface-subtle); padding: 0.15rem 0.5rem; border-radius: 4px; border: 1px solid var(--color-border); font-weight: 600;">0 Sampel</span>
-                </div>
-
-                <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center;">
-                  <button type="button" onclick="loadExcelRapihTemplate()" class="btn btn-secondary" style="font-size: 0.75rem; padding: 0.3rem 0.65rem; background: #F0FDF4; color: #166534; border: 1px solid #BBF7D0; font-weight: 600;">
-                    <i class="fa-solid fa-file-excel"></i> Template Excel Rapih
-                  </button>
-                  <button type="button" onclick="clearAllSamples()" class="btn btn-secondary" style="font-size: 0.75rem; padding: 0.3rem 0.65rem; color: #DC2626;">
-                    <i class="fa-solid fa-trash-can"></i> Kosongkan
-                  </button>
-                </div>
-              </div>
-
-              <div style="max-height: 280px; overflow-y: auto; border: 1px solid var(--color-border); border-radius: 8px;">
-                <table class="district-progress-table" style="margin-bottom: 0; width: 100%; border-collapse: collapse;">
-                  <thead>
-                    <tr>
-                      <th style="width: 5%;">No</th>
-                      <th style="width: 25%;">Identitas Responden / SLS</th>
-                      <th style="width: 18%;">Kecamatan</th>
-                      <th style="width: 18%;">Desa / Kelurahan</th>
-                      <th style="width: 24%;">Status Progres</th>
-                      <th style="width: 10%; text-align: center;">Aksi</th>
-                    </tr>
-                  </thead>
-                  <tbody id="modalSamplesTableBody"></tbody>
-                </table>
-              </div>
-            </div>
-
-            <!-- 3. Form Input / Penambahan Sampel Baru -->
-            <form id="manualEntryForm" onsubmit="handleManualEntrySubmit(event)" style="border-top: 1px solid var(--color-border); padding-top: 1.25rem;">
-              <div style="font-size: 0.8125rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 0.75rem;">
-                <i class="fa-solid fa-plus-circle" style="color: #0369A1; margin-right: 0.35rem;"></i> Tambah Baris Sampel Baru
-              </div>
-
-              <div class="stativa-form-grid">
-                <div class="stativa-form-group">
-                  <label class="stativa-label">Wilayah Kecamatan *</label>
-                  <select id="modalFormKecamatan" class="stativa-select" required>
-                    <option value="Kec. Sanana">Kec. Sanana</option>
-                    <option value="Kec. Sanana Utara">Kec. Sanana Utara</option>
-                    <option value="Kec. Sulabesi Barat">Kec. Sulabesi Barat</option>
-                    <option value="Kec. Sulabesi Tengah">Kec. Sulabesi Tengah</option>
-                    <option value="Kec. Sulabesi Timur">Kec. Sulabesi Timur</option>
-                    <option value="Kec. Sulabesi Selatan">Kec. Sulabesi Selatan</option>
-                    <option value="Kec. Mangoli Barat">Kec. Mangoli Barat</option>
-                    <option value="Kec. Mangoli Tengah">Kec. Mangoli Tengah</option>
-                    <option value="Kec. Mangoli Timur">Kec. Mangoli Timur</option>
-                    <option value="Kec. Mangoli Utara">Kec. Mangoli Utara</option>
-                    <option value="Kec. Mangoli Selatan">Kec. Mangoli Selatan</option>
-                    <option value="Kec. Mangoli Timur Selatan">Kec. Mangoli Timur Selatan</option>
-                  </select>
-                </div>
-                <div class="stativa-form-group">
-                  <label class="stativa-label">Nama Desa / Kelurahan *</label>
-                  <input type="text" id="modalFormDesa" class="stativa-input" placeholder="Misal: Desa Fagudu, Desa Waibau" required>
-                </div>
-              </div>
-
-              <div class="stativa-form-grid">
-                <div class="stativa-form-group">
-                  <label class="stativa-label">Nama Sampel / Responden / SLS *</label>
-                  <input type="text" id="modalFormSampleName" class="stativa-input" placeholder="Misal: Ruta 01 - Bpk. Usman" required>
-                </div>
-                <div class="stativa-form-group">
-                  <label class="stativa-label">Status Progres Lapangan *</label>
-                  <select id="modalFormSampleStatus" class="stativa-select" required>
-                    <option value="Submitted">🔵 Submitted by Pencacah</option>
-                    <option value="Approve PML">🟡 Approve PML</option>
-                    <option value="Approve Admin">🟢 Approve Admin</option>
-                    <option value="Open">⚪ Open</option>
-                    <option value="Rejected">🔴 Rejected / Revisi</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="stativa-form-grid">
-                <div class="stativa-form-group">
-                  <label class="stativa-label">Petugas Pencacah (PCL)</label>
-                  <input type="text" id="modalFormPcl" class="stativa-input" placeholder="Nama Petugas Lapangan">
-                </div>
-                <div class="stativa-form-group">
-                  <label class="stativa-label">Petugas Pengawas (PML)</label>
-                  <input type="text" id="modalFormPml" class="stativa-input" placeholder="Nama Pengawas Lapangan">
-                </div>
-              </div>
-
-              <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1rem;">
-                <button type="button" onclick="closeManualModal()" class="btn btn-secondary" style="padding: 0.55rem 1.25rem;">Tutup</button>
-                <button type="submit" class="btn btn-primary" style="padding: 0.55rem 1.5rem; background: #0F172A; border: none; color: white; font-weight: 700;">
-                  <i class="fa-solid fa-plus"></i> Tambah Sampel
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
@@ -4149,17 +3792,15 @@
   <footer class="footer">
     <div class="container footer-content">
       <div style="display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;">
-        &copy; 2026 <strong>KANVAS SULA</strong> — Dikembangkan oleh <strong>Marshela Alya</strong> (BPS Kabupaten
-        Kepulauan Sula). Hak Cipta Dilindungi.
+        &copy; 2026 <strong>KANVAS SULA</strong> — Dikembangkan oleh <strong>Marshela Alya</strong> (BPS Kabupaten Kepulauan Sula). Hak Cipta Dilindungi.
       </div>
       <div class="footer-social-links">
         <a href="https://www.instagram.com/bps.sula/" target="_blank" rel="noopener noreferrer" class="social-icon-link"
           aria-label="Instagram Resmi BPS Sula (@bps.sula)" title="Instagram @bps.sula">
           <i class="fa-brands fa-instagram"></i>
         </a>
-        <a href="https://web.facebook.com/bps.sula/?_rdc=1&_rdr#" target="_blank" rel="noopener noreferrer"
-          class="social-icon-link" aria-label="Facebook Resmi BPS Kabupaten Kepulauan Sula"
-          title="Facebook BPS Kabupaten Kepulauan Sula">
+        <a href="https://web.facebook.com/bps.sula/?_rdc=1&_rdr#" target="_blank" rel="noopener noreferrer" class="social-icon-link"
+          aria-label="Facebook Resmi BPS Kabupaten Kepulauan Sula" title="Facebook BPS Kabupaten Kepulauan Sula">
           <i class="fa-brands fa-facebook"></i>
         </a>
         <a href="https://kepsulkab.bps.go.id" target="_blank" rel="noopener noreferrer" class="social-icon-link"
@@ -5443,7 +5084,6 @@
       const pageTeamHub = document.getElementById("pageTeamHub");
       const pageTeamDetail = document.getElementById("pageTeamDetail");
       const pageSurveyDetail = document.getElementById("pageSurveyDetail");
-      const pageSearchResults = document.getElementById("pageSearchResults");
       const navLinks = document.querySelectorAll(".nav-link");
 
       // Close mobile hamburger if open
@@ -5460,7 +5100,6 @@
       if (pageTeamHub) pageTeamHub.classList.remove("active-page");
       if (pageTeamDetail) pageTeamDetail.classList.remove("active-page");
       if (pageSurveyDetail) pageSurveyDetail.classList.remove("active-page");
-      if (pageSearchResults) pageSearchResults.classList.remove("active-page");
       navLinks.forEach(l => l.classList.remove("active"));
 
       if (route === "home" || !route) {
@@ -5504,12 +5143,6 @@
             window.scrollTo({ top: topOffset, behavior: "smooth" });
           }
         }, 50);
-        triggerRevealAnimations();
-      } else if (route === "cari" || route === "search") {
-        const query = param1 ? decodeURIComponent(param1) : "";
-        renderSearchResultsPage(query, 1, "all", "all");
-        if (pageSearchResults) pageSearchResults.classList.add("active-page");
-        window.scrollTo({ top: 0, behavior: "smooth" });
         triggerRevealAnimations();
       } else if (route === "tim" && param1) {
         const teamKey = param1;
@@ -5597,310 +5230,6 @@
       `;
     }
 
-    // ─── DEDICATED SEARCH RESULTS CONTROLLER ───
-    let currentSearchPageQuery = "";
-    let currentSearchPageTeamFilter = "all";
-    let currentSearchPagePlatformFilter = "all";
-    let currentSearchPageNum = 1;
-
-    function submitHeroSearch() {
-      const input = document.getElementById("heroGlobalSearchInput");
-      const q = input ? input.value.trim() : "";
-      if (q.length > 0) {
-        navigateTo(`cari/${encodeURIComponent(q)}`);
-      } else {
-        navigateTo("cari");
-      }
-    }
-
-    function executeSearchResultsPageSearch() {
-      const input = document.getElementById("searchPageInput");
-      const q = input ? input.value.trim() : "";
-      if (q.length > 0) {
-        navigateTo(`cari/${encodeURIComponent(q)}`);
-      } else {
-        navigateTo("cari");
-      }
-    }
-
-    function clearSearchPageInput() {
-      const input = document.getElementById("searchPageInput");
-      if (input) {
-        input.value = "";
-        input.focus();
-      }
-      const clearBtn = document.getElementById("searchPageClearBtn");
-      if (clearBtn) clearBtn.style.display = "none";
-      navigateTo("cari");
-    }
-
-    function filterSearchResultsByTeam(teamKey) {
-      renderSearchResultsPage(currentSearchPageQuery, 1, teamKey, currentSearchPagePlatformFilter);
-    }
-
-    function changeSearchPageNum(targetPage) {
-      renderSearchResultsPage(currentSearchPageQuery, targetPage, currentSearchPageTeamFilter, currentSearchPagePlatformFilter);
-    }
-
-    function renderSearchResultsPage(query = "", page = 1, teamFilter = "all", platformFilter = "all") {
-      currentSearchPageQuery = query;
-      currentSearchPageTeamFilter = teamFilter;
-      currentSearchPagePlatformFilter = platformFilter;
-      currentSearchPageNum = page;
-
-      // Update Header Text & Input field
-      const searchInput = document.getElementById("searchPageInput");
-      if (searchInput) searchInput.value = query;
-
-      const clearBtn = document.getElementById("searchPageClearBtn");
-      if (clearBtn) clearBtn.style.display = query.trim().length > 0 ? "flex" : "none";
-
-      const heroInput = document.getElementById("heroGlobalSearchInput");
-      if (heroInput) heroInput.value = query;
-
-      const titleEl = document.getElementById("searchPageTitle");
-      const subtitleEl = document.getElementById("searchPageSubtitle");
-      const breadcrumbsEl = document.getElementById("searchResultsBreadcrumbs");
-
-      const qTrim = query.trim();
-      const qEscaped = qTrim.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-
-      if (breadcrumbsEl) {
-        if (qTrim) {
-          breadcrumbsEl.innerHTML = `
-            <a href="javascript:void(0)" onclick="navigateTo('home')"><i class="fa-solid fa-house"></i> Beranda</a>
-            <span>/</span>
-            <a href="javascript:void(0)" onclick="navigateTo('cari')">Pencarian</a>
-            <span>/</span>
-            <span style="color: var(--color-text-primary); font-weight: 600;">${qEscaped.toUpperCase()}</span>
-          `;
-        } else {
-          breadcrumbsEl.innerHTML = `
-            <a href="javascript:void(0)" onclick="navigateTo('home')"><i class="fa-solid fa-house"></i> Beranda</a>
-            <span>/</span>
-            <span style="color: var(--color-text-primary); font-weight: 600;">Katalog Seluruh Kegiatan</span>
-          `;
-        }
-      }
-
-      if (qTrim) {
-        if (titleEl) titleEl.innerHTML = `Hasil Pencarian: <span style="color: var(--color-muted-indigo);">${qEscaped}</span>`;
-      } else {
-        if (titleEl) titleEl.innerText = `Katalog Seluruh Kegiatan Statistik`;
-      }
-
-      // Collect all 64 activities from 5 teams
-      const allActivities = [];
-      Object.keys(MASTER_TEAMS).forEach(tk => {
-        const team = MASTER_TEAMS[tk];
-        if (team && team.survei) {
-          team.survei.forEach(s => {
-            allActivities.push({
-              teamKey: tk,
-              teamName: team.nama,
-              survey: s
-            });
-          });
-        }
-      });
-
-      const qClean = query.trim().toLowerCase();
-
-      // Calculate counts for filter pills (matching query)
-      const teamCounts = {
-        all: 0,
-        sosial: 0,
-        produksi: 0,
-        distribusi: 0,
-        nwas: 0,
-        ipds: 0
-      };
-
-      allActivities.forEach(item => {
-        const s = item.survey;
-        const matchesQuery = !qClean ||
-          (s.nama || "").toLowerCase().includes(qClean) ||
-          (s.kode || "").toLowerCase().includes(qClean) ||
-          (s.keterangan || "").toLowerCase().includes(qClean);
-
-        if (matchesQuery) {
-          teamCounts.all++;
-          if (teamCounts[item.teamKey] !== undefined) {
-            teamCounts[item.teamKey]++;
-          }
-        }
-      });
-
-      // Filter by team
-      let filtered = allActivities.filter(item => {
-        const s = item.survey;
-        const matchesQuery = !qClean ||
-          (s.nama || "").toLowerCase().includes(qClean) ||
-          (s.kode || "").toLowerCase().includes(qClean) ||
-          (s.keterangan || "").toLowerCase().includes(qClean);
-
-        const matchesTeam = teamFilter === "all" || item.teamKey === teamFilter;
-        return matchesQuery && matchesTeam;
-      });
-
-      // Sort Alphabetical A to Z
-      filtered.sort((a, b) => a.survey.nama.localeCompare(b.survey.nama, 'id', { sensitivity: 'base' }));
-
-      if (subtitleEl) {
-        if (query.trim()) {
-          subtitleEl.innerHTML = `Ditemukan <strong>${filtered.length} kegiatan</strong> yang cocok dengan kata kunci <em>"${query}"</em>`;
-        } else {
-          subtitleEl.innerHTML = `Menampilkan total <strong>${filtered.length} kegiatan statistik</strong> dari 5 Tim Teknis BPS Kepulauan Sula`;
-        }
-      }
-
-      // Pagination 10 per page
-      const pageSize = 10;
-      const totalItems = filtered.length;
-      const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
-      const currentPage = Math.min(Math.max(1, page), totalPages);
-      const startIndex = (currentPage - 1) * pageSize;
-      const endIndex = Math.min(startIndex + pageSize, totalItems);
-      const pagedItems = filtered.slice(startIndex, endIndex);
-
-      const contentContainer = document.getElementById("searchResultsDynamicContent");
-      if (!contentContainer) return;
-
-      const teamPills = [
-        { key: "all", label: "Semua Tim", count: teamCounts.all, icon: "fa-solid fa-layer-group" },
-        { key: "sosial", label: "Statistik Sosial", count: teamCounts.sosial, icon: "fa-solid fa-people-roof" },
-        { key: "produksi", label: "Statistik Produksi", count: teamCounts.produksi, icon: "fa-solid fa-wheat-awn" },
-        { key: "distribusi", label: "Statistik Distribusi", count: teamCounts.distribusi, icon: "fa-solid fa-shop" },
-        { key: "nwas", label: "Neraca (NWAS)", count: teamCounts.nwas, icon: "fa-solid fa-chart-line" },
-        { key: "ipds", label: "Tim IPDS", count: teamCounts.ipds, icon: "fa-solid fa-network-wired" }
-      ];
-
-      contentContainer.innerHTML = `
-        <!-- Filter Tabs / Pills Bar -->
-        <div class="search-filter-pills-bar">
-          ${teamPills.map(p => `
-            <button type="button" class="search-filter-pill ${teamFilter === p.key ? 'active' : ''}" onclick="filterSearchResultsByTeam('${p.key}')">
-              <i class="${p.icon}"></i> ${p.label} (${p.count})
-            </button>
-          `).join('')}
-        </div>
-
-        <!-- Master Table Hasil Pencarian -->
-        <div class="surveys-ledger-container">
-          <div class="ledger-header-bar">
-            <div class="ledger-header-info">
-              <h2 style="font-size: 1.0625rem; font-weight: 700; color: var(--color-text-primary); margin: 0;">
-                Daftar Kegiatan Statistik
-              </h2>
-              <span class="ledger-count-pill">${totalItems} Kegiatan Ditemukan</span>
-            </div>
-            <div style="font-size: 0.8125rem; color: var(--color-text-muted);">
-              Urutan: <strong>Abjad (A &rarr; Z)</strong>
-            </div>
-          </div>
-
-          <div class="table-responsive-wrapper">
-            <table class="surveys-table">
-              <thead>
-                <tr>
-                  <th style="width: 55px; text-align: center;">NO.</th>
-                  <th style="min-width: 240px;">NAMA KEGIATAN & ARTI SINGKATAN</th>
-                  <th style="width: 170px; text-align: center;">TIM PEMANGKU</th>
-                  <th style="width: 150px; text-align: center;">PERIODE</th>
-                  <th style="width: 150px; text-align: center;">SUMBER DATA</th>
-                  <th style="width: 100px; text-align: center;">AKSI</th>
-                </tr>
-              </thead>
-              <tbody>
-                ${pagedItems.length > 0 ? pagedItems.map((item, idx) => {
-                  const s = item.survey;
-                  const isFasih = (s.sumber_data || s.platform || "").toUpperCase() === "FASIH" || (s.platform || "").toLowerCase().includes("fasih");
-                  const isManual = (s.sumber_data || "").toUpperCase() === "MANUAL" || (!isFasih && !(s.sumber_data || "").toLowerCase().includes("belum"));
-                  const rowNum = startIndex + idx + 1;
-
-                  let teamTagStyle = "background: #F1F5F9; color: #475569; border: 1px solid #CBD5E1;";
-                  if (item.teamKey === "sosial") teamTagStyle = "background: #FDF2F8; color: #9D174D; border: 1px solid #FBCFE8;";
-                  else if (item.teamKey === "produksi") teamTagStyle = "background: #ECFDF5; color: #065F46; border: 1px solid #A7F3D0;";
-                  else if (item.teamKey === "distribusi") teamTagStyle = "background: #EFF6FF; color: #1E40AF; border: 1px solid #BFDBFE;";
-                  else if (item.teamKey === "nwas") teamTagStyle = "background: #FAF5FF; color: #6B21A8; border: 1px solid #E9D5FF;";
-                  else if (item.teamKey === "ipds") teamTagStyle = "background: #FFFBEB; color: #92400E; border: 1px solid #FDE68A;";
-
-                  return `
-                    <tr onclick="navigateTo('survei/${item.teamKey}/${s.id}')">
-                      <td style="text-align: center; font-family: var(--font-mono); font-size: 0.8125rem; color: var(--color-muted-indigo); font-weight: 700;">
-                        ${rowNum}
-                      </td>
-                      <td>
-                        <div class="table-survey-title">${s.nama}</div>
-                        ${s.keterangan && s.keterangan.trim() !== '' && s.keterangan !== '-' ? `<div class="table-survey-sub">${s.keterangan}</div>` : ''}
-                      </td>
-                      <td style="text-align: center;">
-                        <span class="hero-search-item-team" style="${teamTagStyle}">Tim ${item.teamName}</span>
-                      </td>
-                      <td style="text-align: center;">
-                        <span class="catalog-freq-pill">
-                          <i class="fa-regular fa-calendar-check" style="color: var(--color-muted-indigo);"></i> ${s.frekuensi || s.periode}
-                        </span>
-                      </td>
-                      <td style="text-align: center;">
-                        <span class="catalog-platform-badge ${isFasih ? 'badge-fasih' : (isManual ? 'badge-manual' : 'badge-tbd')}">
-                          ${isFasih ? `${getFasihThemedSvg(15)} FASIH` : (isManual ? '<i class="fa-solid fa-pen-to-square"></i> Manual' : '<i class="fa-solid fa-circle-question"></i> Belum')}
-                        </span>
-                      </td>
-                      <td style="text-align: center;">
-                        <button class="table-action-btn" title="Buka Detail">
-                          Buka <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i>
-                        </button>
-                      </td>
-                    </tr>
-                  `;
-                }).join('') : `
-                  <tr>
-                    <td colspan="6" style="text-align: center; padding: 4rem 1.5rem; color: var(--color-text-muted);">
-                      <i class="fa-solid fa-magnifying-glass" style="font-size: 2.25rem; margin-bottom: 0.75rem; color: #CBD5E1; display: block;"></i>
-                      <p style="font-size: 1rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 0.35rem;">
-                        Tidak ada kegiatan yang cocok dengan kriteria
-                      </p>
-                      <p style="font-size: 0.8125rem; max-width: 480px; margin: 0 auto 1.25rem auto; line-height: 1.5;">
-                        Coba periksa kembali ejaan kata kunci atau pilih tab <em>"Semua Tim"</em> untuk memperluas pencarian.
-                      </p>
-                      <button type="button" class="btn btn-secondary" onclick="navigateTo('cari')" style="font-size: 0.8125rem; padding: 0.45rem 1.25rem;">
-                        Lihat Seluruh 64 Kegiatan
-                      </button>
-                    </td>
-                  </tr>
-                `}
-              </tbody>
-            </table>
-          </div>
-
-          <!-- Pagination Bar (10 Item per Halaman) -->
-          ${totalItems > 0 ? `
-            <div class="table-pagination-container">
-              <div class="pagination-info">
-                Menampilkan <strong>${startIndex + 1} - ${endIndex}</strong> dari <strong>${totalItems}</strong> kegiatan
-              </div>
-              <div class="pagination-controls">
-                <button class="pagination-btn" ${currentPage === 1 ? 'disabled' : ''} onclick="changeSearchPageNum(${currentPage - 1})">
-                  <i class="fa-solid fa-chevron-left"></i> Prev
-                </button>
-
-                ${Array.from({ length: totalPages }, (_, i) => i + 1).map(p => `
-                  <button class="pagination-page-btn ${p === currentPage ? 'active' : ''}" onclick="changeSearchPageNum(${p})">
-                    ${p}
-                  </button>
-                `).join('')}
-
-                <button class="pagination-btn" ${currentPage === totalPages ? 'disabled' : ''} onclick="changeSearchPageNum(${currentPage + 1})">
-                  Next <i class="fa-solid fa-chevron-right"></i>
-                </button>
-              </div>
-            </div>
-          ` : ''}
-        </div>
-      `;
-    }
-
     let currentTeamCatalogPage = 1;
 
     function changeTeamCatalogPage(teamKey, targetPage) {
@@ -5919,12 +5248,14 @@
       // Populate Clean Breadcrumb
       document.getElementById("singleTeamBreadcrumbTitle").innerText = `Tim ${team.nama}`;
 
-      const sqClean = (searchQuery || "").trim().toLowerCase();
       let filteredSurveys = team.survei.filter(s =>
-        !sqClean ||
-        s.nama.toLowerCase().includes(sqClean) ||
-        (s.kode || "").toLowerCase().includes(sqClean) ||
-        (s.keterangan || "").toLowerCase().includes(sqClean)
+        s.nama.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (s.kode || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (s.frekuensi || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (s.periode || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (s.sumber_data || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (s.keterangan || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (s.tujuan || "").toLowerCase().includes(searchQuery.toLowerCase())
       );
 
       // Urutkan secara Alphabetical / Abjad (A to Z)
@@ -6008,11 +5339,11 @@
               </thead>
               <tbody>
                 ${pagedSurveys.length > 0 ? pagedSurveys.map((s, idx) => {
-        const isFasih = s.sumber_data === 'FASIH' || (s.platform || '').toLowerCase().includes('fasih');
-        const isManual = s.sumber_data === 'Manual' || (s.platform || '').toLowerCase().includes('manual');
-        const rowNum = startIndex + idx + 1;
+                  const isFasih = s.sumber_data === 'FASIH' || (s.platform || '').toLowerCase().includes('fasih');
+                  const isManual = s.sumber_data === 'Manual' || (s.platform || '').toLowerCase().includes('manual');
+                  const rowNum = startIndex + idx + 1;
 
-        return `
+                  return `
                     <tr onclick="navigateTo('survei/${teamKey}/${s.id}')">
                       <td style="text-align: center; font-family: var(--font-mono); font-size: 0.8125rem; color: var(--color-muted-indigo); font-weight: 700;">
                         ${rowNum}
@@ -6038,7 +5369,7 @@
                       </td>
                     </tr>
                   `;
-      }).join('') : `
+                }).join('') : `
                   <tr>
                     <td colspan="5" style="text-align: center; padding: 3.5rem 1.5rem; color: var(--color-text-muted);">
                       <i class="fa-solid fa-magnifying-glass" style="font-size: 1.75rem; margin-bottom: 0.75rem; color: #CBD5E1; display: block;"></i>
@@ -6055,7 +5386,7 @@
           ${totalItems > 0 ? `
             <div class="table-pagination-container">
               <div class="pagination-info">
-                Menampilkan <strong>${startIndex + 1} - ${endIndex}</strong> dari <strong>${totalItems}</strong> kegiatan
+                Menampilkan <strong>${startIndex + 1} - ${endIndex}</strong> dari <strong>${totalItems}</strong> kegiatan (Urut A-Z)
               </div>
               <div class="pagination-controls">
                 <button class="pagination-btn" ${currentPage === 1 ? 'disabled' : ''} onclick="changeTeamCatalogPage('${teamKey}', ${currentPage - 1})">
@@ -6093,33 +5424,18 @@
     let currentMonitoringYear = "2026";
     const SURVEY_SAMPLES_STORE = {};
 
-    const DEFAULT_FASIH_BACKUP_TEMPLATE = [
-      { id: 1, name: "CAPI FASIH #001 - Bpk. Ahmad Dahlan", district: "Kec. Sanana", desa: "Desa Fagudu", pcl: "M. Ridwan (PCL)", pml: "Fajar S. (PML)", status: "Submitted", note: "Backup FASIH CAPI Mobile" },
-      { id: 2, name: "CAPI FASIH #002 - Ibu Siti Nurhaliza", district: "Kec. Sanana", desa: "Desa Mangon", pcl: "M. Ridwan (PCL)", pml: "Fajar S. (PML)", status: "Approve PML", note: "Backup FASIH CAPI Mobile" },
-      { id: 3, name: "CAPI FASIH #003 - Bpk. La Ode Hasan", district: "Kec. Sanana Utara", desa: "Desa Pastina", pcl: "Fandi Ahmad (PCL)", pml: "Dewi K. (PML)", status: "Approve Admin", note: "Backup FASIH CAPI Mobile" },
-      { id: 4, name: "CAPI FASIH #004 - Ibu Wa Ode Ratna", district: "Kec. Sanana Utara", desa: "Desa Pohea", pcl: "Fandi Ahmad (PCL)", pml: "Dewi K. (PML)", status: "Submitted", note: "Backup FASIH CAPI Mobile" },
-      { id: 5, name: "CAPI FASIH #005 - Bpk. Rusli Umasugi", district: "Kec. Sulabesi Barat", desa: "Desa Kabau", pcl: "Hendra S. (PCL)", pml: "Ilham B. (PML)", status: "Open", note: "Backup FASIH CAPI Mobile" },
-      { id: 6, name: "CAPI FASIH #006 - Bpk. Ismail Buamona", district: "Kec. Sulabesi Selatan", desa: "Desa Fuata", pcl: "Iqbal M. (PCL)", pml: "Ilham B. (PML)", status: "Approve Admin", note: "Backup FASIH CAPI Mobile" },
-      { id: 7, name: "CAPI FASIH #007 - Ibu Fatimah", district: "Kec. Mangoli Barat", desa: "Desa Dofa", pcl: "Rahmat H. (PCL)", pml: "Siti A. (PML)", status: "Approve PML", note: "Backup FASIH CAPI Mobile" },
-      { id: 8, name: "CAPI FASIH #008 - Bpk. Haris Sanaba", district: "Kec. Mangoli Timur", desa: "Desa Waitina", pcl: "Sahrul K. (PCL)", pml: "Siti A. (PML)", status: "Submitted", note: "Backup FASIH CAPI Mobile" },
-      { id: 9, name: "CAPI FASIH #009 - Bpk. Syahrir", district: "Kec. Mangoli Utara", desa: "Desa Falabisahaya", pcl: "Budi T. (PCL)", pml: "Yusuf R. (PML)", status: "Open", note: "Backup FASIH CAPI Mobile" },
-      { id: 10, name: "CAPI FASIH #010 - Ibu Maryam", district: "Kec. Mangoli Selatan", desa: "Desa Buya", pcl: "Nur Asia (PCL)", pml: "Yusuf R. (PML)", status: "Approve Admin", note: "Backup FASIH CAPI Mobile" }
+    const DEFAULT_SULA_SAMPLES_TEMPLATE = [
+      { id: 1, name: "Ruta 01 - Bpk. Ahmad Dahlan", district: "Kec. Sanana", desa: "Desa Fagudu", pcl: "M. Ridwan", pml: "Fajar S.", status: "Approve Admin", note: "Validasi tuntas" },
+      { id: 2, name: "Ruta 02 - Ibu Siti Nurhaliza", district: "Kec. Sanana", desa: "Desa Mangon", pcl: "M. Ridwan", pml: "Fajar S.", status: "Approve PML", note: "Menunggu approval admin" },
+      { id: 3, name: "Ruta 03 - Bpk. La Ode Hasan", district: "Kec. Sanana Utara", desa: "Desa Pastina", pcl: "Fandi Ahmad", pml: "Dewi K.", status: "Submitted", note: "Selesai pencacahan" },
+      { id: 4, name: "Ruta 04 - Ibu Wa Ode Ratna", district: "Kec. Sanana Utara", desa: "Desa Pohea", pcl: "Fandi Ahmad", pml: "Dewi K.", status: "Rejected", note: "Anomali pengeluaran" },
+      { id: 5, name: "Ruta 05 - Bpk. Rusli Umasugi", district: "Kec. Sulabesi Barat", desa: "Desa Kabau", pcl: "Hendra S.", pml: "Ilham B.", status: "Open", note: "Jadwal kunjungan" },
+      { id: 6, name: "Ruta 06 - Bpk. Ismail Buamona", district: "Kec. Sulabesi Selatan", desa: "Desa Fuata", pcl: "Iqbal M.", pml: "Ilham B.", status: "Approve Admin", note: "Validasi tuntas" },
+      { id: 7, name: "Ruta 07 - Ibu Fatimah", district: "Kec. Mangoli Barat", desa: "Desa Dofa", pcl: "Rahmat H.", pml: "Siti A.", status: "Approve PML", note: "PML Approved" },
+      { id: 8, name: "Ruta 08 - Bpk. Haris Sanaba", district: "Kec. Mangoli Timur", desa: "Desa Waitina", pcl: "Sahrul K.", pml: "Siti A.", status: "Submitted", note: "Selesai pencacahan" },
+      { id: 9, name: "Ruta 09 - Bpk. Syahrir", district: "Kec. Mangoli Utara", desa: "Desa Falabisahaya", pcl: "Budi T.", pml: "Yusuf R.", status: "Open", note: "Belum dicacah" },
+      { id: 10, name: "Ruta 10 - Ibu Maryam", district: "Kec. Mangoli Selatan", desa: "Desa Buya", pcl: "Nur Asia", pml: "Yusuf R.", status: "Approve Admin", note: "Validasi tuntas" }
     ];
-
-    const DEFAULT_EXCEL_RAPIS_TEMPLATE = [
-      { id: 101, name: "SLS 0001 - Bpk. Usman Umasugi", district: "Kec. Sanana", desa: "Desa Fagudu", pcl: "Petugas Operator A", pml: "Pengawas Sula", status: "Approve Admin", note: "Import Excel Rapih" },
-      { id: 102, name: "SLS 0002 - Ibu Mariam Buamona", district: "Kec. Sanana", desa: "Desa Waibau", pcl: "Petugas Operator A", pml: "Pengawas Sula", status: "Approve Admin", note: "Import Excel Rapih" },
-      { id: 103, name: "SLS 0003 - Bpk. H. Abdullah", district: "Kec. Sanana Utara", desa: "Desa Pastina", pcl: "Petugas Operator B", pml: "Pengawas Sula", status: "Approve PML", note: "Import Excel Rapih" },
-      { id: 104, name: "SLS 0004 - Ibu Halimah", district: "Kec. Sulabesi Tengah", desa: "Desa Waipia", pcl: "Petugas Operator B", pml: "Pengawas Sula", status: "Submitted", note: "Import Excel Rapih" },
-      { id: 105, name: "SLS 0005 - Bpk. Ridwan Umasugi", district: "Kec. Sulabesi Barat", desa: "Desa Kabau", pcl: "Petugas Operator C", pml: "Pengawas Sula", status: "Open", note: "Import Excel Rapih" },
-      { id: 106, name: "SLS 0006 - Bpk. Muhammad Ali", district: "Kec. Mangoli Timur", desa: "Desa Waitina", pcl: "Petugas Operator D", pml: "Pengawas Sula", status: "Approve Admin", note: "Import Excel Rapih" },
-      { id: 107, name: "SLS 0007 - Ibu Zainab", district: "Kec. Mangoli Selatan", desa: "Desa Buya", pcl: "Petugas Operator D", pml: "Pengawas Sula", status: "Approve PML", note: "Import Excel Rapih" },
-      { id: 108, name: "SLS 0008 - Bpk. Rustam", district: "Kec. Mangoli Barat", desa: "Desa Dofa", pcl: "Petugas Operator E", pml: "Pengawas Sula", status: "Submitted", note: "Import Excel Rapih" },
-      { id: 109, name: "SLS 0009 - Ibu Salma", district: "Kec. Mangoli Utara", desa: "Desa Falabisahaya", pcl: "Petugas Operator E", pml: "Pengawas Sula", status: "Open", note: "Import Excel Rapih" },
-      { id: 110, name: "SLS 0010 - Bpk. Hasanuddin", district: "Kec. Sulabesi Selatan", desa: "Desa Fuata", pcl: "Petugas Operator F", pml: "Pengawas Sula", status: "Approve Admin", note: "Import Excel Rapih" }
-    ];
-
-    const DEFAULT_SULA_SAMPLES_TEMPLATE = DEFAULT_FASIH_BACKUP_TEMPLATE;
 
     function getSurveyStorageKey(surveyId, year) {
       const y = year || currentMonitoringYear;
@@ -6133,7 +5449,7 @@
       if (saved) {
         try {
           return JSON.parse(saved);
-        } catch (e) {
+        } catch(e) {
           console.error(e);
         }
       }
@@ -6237,19 +5553,19 @@
         ${platformBadge}
       `;
       document.getElementById("surveyHeaderTitle").innerText = survey.nama;
+      document.getElementById("surveyHeaderSubtitle").innerHTML = `<i class="fa-solid fa-building-columns"></i> Dikelola oleh Tim ${team.nama} — BPS Kabupaten Kepulauan Sula`;
 
-      const fullnameEl = document.getElementById("surveyHeaderFullname");
-      if (fullnameEl) {
-        if (survey.keterangan) {
-          fullnameEl.innerText = survey.keterangan;
-          fullnameEl.style.display = "block";
+      // Hide or show top hero button based on FASIH
+      const topScrapingBtn = document.getElementById("btnTriggerScraping");
+      if (topScrapingBtn) {
+        if (isFasih) {
+          topScrapingBtn.style.display = "inline-flex";
+          topScrapingBtn.innerHTML = `<i class="fa-solid fa-bolt-lightning"></i> Jalankan Scraping FASIH`;
+          topScrapingBtn.onclick = () => openScrapingModal();
         } else {
-          fullnameEl.innerText = "";
-          fullnameEl.style.display = "none";
+          topScrapingBtn.style.display = "none";
         }
       }
-
-      document.getElementById("surveyHeaderSubtitle").innerHTML = `<i class="fa-solid fa-building-columns"></i> Dikelola oleh Tim ${team.nama} — BPS Kabupaten Kepulauan Sula`;
 
       // Populate Section 1: Latar Belakang & Tujuan Pokok
       const poinContainer = document.getElementById("surveyDetailPoinContainer");
@@ -6270,6 +5586,14 @@
               <li>Menjadi rujukan resmi data statistik daerah dalam penyusunan kebijakan perencanaan, pemantauan, dan evaluasi pembangunan Kabupaten Kepulauan Sula.</li>
             </ul>
           </div>
+
+          <!-- Keterangan Tambahan (jika ada) -->
+          ${survey.keterangan ? `
+            <div style="margin-top: 1rem; padding: 0.65rem 0.95rem; background: #F8FAFC; border-left: 3px solid var(--color-muted-indigo); border-radius: 6px; display: flex; align-items: center; gap: 0.5rem;">
+              <span style="font-size: 0.8125rem; font-weight: 700; color: var(--color-text-primary);">Kepanjangan:</span>
+              <span style="font-size: 0.8125rem; color: var(--color-text-secondary);">${survey.keterangan}</span>
+            </div>
+          ` : ''}
 
           <!-- 3. Landasan Hukum / UU (Kondisional: hanya jika ada data) -->
           ${survey.dasarHukum ? `
@@ -6362,8 +5686,11 @@
                 Sumber: <code>FASIH CAPI BPS RI</code>
               </p>
             </div>
-            <button onclick="openScrapingModal()" class="btn-scraping" style="width: 100%; justify-content: center;">
-              <i class="fa-solid fa-bolt-lightning"></i> Jalankan Scraping FASIH
+            <button onclick="openScrapingModal()" class="btn-scraping" style="width: 100%; justify-content: center; margin-bottom: 0.75rem;">
+              <i class="fa-solid fa-arrows-rotate"></i> Sinkronisasi Data Sekarang
+            </button>
+            <button onclick="openManualModal()" class="btn-manual-form" style="width: 100%; justify-content: center;">
+              <i class="fa-solid fa-pen-to-square"></i> Input Progress Manual
             </button>
           `;
         } else if (isBelumDiketahui) {
@@ -6413,27 +5740,6 @@
     }
 
     // ─── RENDER DEDICATED SCRAPED DATA / MANUAL MONITORING SECTION ───
-    function getSurveyMonitoringState(surveyId, year) {
-      const y = year || currentMonitoringYear;
-      const key = `KANVAS_MONITORING_STATE_${surveyId}_${y}`;
-      const saved = localStorage.getItem(key);
-      if (saved) {
-        try {
-          return JSON.parse(saved);
-        } catch (e) {
-          console.error(e);
-        }
-      }
-      return { mode: 'table', fileData: null, linkData: null };
-    }
-
-    function saveSurveyMonitoringState(surveyId, state, year) {
-      const y = year || currentMonitoringYear;
-      const key = `KANVAS_MONITORING_STATE_${surveyId}_${y}`;
-      localStorage.setItem(key, JSON.stringify(state));
-    }
-
-    // ─── RENDER DEDICATED SCRAPED DATA / MANUAL MONITORING SECTION ───
     function renderSurveyScrapedData(teamKey, survey) {
       const box = document.getElementById("surveyScrapedDataBox");
       if (!box) return;
@@ -6443,234 +5749,34 @@
       const surveyId = survey.id || "kegiatan-statistik";
       const samples = getSurveySamples(surveyId, currentMonitoringYear);
       const metrics = calculateMetrics(samples);
-      const state = getSurveyMonitoringState(surveyId, currentMonitoringYear);
 
       let headerTitle = "";
       let headerDesc = "";
       let statusBadge = "";
 
       if (isFasih) {
-        headerTitle = `<span style="display: inline-flex; align-items: center; gap: 0.5rem;">${getFasihThemedSvg(18)} 5. Monitoring & Rekapitulasi Progres Lapangan</span>`;
-        headerDesc = ``;
-        statusBadge = ``;
+        headerTitle = `<span style="display: inline-flex; align-items: center; gap: 0.5rem;">${getFasihThemedSvg(18)} 5. Monitoring & Rekapitulasi Progres Lapangan (FASIH)</span>`;
+        headerDesc = `Sinkronisasi data lapangan CAPI FASIH BPS Kabupaten Kepulauan Sula`;
+        statusBadge = `<div class="telemetry-status-badge"><span class="telemetry-live-dot"></span> Terhubung Live ke Server FASIH</div>`;
       } else if (isBelumDiketahui) {
         headerTitle = `<i class="fa-solid fa-circle-question" style="color: #64748B;"></i> 5. Monitoring & Rekapitulasi Progres Lapangan`;
         headerDesc = `Mekanisme pengambilan data kegiatan ini akan ditentukan kemudian`;
         statusBadge = `<div class="telemetry-status-badge-manual" style="background: #F1F5F9; color: #475569; border-color: #CBD5E1;"><i class="fa-solid fa-circle-question"></i> Belum Ditentukan</div>`;
       } else {
-        headerTitle = `<i class="fa-solid fa-pen-to-square" style="color: #0369A1;"></i> 5. Monitoring & Rekapitulasi Progres Lapangan`;
-        headerDesc = ``;
-        statusBadge = ``;
+        headerTitle = `<i class="fa-solid fa-pen-to-square" style="color: #0369A1;"></i> 5. Monitoring & Rekapitulasi Progres Lapangan (Manual)`;
+        headerDesc = `Pemutakhiran progres pendataan manual oleh operator BPS Kab. Kepulauan Sula`;
+        statusBadge = `<div class="telemetry-status-badge-manual"><i class="fa-solid fa-pen-to-square"></i> Input Progress Manual</div>`;
       }
-
-      // Content generation based on Mode (file / link / table)
-      let mainContentHtml = "";
-
-      if (!isFasih && state.mode === 'file') {
-        if (state.fileData) {
-          mainContentHtml = `
-            <!-- TAMPILAN FILE PLEK KETIPLEK -->
-            <div style="background-color: white; border: 1px solid var(--color-border); border-radius: 12px; padding: 1.5rem; margin-top: 1.25rem; box-shadow: 0 1px 3px rgba(0,0,0,0.02);">
-              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
-                <div style="display: flex; align-items: center; gap: 0.85rem;">
-                  <div style="width: 48px; height: 48px; border-radius: 12px; background: #F0FDF4; border: 1px solid #BBF7D0; color: #166534; display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">
-                    <i class="fa-solid fa-file-excel"></i>
-                  </div>
-                  <div>
-                    <div style="font-size: 0.9375rem; font-weight: 700; color: #0F172A;">${state.fileData.name}</div>
-                    <div style="font-size: 0.75rem; color: #64748B; margin-top: 0.2rem;">
-                      Ukuran: <strong>${state.fileData.size}</strong> • Di-upload: <strong>${state.fileData.date}</strong>
-                    </div>
-                  </div>
-                </div>
-
-                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                  <a href="javascript:void(0)" onclick="showToast('Buka file: ${state.fileData.name}')" class="btn btn-secondary" style="padding: 0.45rem 0.9rem; font-size: 0.8125rem; background: #F1F5F9; color: #334155; font-weight: 600;">
-                    <i class="fa-solid fa-download"></i> Unduh / Buka File
-                  </a>
-                  <button onclick="openManualModal()" class="btn btn-secondary" style="padding: 0.45rem 0.9rem; font-size: 0.8125rem; font-weight: 600;">
-                    <i class="fa-solid fa-pen-to-square"></i> Kelola / Ganti File
-                  </button>
-                </div>
-              </div>
-            </div>
-          `;
-        } else {
-          mainContentHtml = `
-            <div style="background-color: white; border: 1px dashed var(--color-border); border-radius: 12px; padding: 2rem 1.5rem; text-align: center; margin-top: 1.25rem;">
-              <div style="width: 48px; height: 48px; border-radius: 12px; background: #F0FDF4; border: 1px solid #BBF7D0; color: #166534; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.75rem auto; font-size: 1.4rem;">
-                <i class="fa-solid fa-cloud-arrow-up"></i>
-              </div>
-              <h4 style="font-size: 0.9375rem; font-weight: 700; color: #0F172A; margin-bottom: 0.35rem;">
-                Mode Upload File Direct Aktif
-              </h4>
-              <p style="font-size: 0.8125rem; color: #64748B; max-width: 460px; margin: 0 auto 1.25rem auto;">
-                Belum ada file dokumentasi / Excel yang di-upload untuk survei ini.
-              </p>
-              <button onclick="openManualModal()" class="btn btn-primary" style="padding: 0.5rem 1.25rem; font-size: 0.8125rem; background: #0F172A; color: white; border: none; font-weight: 700;">
-                <i class="fa-solid fa-upload"></i> Pilih &amp; Upload File Sekarang
-              </button>
-            </div>
-          `;
-        }
-      } else if (!isFasih && state.mode === 'link') {
-        if (state.linkData) {
-          mainContentHtml = `
-            <!-- TAMPILAN LINK TAUTAN ONLINE -->
-            <div style="background-color: white; border: 1px solid #BAE6FD; background: #F0F9FF; border-radius: 12px; padding: 1.5rem; margin-top: 1.25rem;">
-              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
-                <div style="display: flex; align-items: center; gap: 0.85rem;">
-                  <div style="width: 48px; height: 48px; border-radius: 12px; background: #0284C7; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.3rem;">
-                    <i class="fa-solid fa-link"></i>
-                  </div>
-                  <div>
-                    <div style="font-size: 0.9375rem; font-weight: 700; color: #0369A1;">Tautan Document / Spreadsheet Online</div>
-                    <div style="font-size: 0.78125rem; color: #0284C7; margin-top: 0.2rem; word-break: break-all;">
-                      ${state.linkData.url}
-                    </div>
-                  </div>
-                </div>
-
-                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                  <a href="${state.linkData.url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.45rem 1rem; font-size: 0.8125rem; background: #0284C7; border: none; color: white; font-weight: 700;">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Buka Tautan Link
-                  </a>
-                  <button onclick="openManualModal()" class="btn btn-secondary" style="padding: 0.45rem 0.9rem; font-size: 0.8125rem; font-weight: 600;">
-                    <i class="fa-solid fa-pen-to-square"></i> Kelola / Ubah Link
-                  </button>
-                </div>
-              </div>
-            </div>
-          `;
-        } else {
-          mainContentHtml = `
-            <div style="background-color: white; border: 1px dashed #BAE6FD; background: #F0F9FF; border-radius: 12px; padding: 2rem 1.5rem; text-align: center; margin-top: 1.25rem;">
-              <div style="width: 48px; height: 48px; border-radius: 12px; background: #0284C7; color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.75rem auto; font-size: 1.3rem;">
-                <i class="fa-solid fa-link"></i>
-              </div>
-              <h4 style="font-size: 0.9375rem; font-weight: 700; color: #0369A1; margin-bottom: 0.35rem;">
-                Mode Tautan Link Online Aktif
-              </h4>
-              <p style="font-size: 0.8125rem; color: #0284C7; max-width: 460px; margin: 0 auto 1.25rem auto;">
-                Belum ada link tautan online (Google Sheets / Drive) yang dicantumkan.
-              </p>
-              <button onclick="openManualModal()" class="btn btn-primary" style="padding: 0.5rem 1.25rem; font-size: 0.8125rem; background: #0284C7; border: none; color: white; font-weight: 700;">
-                <i class="fa-solid fa-link"></i> Cantumkan Link Sekarang
-              </button>
-            </div>
-          `;
-        }
-      } else {
-        // Mode 'table' (renders samples table or placeholder)
-        if (samples.length > 0) {
-          mainContentHtml = `
-            <!-- Tabel Data Sampel Terdata -->
-            <div style="margin-top: 1.25rem;">
-              <div style="font-size: 0.8125rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 0.6rem; display: flex; align-items: center; justify-content: space-between;">
-                <span><i class="fa-solid fa-map-location-dot" style="color: var(--color-muted-indigo); margin-right: 0.35rem;"></i> Rekapitulasi Progres per Desa & Sampel (Tahun ${currentMonitoringYear})</span>
-                <span style="font-size: 0.75rem; font-weight: 600; color: var(--color-text-secondary);">${samples.length} Sampel Terdata</span>
-              </div>
-
-              <div class="district-progress-table-wrapper" style="max-height: 240px; overflow-y: auto;">
-                <table class="district-progress-table" style="width: 100%; border-collapse: collapse;">
-                  <thead>
-                    <tr>
-                      <th style="width: 6%;">No</th>
-                      <th style="width: 26%;">Identitas Responden / SLS</th>
-                      <th style="width: 18%;">Kecamatan</th>
-                      <th style="width: 18%;">Desa / Kelurahan</th>
-                      <th style="width: 18%;">Pencacah (PCL)</th>
-                      <th style="width: 14%; text-align: center;">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    ${samples.map((s, idx) => {
-          let pillClass = "status-pill-open";
-          let pillText = "Open";
-          let pillIcon = "⚪";
-          if (s.status === "Approve Admin") {
-            pillClass = "status-pill-admin";
-            pillText = "Approve Admin";
-            pillIcon = "🟢";
-          } else if (s.status === "Approve PML") {
-            pillClass = "status-pill-pml";
-            pillText = "Approve PML";
-            pillIcon = "🟡";
-          } else if (s.status === "Submitted" || s.status === "Submitted by Pencacah") {
-            pillClass = "status-pill-submitted";
-            pillText = "Submitted";
-            pillIcon = "🔵";
-          } else if (s.status === "Rejected" || s.status === "Rejected / Revisi") {
-            pillClass = "status-pill-rejected";
-            pillText = "Rejected";
-            pillIcon = "🔴";
-          }
-          return `
-                        <tr>
-                          <td style="text-align: center; font-weight: 700; color: var(--color-text-muted); font-size: 0.75rem;">${idx + 1}</td>
-                          <td style="font-weight: 600; color: var(--color-text-primary); font-size: 0.8125rem;">${s.name}</td>
-                          <td style="font-size: 0.8125rem; color: #475569;">${s.district || '-'}</td>
-                          <td style="font-weight: 600; font-size: 0.8125rem; color: #0F172A;">${s.desa || '-'}</td>
-                          <td style="font-size: 0.75rem; color: var(--color-text-muted);"><i class="fa-solid fa-user-pen" style="font-size: 0.6875rem;"></i> ${s.pcl || 'Petugas BPS'}</td>
-                          <td style="text-align: center;">
-                            <span class="${pillClass}">${pillIcon} ${pillText}</span>
-                          </td>
-                        </tr>
-                      `;
-        }).join('')}
-                  </tbody>
-                </table>
-              </div>
-
-              <div style="display: flex; justify-content: flex-end; margin-top: 0.75rem; gap: 0.5rem; flex-wrap: wrap;">
-                ${isFasih ? `
-                  <button onclick="openScrapingModal()" class="btn-scraping" style="padding: 0.45rem 0.95rem; font-size: 0.8125rem;">
-                    <i class="fa-solid fa-bolt-lightning"></i> Jalankan Scraping FASIH
-                  </button>
-                ` : ''}
-                <button onclick="openManualModal()" class="btn-manual-form" style="padding: 0.45rem 1rem; font-size: 0.8125rem; background: #0F172A; color: white; border: none; font-weight: 700;">
-                  <i class="fa-solid fa-pen-to-square"></i> Input Progress Manual
-                </button>
-              </div>
-            </div>
-          `;
-        } else {
-          mainContentHtml = `
-            <!-- Clean Placeholder State (Tabel Dummy Dikosongkan) -->
-            <div style="background-color: white; border: 1px dashed var(--color-border); border-radius: 10px; padding: 2.25rem 1.5rem; text-align: center; margin-top: 1.25rem;">
-              <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--color-surface-subtle); display: flex; align-items: center; justify-content: center; margin: 0 auto 0.75rem auto; color: #94A3B8; font-size: 1.15rem;">
-                <i class="fa-solid fa-clipboard-list"></i>
-              </div>
-              <h4 style="font-size: 0.9375rem; font-weight: 700; color: #0F172A; margin-bottom: 0.35rem;">
-                Belum Ada Rekapitulasi Monitoring Lapangan (Tahun ${currentMonitoringYear})
-              </h4>
-              <p style="font-size: 0.8125rem; color: #475569; max-width: 460px; margin: 0 auto 1.25rem auto; line-height: 1.5;">
-                Data rincian progres pencacahan per desa dan status monitoring wilayah siap dicatat untuk tahun ${currentMonitoringYear}.
-              </p>
-              <div style="display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
-                ${isFasih ? `
-                  <button onclick="openScrapingModal()" class="btn-scraping" style="padding: 0.5rem 1rem; font-size: 0.8125rem;">
-                    <i class="fa-solid fa-arrows-rotate"></i> Jalankan Scraping FASIH
-                  </button>
-                ` : ''}
-                <button onclick="openManualModal()" class="btn-manual-form" style="padding: 0.5rem 1rem; font-size: 0.8125rem; background: #0F172A; color: white; border: none; font-weight: 700;">
-                  <i class="fa-solid fa-pen-to-square"></i> Input Progress Manual
-                </button>
-              </div>
-            </div>
-          `;
-        }
-      }
-
-      const isFileOrLinkMode = !isFasih && (state.mode === 'file' || state.mode === 'link');
 
       box.innerHTML = `
-        <div class="telemetry-header-bar" style="border-bottom: none; padding-bottom: 0; margin-bottom: 1.25rem;">
+        <div class="telemetry-header-bar">
           <div>
-            <h2 class="detail-section-heading" style="margin: 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: none; padding-bottom: 0;">
+            <h2 class="detail-section-heading" style="margin: 0; display: flex; align-items: center; gap: 0.5rem;">
               ${headerTitle}
             </h2>
-            ${headerDesc ? `<div style="font-size: 0.75rem; color: var(--color-text-muted); margin-top: 0.25rem;">${headerDesc}</div>` : ''}
+            <div style="font-size: 0.75rem; color: var(--color-text-muted); margin-top: 0.25rem;">
+              ${headerDesc}
+            </div>
           </div>
 
           <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
@@ -6679,7 +5785,7 @@
             <div style="display: flex; align-items: center; gap: 0.35rem; background: #FFFFFF; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid var(--color-border); box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
               <span style="font-size: 0.75rem; font-weight: 700; color: #475569;"><i class="fa-regular fa-calendar-days" style="color: var(--color-muted-indigo);"></i> Tahun:</span>
               <select id="monitoringYearSelector" onchange="changeMonitoringYear(this.value)" style="font-size: 0.78125rem; font-weight: 700; border: none; background: transparent; color: #0F172A; cursor: pointer; outline: none;">
-                <option value="2026" ${currentMonitoringYear === '2026' ? 'selected' : ''}>2026</option>
+                <option value="2026" ${currentMonitoringYear === '2026' ? 'selected' : ''}>2026 (Berjalan)</option>
                 <option value="2027" ${currentMonitoringYear === '2027' ? 'selected' : ''}>2027</option>
                 <option value="2025" ${currentMonitoringYear === '2025' ? 'selected' : ''}>2025</option>
                 <option value="2024" ${currentMonitoringYear === '2024' ? 'selected' : ''}>2024</option>
@@ -6688,43 +5794,134 @@
           </div>
         </div>
 
-        ${isFasih ? `
-          <!-- 4 Grid Telemetry Metrics (Hanya Untuk Portal FASIH) -->
-          <div class="telemetry-metrics-grid">
-            <div class="telemetry-metric-item">
-              <div class="telemetry-metric-label">Sampel</div>
-              <div class="telemetry-metric-val">${metrics.total > 0 ? metrics.total : '-'} <span style="font-size: 0.75rem; font-weight: 500; color: var(--color-text-muted);">Responden</span></div>
-            </div>
-
-            <div class="telemetry-metric-item">
-              <div class="telemetry-metric-label">Submitted by Pencacah</div>
-              <div class="telemetry-metric-val" style="color: #2563EB;">${metrics.submitted} <span style="font-size: 0.75rem; font-weight: 500; color: var(--color-text-muted);">(${metrics.submittedPercent}%)</span></div>
-            </div>
-
-            <div class="telemetry-metric-item">
-              <div class="telemetry-metric-label">Approve PML</div>
-              <div class="telemetry-metric-val" style="color: #D97706;">${metrics.pmlApproved} <span style="font-size: 0.75rem; font-weight: 500; color: var(--color-text-muted);">(${metrics.pmlPercent}%)</span></div>
-            </div>
-
-            <div class="telemetry-metric-item">
-              <div class="telemetry-metric-label">Approval Admin</div>
-              <div class="telemetry-metric-val" style="color: #16A34A;">${metrics.adminApproved} <span style="font-size: 0.75rem; font-weight: 600; color: #16A34A;">(${metrics.adminPercent}%)</span></div>
-            </div>
+        <!-- 4 Grid Telemetry Metrics -->
+        <div class="telemetry-metrics-grid">
+          <div class="telemetry-metric-item">
+            <div class="telemetry-metric-label">Sampel</div>
+            <div class="telemetry-metric-val">${metrics.total > 0 ? metrics.total : '-'} <span style="font-size: 0.75rem; font-weight: 500; color: var(--color-text-muted);">Responden</span></div>
           </div>
 
-          <!-- Progress Bar -->
-          <div class="telemetry-progress-wrapper">
-            <div class="telemetry-progress-info">
-              <span>Progress Penyelesaian Approval Lapangan (Tahun ${currentMonitoringYear})</span>
-              <span>${metrics.adminPercent}%</span>
+          <div class="telemetry-metric-item">
+            <div class="telemetry-metric-label">Submitted by Pencacah</div>
+            <div class="telemetry-metric-val" style="color: #2563EB;">${metrics.submitted} <span style="font-size: 0.75rem; font-weight: 500; color: var(--color-text-muted);">(${metrics.submittedPercent}%)</span></div>
+          </div>
+
+          <div class="telemetry-metric-item">
+            <div class="telemetry-metric-label">Approve PML</div>
+            <div class="telemetry-metric-val" style="color: #D97706;">${metrics.pmlApproved} <span style="font-size: 0.75rem; font-weight: 500; color: var(--color-text-muted);">(${metrics.pmlPercent}%)</span></div>
+          </div>
+
+          <div class="telemetry-metric-item">
+            <div class="telemetry-metric-label">Approval Admin</div>
+            <div class="telemetry-metric-val" style="color: #16A34A;">${metrics.adminApproved} <span style="font-size: 0.75rem; font-weight: 600; color: #16A34A;">(${metrics.adminPercent}%)</span></div>
+          </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="telemetry-progress-wrapper">
+          <div class="telemetry-progress-info">
+            <span>Progress Penyelesaian Approval Lapangan (Tahun ${currentMonitoringYear})</span>
+            <span>${metrics.adminPercent}% Approval Admin (${metrics.submittedPercent}% Submitted)</span>
+          </div>
+          <div class="telemetry-progress-bar">
+            <div class="telemetry-progress-fill" style="width: ${metrics.adminPercent}%;"></div>
+          </div>
+        </div>
+
+        ${samples.length > 0 ? `
+          <!-- Tabel Data Sampel Terdata -->
+          <div style="margin-top: 1.25rem;">
+            <div style="font-size: 0.8125rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 0.6rem; display: flex; align-items: center; justify-content: space-between;">
+              <span><i class="fa-solid fa-map-location-dot" style="color: var(--color-muted-indigo); margin-right: 0.35rem;"></i> Rekapitulasi Progres per Desa & Sampel (Tahun ${currentMonitoringYear})</span>
+              <span style="font-size: 0.75rem; font-weight: 600; color: var(--color-text-secondary);">${samples.length} Sampel Terdata</span>
             </div>
-            <div class="telemetry-progress-bar">
-              <div class="telemetry-progress-fill" style="width: ${metrics.adminPercent}%;"></div>
+
+            <div class="district-progress-table-wrapper" style="max-height: 240px; overflow-y: auto;">
+              <table class="district-progress-table" style="width: 100%; border-collapse: collapse;">
+                <thead>
+                  <tr>
+                    <th style="width: 6%;">No</th>
+                    <th style="width: 26%;">Identitas Responden / SLS</th>
+                    <th style="width: 18%;">Kecamatan</th>
+                    <th style="width: 18%;">Desa / Kelurahan</th>
+                    <th style="width: 18%;">Pencacah (PCL)</th>
+                    <th style="width: 14%; text-align: center;">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${samples.map((s, idx) => {
+                    let pillClass = "status-pill-open";
+                    let pillText = "Open";
+                    let pillIcon = "⚪";
+                    if (s.status === "Approve Admin") {
+                      pillClass = "status-pill-admin";
+                      pillText = "Approve Admin";
+                      pillIcon = "🟢";
+                    } else if (s.status === "Approve PML") {
+                      pillClass = "status-pill-pml";
+                      pillText = "Approve PML";
+                      pillIcon = "🟡";
+                    } else if (s.status === "Submitted" || s.status === "Submitted by Pencacah") {
+                      pillClass = "status-pill-submitted";
+                      pillText = "Submitted";
+                      pillIcon = "🔵";
+                    } else if (s.status === "Rejected" || s.status === "Rejected / Revisi") {
+                      pillClass = "status-pill-rejected";
+                      pillText = "Rejected";
+                      pillIcon = "🔴";
+                    }
+                    return `
+                      <tr>
+                        <td style="text-align: center; font-weight: 700; color: var(--color-text-muted); font-size: 0.75rem;">${idx + 1}</td>
+                        <td style="font-weight: 600; color: var(--color-text-primary); font-size: 0.8125rem;">${s.name}</td>
+                        <td style="font-size: 0.8125rem; color: #475569;">${s.district || '-'}</td>
+                        <td style="font-weight: 600; font-size: 0.8125rem; color: #0F172A;">${s.desa || '-'}</td>
+                        <td style="font-size: 0.75rem; color: var(--color-text-muted);"><i class="fa-solid fa-user-pen" style="font-size: 0.6875rem;"></i> ${s.pcl || 'Petugas BPS'}</td>
+                        <td style="text-align: center;">
+                          <span class="${pillClass}">${pillIcon} ${pillText}</span>
+                        </td>
+                      </tr>
+                    `;
+                  }).join('')}
+                </tbody>
+              </table>
+            </div>
+
+            <div style="display: flex; justify-content: flex-end; margin-top: 0.75rem; gap: 0.5rem; flex-wrap: wrap;">
+              ${isFasih ? `
+                <button onclick="openScrapingModal()" class="btn-scraping" style="padding: 0.45rem 0.95rem; font-size: 0.8125rem;">
+                  <i class="fa-solid fa-arrows-rotate"></i> Sinkronisasi Ulang FASIH
+                </button>
+              ` : ''}
+              <button onclick="openManualModal()" class="btn-manual-form" style="padding: 0.45rem 1rem; font-size: 0.8125rem; background: #0F172A; color: white; border: none; font-weight: 700;">
+                <i class="fa-solid fa-pen-to-square"></i> Input Progress Manual
+              </button>
             </div>
           </div>
-        ` : ''}
-
-        ${mainContentHtml}
+        ` : `
+          <!-- Clean Placeholder State (Tabel Dummy Dikosongkan) -->
+          <div style="background-color: white; border: 1px dashed var(--color-border); border-radius: 10px; padding: 2.25rem 1.5rem; text-align: center; margin-top: 1.25rem;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--color-surface-subtle); display: flex; align-items: center; justify-content: center; margin: 0 auto 0.75rem auto; color: #94A3B8; font-size: 1.15rem;">
+              <i class="fa-solid fa-clipboard-list"></i>
+            </div>
+            <h4 style="font-size: 0.9375rem; font-weight: 700; color: #0F172A; margin-bottom: 0.35rem;">
+              Belum Ada Rekapitulasi Monitoring Lapangan (Tahun ${currentMonitoringYear})
+            </h4>
+            <p style="font-size: 0.8125rem; color: #475569; max-width: 460px; margin: 0 auto 1.25rem auto; line-height: 1.5;">
+              Data rincian progres pencacahan per desa dan status monitoring wilayah siap dicatat untuk tahun ${currentMonitoringYear}.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
+              ${isFasih ? `
+                <button onclick="openScrapingModal()" class="btn-scraping" style="padding: 0.5rem 1rem; font-size: 0.8125rem;">
+                  <i class="fa-solid fa-arrows-rotate"></i> Jalankan Scraping FASIH
+                </button>
+              ` : ''}
+              <button onclick="openManualModal()" class="btn-manual-form" style="padding: 0.5rem 1rem; font-size: 0.8125rem; background: #0F172A; color: white; border: none; font-weight: 700;">
+                <i class="fa-solid fa-pen-to-square"></i> Input Progress Manual
+              </button>
+            </div>
+          </div>
+        `}
       `;
     }
 
@@ -6818,78 +6015,15 @@
       showToast(`Baris Sampel Berhasil Dihapus`);
     }
 
-    function loadFasihBackupTemplate() {
-      const surveyId = currentActiveSurveyObj ? currentActiveSurveyObj.id : "kegiatan-statistik";
-      const template = JSON.parse(JSON.stringify(DEFAULT_FASIH_BACKUP_TEMPLATE));
-      saveSurveySamples(surveyId, template, currentMonitoringYear);
-      renderModalSamplesTable(surveyId);
-      if (currentActiveSurveyObj) {
-        renderSurveyScrapedData(currentActiveTeamKey, currentActiveSurveyObj);
-      }
-      showToast(`Template Opsi 1: FASIH Backup (Scraping Error) Berhasil Dimuat (${currentMonitoringYear})!`);
-    }
-
-    function loadExcelRapihTemplate() {
-      const surveyId = currentActiveSurveyObj ? currentActiveSurveyObj.id : "kegiatan-statistik";
-      const template = JSON.parse(JSON.stringify(DEFAULT_EXCEL_RAPIS_TEMPLATE));
-      saveSurveySamples(surveyId, template, currentMonitoringYear);
-      renderModalSamplesTable(surveyId);
-      if (currentActiveSurveyObj) {
-        renderSurveyScrapedData(currentActiveTeamKey, currentActiveSurveyObj);
-      }
-      showToast(`Template Opsi 2: Format Excel Rapih BPS Sula Berhasil Dimuat (${currentMonitoringYear})!`);
-    }
-
-    function handleModalFileUpload(event) {
-      const file = event.target.files[0];
-      if (!file) return;
-
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        const text = e.target.result;
-        const lines = text.split(/\r?\n/).filter(line => line.trim().length > 0);
-        if (lines.length <= 1) {
-          showToast("File kosong atau hanya berisi 1 baris.");
-          return;
-        }
-
-        const newSamples = [];
-        const startIdx = (lines[0].toLowerCase().includes("nama") || lines[0].toLowerCase().includes("sampel") || lines[0].toLowerCase().includes("kecamatan")) ? 1 : 0;
-
-        for (let i = startIdx; i < lines.length; i++) {
-          const cols = lines[i].split(/[,;\t]/).map(c => c.trim().replace(/^["']|["']$/g, ''));
-          if (cols.length >= 2) {
-            newSamples.push({
-              id: Date.now() + i,
-              name: cols[0] || `Sampel #${i}`,
-              district: cols[1] || "Kec. Sanana",
-              desa: cols[2] || "Desa Sula",
-              pcl: cols[3] || "Petugas Import",
-              pml: cols[4] || "Pengawas Import",
-              status: cols[5] || "Submitted",
-              note: `Di-upload dari ${file.name}`
-            });
-          }
-        }
-
-        if (newSamples.length > 0) {
-          const surveyId = currentActiveSurveyObj ? currentActiveSurveyObj.id : "kegiatan-statistik";
-          saveSurveySamples(surveyId, newSamples, currentMonitoringYear);
-          renderModalSamplesTable(surveyId);
-          if (currentActiveSurveyObj) {
-            renderSurveyScrapedData(currentActiveTeamKey, currentActiveSurveyObj);
-          }
-          showToast(`File ${file.name} Berhasil Di-upload & Di-import (${newSamples.length} Sampel)!`);
-        } else {
-          showToast("Format baris file tidak valid.");
-        }
-      };
-      reader.readAsText(file);
-      event.target.value = "";
-    }
-
     function loadSampleTemplate() {
-      loadFasihBackupTemplate();
+      const surveyId = currentActiveSurveyObj ? currentActiveSurveyObj.id : "kegiatan-statistik";
+      const template = JSON.parse(JSON.stringify(DEFAULT_SULA_SAMPLES_TEMPLATE));
+      saveSurveySamples(surveyId, template, currentMonitoringYear);
+      renderModalSamplesTable(surveyId);
+      if (currentActiveSurveyObj) {
+        renderSurveyScrapedData(currentActiveTeamKey, currentActiveSurveyObj);
+      }
+      showToast(`Template 10 Sampel Desa Sula Berhasil Dimuat untuk Tahun ${currentMonitoringYear}!`);
     }
 
     function clearAllSamples() {
@@ -6902,157 +6036,6 @@
       showToast(`Daftar Sampel Dikosongkan (Siap Input Baru dari Awal)`);
     }
 
-    function selectModalStepMode(mode) {
-      const stepSelection = document.getElementById("modalStepSelection");
-      const stepContent = document.getElementById("modalStepContent");
-      const badgeTag = document.getElementById("activeModeBadgeTag");
-
-      const panelFile = document.getElementById("modalPanelFile");
-      const panelLink = document.getElementById("modalPanelLink");
-      const panelTable = document.getElementById("modalPanelTable");
-
-      if (stepSelection) stepSelection.style.display = "none";
-      if (stepContent) stepContent.style.display = "block";
-
-      if (panelFile) panelFile.style.display = "none";
-      if (panelLink) panelLink.style.display = "none";
-      if (panelTable) panelTable.style.display = "none";
-
-      if (mode === 'file') {
-        if (panelFile) panelFile.style.display = "block";
-        if (badgeTag) {
-          badgeTag.innerText = "Mode 1: Upload File Direct";
-          badgeTag.style.background = "#DCFCE7";
-          badgeTag.style.color = "#166534";
-        }
-      } else if (mode === 'link') {
-        if (panelLink) panelLink.style.display = "block";
-        if (badgeTag) {
-          badgeTag.innerText = "Mode 2: Tautan Link Online";
-          badgeTag.style.background = "#E0F2FE";
-          badgeTag.style.color = "#0369A1";
-        }
-      } else {
-        if (panelTable) panelTable.style.display = "block";
-        if (badgeTag) {
-          badgeTag.innerText = "Mode 3: Entri Baris Tabel";
-          badgeTag.style.background = "#EEF2FF";
-          badgeTag.style.color = "#4338CA";
-        }
-      }
-
-      const surveyId = currentActiveSurveyObj ? currentActiveSurveyObj.id : "kegiatan-statistik";
-      const state = getSurveyMonitoringState(surveyId, currentMonitoringYear);
-      state.mode = mode;
-      saveSurveyMonitoringState(surveyId, state, currentMonitoringYear);
-
-      if (currentActiveSurveyObj) {
-        renderSurveyScrapedData(currentActiveTeamKey, currentActiveSurveyObj);
-      }
-    }
-
-    function switchModalMode(mode) {
-      selectModalStepMode(mode);
-    }
-
-    function goToStepSelection() {
-      const stepSelection = document.getElementById("modalStepSelection");
-      const stepContent = document.getElementById("modalStepContent");
-      if (stepSelection) stepSelection.style.display = "block";
-      if (stepContent) stepContent.style.display = "none";
-    }
-
-    function handleDirectFileUpload(event) {
-      const file = event.target.files[0];
-      if (!file) return;
-
-      const surveyId = currentActiveSurveyObj ? currentActiveSurveyObj.id : "kegiatan-statistik";
-      const state = getSurveyMonitoringState(surveyId, currentMonitoringYear);
-
-      state.mode = 'file';
-      state.fileData = {
-        name: file.name,
-        size: (file.size / 1024).toFixed(1) + " KB",
-        date: new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' })
-      };
-
-      saveSurveyMonitoringState(surveyId, state, currentMonitoringYear);
-      updateModalFileInfoDisplay(state.fileData);
-
-      if (currentActiveSurveyObj) {
-        renderSurveyScrapedData(currentActiveTeamKey, currentActiveSurveyObj);
-      }
-      showToast(`File ${file.name} Berhasil Disimpan & Ditampilkan Plek Ketiplek!`);
-    }
-
-    function handleLinkSubmit(e) {
-      e.preventDefault();
-      const urlInput = document.getElementById("modalLinkUrlInput");
-      if (!urlInput || !urlInput.value.trim()) return;
-
-      const urlVal = urlInput.value.trim();
-      const surveyId = currentActiveSurveyObj ? currentActiveSurveyObj.id : "kegiatan-statistik";
-      const state = getSurveyMonitoringState(surveyId, currentMonitoringYear);
-
-      state.mode = 'link';
-      state.linkData = {
-        url: urlVal,
-        date: new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' })
-      };
-
-      saveSurveyMonitoringState(surveyId, state, currentMonitoringYear);
-      updateModalLinkInfoDisplay(state.linkData);
-
-      if (currentActiveSurveyObj) {
-        renderSurveyScrapedData(currentActiveTeamKey, currentActiveSurveyObj);
-      }
-      showToast(`Tautan Link Spreadsheet Berhasil Disimpan & Aktif!`);
-    }
-
-    function updateModalFileInfoDisplay(fileData) {
-      const infoBox = document.getElementById("modalFileCurrentInfo");
-      if (!infoBox) return;
-      if (!fileData) {
-        infoBox.style.display = "none";
-        return;
-      }
-      infoBox.style.display = "block";
-      infoBox.innerHTML = `
-        <div style="background: white; border: 1px solid #BBF7D0; border-radius: 10px; padding: 1rem; text-align: left; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
-          <div style="display: flex; align-items: center; gap: 0.65rem;">
-            <i class="fa-solid fa-circle-check" style="color: #16A34A; font-size: 1.2rem;"></i>
-            <div>
-              <div style="font-size: 0.875rem; font-weight: 700; color: #0F172A;">${fileData.name}</div>
-              <div style="font-size: 0.75rem; color: #64748B;">Ukuran: ${fileData.size} • Di-upload: ${fileData.date}</div>
-            </div>
-          </div>
-          <span style="font-size: 0.75rem; background: #DCFCE7; color: #166534; padding: 0.25rem 0.6rem; border-radius: 999px; font-weight: 700;">Status: Aktif Plek Ketiplek</span>
-        </div>
-      `;
-    }
-
-    function updateModalLinkInfoDisplay(linkData) {
-      const infoBox = document.getElementById("modalLinkCurrentInfo");
-      if (!infoBox) return;
-      if (!linkData) {
-        infoBox.style.display = "none";
-        return;
-      }
-      infoBox.style.display = "block";
-      infoBox.innerHTML = `
-        <div style="background: white; border: 1px solid #BAE6FD; border-radius: 10px; padding: 1rem; text-align: left; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
-          <div style="display: flex; align-items: center; gap: 0.65rem;">
-            <i class="fa-solid fa-link" style="color: #0284C7; font-size: 1.2rem;"></i>
-            <div>
-              <div style="font-size: 0.875rem; font-weight: 700; color: #0369A1; word-break: break-all;">${linkData.url}</div>
-              <div style="font-size: 0.75rem; color: #0284C7;">Disimpan: ${linkData.date}</div>
-            </div>
-          </div>
-          <span style="font-size: 0.75rem; background: #E0F2FE; color: #0369A1; padding: 0.25rem 0.6rem; border-radius: 999px; font-weight: 700;">Status: Link Tautan Aktif</span>
-        </div>
-      `;
-    }
-
     function openManualModal() {
       const modal = document.getElementById("manualEntryModal");
       if (!modal) return;
@@ -7060,19 +6043,7 @@
       const surveyId = currentActiveSurveyObj ? currentActiveSurveyObj.id : "kegiatan-statistik";
       const surveyName = currentActiveSurveyObj ? currentActiveSurveyObj.nama : "Survei Statistik";
 
-      const state = getSurveyMonitoringState(surveyId, currentMonitoringYear);
       renderModalSamplesTable(surveyId, surveyName);
-
-      updateModalFileInfoDisplay(state.fileData);
-      updateModalLinkInfoDisplay(state.linkData);
-      if (state.linkData && state.linkData.url) {
-        const urlInput = document.getElementById("modalLinkUrlInput");
-        if (urlInput) urlInput.value = state.linkData.url;
-      }
-
-      // Open to Step 1 selection first
-      goToStepSelection();
-
       modal.style.display = "flex";
     }
 
@@ -7453,12 +6424,11 @@
         entries.forEach(entry => {
           if (entry.isIntersecting && !countersStarted) {
             countersStarted = true;
-            statsObserver.disconnect(); // Disconnect immediately so it never repeats on scroll!
             statNumbers.forEach(stat => {
               const target = parseInt(stat.getAttribute("data-target"), 10);
               const suffix = stat.getAttribute("data-suffix") || "";
-              const duration = 1200;
-              const steps = 40;
+              const duration = 1600;
+              const steps = 60;
               const increment = target / steps;
               let current = 0;
 
@@ -7474,7 +6444,7 @@
             });
           }
         });
-      }, { threshold: 0.3 });
+      }, { threshold: 0.5 });
 
       const statsSection = document.querySelector(".stats-bar");
       if (statsSection) statsObserver.observe(statsSection);
