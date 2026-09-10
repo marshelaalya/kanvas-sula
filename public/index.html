@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO Meta Tags -->
-  <title>KANVAS SULA — Katalog dan Navigasi Visual Aktivitas Statistik BPS Kab. Kepulauan Sula</title>
+  <title>KANVAS SULA — Kendali Analisis dan Visualisasi Statistik BPS Kabupaten Kepulauan Sula</title>
   <meta name="description"
-    content="KANVAS SULA adalah platform terpadu untuk mendokumentasikan, mengarsipkan, memonitor 54 kegiatan statistik, dan sinkronisasi data scraping FASIH lima tim BPS Kabupaten Kepulauan Sula.">
+    content="KANVAS SULA adalah platform terpadu untuk mengendalikan, menganalisis, dan memonitor 64 kegiatan statistik, serta sinkronisasi data scraping FASIH lima tim BPS Kabupaten Kepulauan Sula.">
   <meta name="keywords"
     content="KANVAS SULA, BPS Kepulauan Sula, Sanana, Monitoring Survei, Scraping FASIH, Arsip Statistik, Statistik Sosial, Produksi, Distribusi, NWAS, IPDS">
   <meta name="author" content="BPS Kabupaten Kepulauan Sula">
@@ -364,6 +364,130 @@
       box-shadow: 0 6px 18px rgba(2, 132, 199, 0.4);
     }
 
+    /* Disabled Scraping Button with Program dalam pembangunan */
+    .btn-scraping[disabled],
+    .btn-scraping.disabled,
+    .btn-scraping-disabled {
+      background: linear-gradient(135deg, #94A3B8, #64748B) !important;
+      color: #F8FAFC !important;
+      box-shadow: none !important;
+      cursor: not-allowed !important;
+      opacity: 0.85;
+      position: relative;
+    }
+
+    .btn-scraping[disabled]:hover,
+    .btn-scraping.disabled:hover,
+    .btn-scraping-disabled:hover {
+      background: linear-gradient(135deg, #94A3B8, #64748B) !important;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+
+    /* Tooltip container for disabled scraping buttons */
+    .scraping-tooltip-container {
+      position: relative;
+      display: inline-flex;
+      cursor: not-allowed;
+    }
+
+    .scraping-tooltip-container button[disabled],
+    .scraping-tooltip-container button.disabled,
+    .scraping-tooltip-container .btn-scraping-disabled {
+      pointer-events: none !important;
+    }
+
+    .scraping-tooltip-container::after {
+      content: "🚧 Program dalam pembangunan";
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%) translateY(4px);
+      background: #0F172A;
+      color: #F8FAFC;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.38rem 0.8rem;
+      border-radius: 6px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      z-index: 9999;
+    }
+
+    .scraping-tooltip-container::before {
+      content: "";
+      position: absolute;
+      bottom: calc(100% + 2px);
+      left: 50%;
+      transform: translateX(-50%) translateY(4px);
+      border-width: 6px 6px 0 6px;
+      border-style: solid;
+      border-color: #0F172A transparent transparent transparent;
+      pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 9999;
+    }
+
+    .scraping-tooltip-container:hover::after,
+    .scraping-tooltip-container:hover::before {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Modal Tab Navigation for FASIH AI Import */
+    .modal-tab-nav {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 2px solid var(--color-border);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0;
+    }
+
+    .modal-tab-btn {
+      padding: 0.65rem 1.15rem;
+      font-size: 0.845rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      border: none;
+      background: none;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: all 0.2s ease;
+      border-radius: 6px 6px 0 0;
+    }
+
+    .modal-tab-btn:hover {
+      color: var(--color-text-primary);
+      background-color: var(--color-surface-subtle);
+    }
+
+    .modal-tab-btn.active {
+      color: #0284C7;
+      border-bottom-color: #0284C7;
+      font-weight: 700;
+      background-color: #F0F9FF;
+    }
+
+    .modal-tab-content {
+      display: none;
+    }
+
+    .modal-tab-content.active {
+      display: block;
+    }
+
     /* ─── HERO SECTION ─── */
     .hero-section {
       padding-top: calc(var(--nav-height) + 4.5rem);
@@ -434,8 +558,10 @@
 
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 680px;
+      margin: 0 auto;
+      gap: 2.5rem;
       text-align: center;
     }
 
@@ -2757,8 +2883,7 @@
       KANVAS <span>SULA</span>
     </div>
     <div class="splash-subtext">
-      <i class="fa-solid fa-circle-notch fa-spin" style="color: #F472B6; margin-right: 0.25rem;"></i> Katalog dan
-      Navigasi Visual Statistik BPS Sula...
+      <i class="fa-solid fa-circle-notch fa-spin" style="color: #F472B6; margin-right: 0.25rem;"></i> Kendali Analisis dan Visualisasi Statistik BPS Sula...
     </div>
     <div class="splash-progress-track">
       <div class="splash-progress-bar"></div>
@@ -2778,7 +2903,7 @@
           </div>
           <div>
             <span class="brand-text" style="font-weight: 800;">KANVAS <span style="color: #F472B6;">SULA</span></span>
-            <span class="brand-tagline">Katalog dan Navigasi Visual Statistik BPS</span>
+            <span class="brand-tagline">Kendali Analisis dan Visualisasi Statistik BPS Kab. Kepulauan Sula</span>
           </div>
         </div>
 
@@ -2846,16 +2971,6 @@
               <div class="stat-label">Pilar Tim Teknis</div>
               <div class="stat-desc">Sosial, Produksi, Distribusi, NWAS, IPDS</div>
             </div>
-            <div class="stat-item">
-              <div class="stat-number" data-target="100" data-suffix="%">0%</div>
-              <div class="stat-label">Kepatuhan Metadata</div>
-              <div class="stat-desc">Standar MS-Keg & MS-Ind</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number" data-target="168">0</div>
-              <div class="stat-label">Petugas Terdaftar</div>
-              <div class="stat-desc">Koordinator, PML, & PCL CAPI</div>
-            </div>
           </div>
         </div>
       </section>
@@ -2877,7 +2992,7 @@
             <div class="spoiler-card reveal-on-scroll reveal-delay-1" onclick="navigateTo('tim/sosial')">
               <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
                 <div class="spoiler-icon"><i class="fa-solid fa-people-roof"></i></div>
-                <span class="spoiler-badge">6 Kegiatan</span>
+                <span class="spoiler-badge">5 Kegiatan Survei &amp; 1 Sensus</span>
                 <h3 class="spoiler-title">Statistik Sosial</h3>
               </div>
               <div class="spoiler-link">
@@ -2889,7 +3004,7 @@
             <div class="spoiler-card reveal-on-scroll reveal-delay-2" onclick="navigateTo('tim/produksi')">
               <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
                 <div class="spoiler-icon"><i class="fa-solid fa-wheat-awn"></i></div>
-                <span class="spoiler-badge">30 Kegiatan</span>
+                <span class="spoiler-badge">30 Kegiatan Survei</span>
                 <h3 class="spoiler-title">Statistik Produksi</h3>
               </div>
               <div class="spoiler-link">
@@ -2901,7 +3016,7 @@
             <div class="spoiler-card reveal-on-scroll reveal-delay-3" onclick="navigateTo('tim/distribusi')">
               <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
                 <div class="spoiler-icon"><i class="fa-solid fa-shop"></i></div>
-                <span class="spoiler-badge">16 Kegiatan</span>
+                <span class="spoiler-badge">16 Kegiatan Survei</span>
                 <h3 class="spoiler-title">Statistik Distribusi</h3>
               </div>
               <div class="spoiler-link">
@@ -2913,7 +3028,7 @@
             <div class="spoiler-card reveal-on-scroll reveal-delay-4" onclick="navigateTo('tim/nwas')">
               <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
                 <div class="spoiler-icon"><i class="fa-solid fa-chart-line"></i></div>
-                <span class="spoiler-badge">6 Kegiatan</span>
+                <span class="spoiler-badge">4 Survei &amp; 2 Analisis Statistik</span>
                 <h3 class="spoiler-title">Neraca (NWAS)</h3>
               </div>
               <div class="spoiler-link">
@@ -2925,7 +3040,7 @@
             <div class="spoiler-card reveal-on-scroll reveal-delay-5" onclick="navigateTo('tim/ipds')">
               <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
                 <div class="spoiler-icon"><i class="fa-solid fa-network-wired"></i></div>
-                <span class="spoiler-badge">6 Layanan</span>
+                <span class="spoiler-badge">Pelayanan Statistik Terpadu</span>
                 <h3 class="spoiler-title">Tim IPDS</h3>
               </div>
               <div class="spoiler-link">
@@ -3177,7 +3292,7 @@
             <div class="hub-team-card reveal-on-scroll reveal-delay-1" onclick="navigateTo('tim/sosial')">
               <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
                 <div class="hub-team-icon-wrapper"><i class="fa-solid fa-people-roof"></i></div>
-                <span class="hub-team-badge">6 Kegiatan Survei & Sensus</span>
+                <span class="hub-team-badge">5 Kegiatan Survei &amp; 1 Sensus</span>
                 <h3 class="hub-team-title">Statistik Sosial</h3>
               </div>
               <div class="hub-team-action-btn">
@@ -3189,7 +3304,7 @@
             <div class="hub-team-card reveal-on-scroll reveal-delay-2" onclick="navigateTo('tim/produksi')">
               <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
                 <div class="hub-team-icon-wrapper"><i class="fa-solid fa-wheat-awn"></i></div>
-                <span class="hub-team-badge">30 Kegiatan Sektor Riil</span>
+                <span class="hub-team-badge">30 Kegiatan Survei</span>
                 <h3 class="hub-team-title">Statistik Produksi</h3>
               </div>
               <div class="hub-team-action-btn">
@@ -3201,7 +3316,7 @@
             <div class="hub-team-card reveal-on-scroll reveal-delay-3" onclick="navigateTo('tim/distribusi')">
               <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
                 <div class="hub-team-icon-wrapper"><i class="fa-solid fa-shop"></i></div>
-                <span class="hub-team-badge">16 Kegiatan Harga & Jasa</span>
+                <span class="hub-team-badge">16 Kegiatan Survei</span>
                 <h3 class="hub-team-title">Statistik Distribusi</h3>
               </div>
               <div class="hub-team-action-btn">
@@ -3213,7 +3328,7 @@
             <div class="hub-team-card reveal-on-scroll reveal-delay-4" onclick="navigateTo('tim/nwas')">
               <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
                 <div class="hub-team-icon-wrapper"><i class="fa-solid fa-chart-line"></i></div>
-                <span class="hub-team-badge">6 Kegiatan PDRB & Makro</span>
+                <span class="hub-team-badge">4 Survei &amp; 2 Analisis Statistik</span>
                 <h3 class="hub-team-title">Neraca (NWAS)</h3>
               </div>
               <div class="hub-team-action-btn">
@@ -3225,7 +3340,7 @@
             <div class="hub-team-card reveal-on-scroll reveal-delay-5" onclick="navigateTo('tim/ipds')">
               <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
                 <div class="hub-team-icon-wrapper"><i class="fa-solid fa-network-wired"></i></div>
-                <span class="hub-team-badge">6 Portofolio Layanan</span>
+                <span class="hub-team-badge">Pelayanan Statistik Terpadu</span>
                 <h3 class="hub-team-title">Tim IPDS</h3>
               </div>
               <div class="hub-team-action-btn">
@@ -3520,9 +3635,11 @@
               <button onclick="openManualModal()" class="btn-manual-form">
                 <i class="fa-solid fa-pen-to-square"></i> Input Progress Manual
               </button>
-              <button id="btnTriggerScraping" onclick="openScrapingModal()" class="btn-scraping">
-                <i class="fa-solid fa-bolt-lightning"></i> Jalankan Scraping FASIH
-              </button>
+              <div class="scraping-tooltip-container" id="topScrapingWrapper">
+                <button id="btnTriggerScraping" disabled class="btn-scraping btn-scraping-disabled" title="Program dalam pembangunan" onclick="openScrapingModal()">
+                  <i class="fa-solid fa-lock" style="font-size: 0.75rem; opacity: 0.85;"></i> Jalankan Scraping FASIH
+                </button>
+              </div>
             </div>
           </div>
 
@@ -3625,34 +3742,32 @@
     <div class="manual-modal-box">
       <div class="manual-modal-header">
         <div style="display: flex; align-items: center; gap: 0.65rem;">
-          <div
-            style="width: 36px; height: 36px; border-radius: 10px; background: #F0F9FF; color: #0369A1; display: flex; align-items: center; justify-content: center; font-size: 1rem; border: 1px solid #BAE6FD;">
-            <i class="fa-solid fa-table-list"></i>
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: #F0F9FF; color: #0369A1; display: flex; align-items: center; justify-content: center; font-size: 1rem; border: 1px solid #BAE6FD;">
+            <i class="fa-regular fa-clipboard"></i>
           </div>
           <div>
             <h3 style="font-size: 1.0625rem; font-weight: 700; margin: 0; color: var(--color-text-primary);" id="modalTitleText">
-              Input & Pemutakhiran Progres Manual
+              Copy Paste dari FASIH
             </h3>
-            <p style="font-size: 0.75rem; color: var(--color-text-muted); margin: 0;">
-              Alur Validasi: Submitted by Pencacah &rarr; Approve PML &rarr; Approval Admin (BPS Kab. Kepulauan Sula)
+            <p style="font-size: 0.75rem; color: var(--color-text-muted); margin: 0;" id="modalSubtitleText">
+              Salin data tabel dari fasih.bps.go.id, tempel di sini, lalu Submit
             </p>
           </div>
         </div>
-        <button onclick="closeManualModal()"
-          style="background: none; border: none; font-size: 1.25rem; color: #94A3B8; cursor: pointer;">
+        <button onclick="closeManualModal()" style="background: none; border: none; font-size: 1.25rem; color: #94A3B8; cursor: pointer;">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
 
       <div class="manual-modal-body">
-        <!-- 1. Ringkasan Status Berjenjang & Periode Tahun -->
-        <div class="manual-status-summary-grid">
+        <!-- Summary Cards -->
+        <div class="manual-status-summary-grid" id="modalSummaryGrid" style="display: none;">
           <div class="manual-summary-card">
-            <div class="manual-summary-card-label"><i class="fa-solid fa-layer-group" style="color: var(--color-muted-indigo);"></i> Sampel</div>
+            <div class="manual-summary-card-label"><i class="fa-solid fa-layer-group" style="color: var(--color-muted-indigo);"></i> Tersimpan</div>
             <div class="manual-summary-card-val" id="modalSummarySampel" style="color: #0F172A;">0 <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">Sampel</span></div>
           </div>
           <div class="manual-summary-card">
-            <div class="manual-summary-card-label"><span style="color: #2563EB;">●</span> Submitted by Pencacah</div>
+            <div class="manual-summary-card-label"><span style="color: #2563EB;">●</span> Submitted</div>
             <div class="manual-summary-card-val" id="modalSummarySubmitted" style="color: #2563EB;">0 <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">Sampel</span></div>
           </div>
           <div class="manual-summary-card">
@@ -3660,122 +3775,91 @@
             <div class="manual-summary-card-val" id="modalSummaryPml" style="color: #D97706;">0 <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">Sampel</span></div>
           </div>
           <div class="manual-summary-card">
-            <div class="manual-summary-card-label"><span style="color: #16A34A;">●</span> Approval Admin</div>
+            <div class="manual-summary-card-label"><span style="color: #16A34A;">●</span> Approve Admin</div>
             <div class="manual-summary-card-val" id="modalSummaryAdmin" style="color: #16A34A;">0 <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">Sampel</span></div>
           </div>
         </div>
 
-        <!-- 2. Tabel Rincian Data Sampel & Cell Status Interaktif -->
-        <div style="margin-bottom: 1.5rem;">
-          <div style="font-size: 0.8125rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
-            <div style="display: flex; align-items: center; gap: 0.4rem;">
-              <i class="fa-solid fa-list-check" style="color: var(--color-muted-indigo);"></i>
-              <span>Daftar Sampel & Status Lapangan</span>
-              <span id="modalTableCountBadge" style="font-size: 0.6875rem; background: var(--color-surface-subtle); padding: 0.15rem 0.5rem; border-radius: 4px; border: 1px solid var(--color-border); font-weight: 600;">0 Sampel</span>
+        <!-- Instruction banner -->
+        <div style="background: linear-gradient(135deg, #F0F9FF 0%, #EFF6FF 100%); border: 1px solid #BAE6FD; border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 1.15rem;">
+          <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+            <div style="width: 34px; height: 34px; border-radius: 8px; background: #0284C7; color: white; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0;">
+              <i class="fa-regular fa-clipboard"></i>
             </div>
-            
+            <div style="flex: 1;">
+              <h4 style="font-size: 0.875rem; font-weight: 700; color: #0C4A6E; margin-bottom: 0.2rem;">Cara Pakai</h4>
+              <p style="font-size: 0.8125rem; color: #0369A1; line-height: 1.5; margin: 0;">
+                1. Buka <strong>fasih.bps.go.id</strong> &rarr; pilih kegiatan &rarr; blok semua baris tabel &rarr; <strong>Ctrl+C</strong><br>
+                2. Tempel (<strong>Ctrl+V</strong>) ke kotak di bawah &rarr; klik <strong>Submit</strong>. Status otomatis terdeteksi AI.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paste Textarea -->
+        <div style="margin-bottom: 1rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+            <label class="stativa-label" style="margin-bottom: 0; font-weight: 700; font-size: 0.8125rem;">
+              <i class="fa-regular fa-clipboard" style="color: #0284C7; margin-right: 0.25rem;"></i>
+              Tempel Data dari FASIH di Sini:
+            </label>
             <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
-              <button type="button" onclick="loadSampleTemplate()" class="btn btn-secondary" style="font-size: 0.75rem; padding: 0.3rem 0.65rem;">
-                <i class="fa-solid fa-wand-magic-sparkles"></i> Muat Template Desa Sula
-              </button>
-              <button type="button" onclick="clearAllSamples()" class="btn btn-secondary" style="font-size: 0.75rem; padding: 0.3rem 0.65rem; color: #DC2626;">
-                <i class="fa-solid fa-trash-can"></i> Kosongkan (Mulai Awal)
+              <button type="button" onclick="clearFasihAiInput()" class="btn btn-secondary" style="font-size: 0.75rem; padding: 0.25rem 0.65rem; color: #64748B;">
+                <i class="fa-solid fa-eraser"></i> Bersihkan
               </button>
             </div>
           </div>
+          <textarea id="fasihAiRawInput" class="stativa-input" style="font-family: var(--font-mono); font-size: 0.785rem; height: 170px; resize: vertical; line-height: 1.45;" placeholder="Tempel (Ctrl+V) hasil copy tabel dari FASIH di sini...
 
-          <div style="max-height: 280px; overflow-y: auto; border: 1px solid var(--color-border); border-radius: 8px;">
+Contoh isi: Kode Identitas, Nama Lembaga, Alamat, Status (completed by admin / submitted / open)..."></textarea>
+        </div>
+
+        <!-- Import Mode -->
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.15rem; font-size: 0.8125rem; font-weight: 600; color: var(--color-text-secondary);">
+          <span style="color: #475569;"><i class="fa-solid fa-gear" style="margin-right: 0.3rem;"></i>Mode Import:</span>
+          <label style="display: inline-flex; align-items: center; gap: 0.35rem; cursor: pointer;">
+            <input type="radio" name="fasihImportMode" value="replace" checked> Timpa Data Lama
+          </label>
+          <label style="display: inline-flex; align-items: center; gap: 0.35rem; cursor: pointer;">
+            <input type="radio" name="fasihImportMode" value="append"> Gabung dengan Data Lama
+          </label>
+        </div>
+
+        <!-- PREVIEW BOX — shown after parsing -->
+        <div id="fasihAiResultBox" style="display: none; border: 1px solid #BBF7D0; border-radius: 10px; background: #F0FDF4; padding: 1rem 1.25rem; margin-bottom: 1.15rem;">
+          <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
+            <i class="fa-solid fa-circle-check" style="color: #16A34A; font-size: 1rem;"></i>
+            <span id="fasihAiBadgeText" style="font-size: 0.875rem; font-weight: 700; color: #166534;">8 Sampel Berhasil Dikenali</span>
+          </div>
+          <div style="max-height: 210px; overflow-y: auto; border: 1px solid #D1FAE5; border-radius: 8px; background: white;">
             <table class="district-progress-table" style="margin-bottom: 0; width: 100%; border-collapse: collapse;">
               <thead>
                 <tr>
-                  <th style="width: 5%;">No</th>
-                  <th style="width: 25%;">Identitas Responden / SLS</th>
+                  <th style="width: 5%; text-align: center;">No</th>
+                  <th style="width: 32%;">Identitas Responden / Lembaga</th>
                   <th style="width: 18%;">Kecamatan</th>
-                  <th style="width: 18%;">Desa / Kelurahan</th>
-                  <th style="width: 24%;">Status Progres (Pencacah &rarr; PML &rarr; Admin)</th>
-                  <th style="width: 10%; text-align: center;">Aksi</th>
+                  <th style="width: 18%;">Desa / Alamat</th>
+                  <th style="width: 27%; text-align: center;">Status Terdeteksi</th>
                 </tr>
               </thead>
-              <tbody id="modalSamplesTableBody">
-                <!-- Injected Dynamically by renderModalSamplesTable() -->
+              <tbody id="fasihAiPreviewTableBody">
+                <!-- Injected dynamically -->
               </tbody>
             </table>
           </div>
         </div>
 
-        <!-- 3. Form Input / Penambahan Sampel Baru -->
-        <form id="manualEntryForm" onsubmit="handleManualEntrySubmit(event)"
-          style="border-top: 1px solid var(--color-border); padding-top: 1.25rem;">
-          <div
-            style="font-size: 0.8125rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 0.75rem;">
-            <i class="fa-solid fa-plus-circle" style="color: #0369A1; margin-right: 0.35rem;"></i> Tambah Baris Sampel Baru
-          </div>
-
-          <div class="stativa-form-grid">
-            <div class="stativa-form-group">
-              <label class="stativa-label">Wilayah Kecamatan *</label>
-              <select id="modalFormKecamatan" class="stativa-select" required>
-                <option value="Kec. Sanana">Kec. Sanana</option>
-                <option value="Kec. Sanana Utara">Kec. Sanana Utara</option>
-                <option value="Kec. Sulabesi Barat">Kec. Sulabesi Barat</option>
-                <option value="Kec. Sulabesi Tengah">Kec. Sulabesi Tengah</option>
-                <option value="Kec. Sulabesi Timur">Kec. Sulabesi Timur</option>
-                <option value="Kec. Sulabesi Selatan">Kec. Sulabesi Selatan</option>
-                <option value="Kec. Mangoli Barat">Kec. Mangoli Barat</option>
-                <option value="Kec. Mangoli Tengah">Kec. Mangoli Tengah</option>
-                <option value="Kec. Mangoli Timur">Kec. Mangoli Timur</option>
-                <option value="Kec. Mangoli Utara">Kec. Mangoli Utara</option>
-                <option value="Kec. Mangoli Selatan">Kec. Mangoli Selatan</option>
-                <option value="Kec. Mangoli Timur Selatan">Kec. Mangoli Timur Selatan</option>
-              </select>
-            </div>
-            <div class="stativa-form-group">
-              <label class="stativa-label">Nama Desa / Kelurahan *</label>
-              <input type="text" id="modalFormDesa" class="stativa-input"
-                placeholder="Misal: Desa Fagudu, Desa Waibau, Desa Mangon" required>
-            </div>
-          </div>
-
-          <div class="stativa-form-grid">
-            <div class="stativa-form-group">
-              <label class="stativa-label">Nama Sampel / Responden / SLS *</label>
-              <input type="text" id="modalFormSampleName" class="stativa-input"
-                placeholder="Misal: Ruta 01 - Bpk. Usman" required>
-            </div>
-            <div class="stativa-form-group">
-              <label class="stativa-label">Status Progres Lapangan *</label>
-              <select id="modalFormSampleStatus" class="stativa-select" required>
-                <option value="Submitted">🔵 Submitted by Pencacah (Selesai Pencacahan PCL)</option>
-                <option value="Approve PML">🟡 Approve PML (Disetujui Pengawas)</option>
-                <option value="Approve Admin">🟢 Approve Admin (Disetujui Admin Selesai)</option>
-                <option value="Open">⚪ Open (Belum Dicacah)</option>
-                <option value="Rejected">🔴 Rejected / Revisi (Anomali / Perlu Perbaikan)</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="stativa-form-grid">
-            <div class="stativa-form-group">
-              <label class="stativa-label">Petugas Pencacah (PCL)</label>
-              <input type="text" id="modalFormPcl" class="stativa-input"
-                placeholder="Nama Petugas Lapangan">
-            </div>
-            <div class="stativa-form-group">
-              <label class="stativa-label">Petugas Pengawas (PML)</label>
-              <input type="text" id="modalFormPml" class="stativa-input"
-                placeholder="Nama Pengawas Lapangan">
-            </div>
-          </div>
-
-          <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1rem;">
-            <button type="button" onclick="closeManualModal()" class="btn btn-secondary"
-              style="padding: 0.55rem 1.25rem;">Tutup</button>
-            <button type="submit" class="btn btn-primary"
-              style="padding: 0.55rem 1.5rem; background: #0F172A; border: none; color: white; font-weight: 700;">
-              <i class="fa-solid fa-plus"></i> Tambah Sampel
-            </button>
-          </div>
-        </form>
+        <!-- ACTION BUTTONS -->
+        <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+          <button type="button" onclick="closeManualModal()" class="btn btn-secondary" style="padding: 0.6rem 1.25rem; font-size: 0.875rem;">
+            Tutup
+          </button>
+          <button type="button" id="fasihMainCta" onclick="fasihSubmitAction()" class="btn"
+            style="background: linear-gradient(135deg, #0284C7, #0369A1); color: white; box-shadow: 0 4px 14px rgba(2,132,199,0.3); padding: 0.65rem 1.75rem; font-weight: 700; font-size: 0.875rem; min-width: 140px; transition: all 0.3s ease;">
+            <i class="fa-solid fa-floppy-disk" id="fasihCtaIcon"></i>
+            <span id="fasihCtaLabel">&nbsp;Submit</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -3824,19 +3908,20 @@
       sosial: {
         id: "sosial",
         nama: "Statistik Sosial",
-        unitKerja: "Tim Kerja Statistik Kesejahteraan Rakyat dan Ketahanan Sosial",
+        unitKerja: "Tim Kerja Statistik Sosial (Kependudukan, Ketenagakerjaan, Kesejahteraan Rakyat, Ketahanan Sosial)",
         tagStyle: "background-color: var(--team-sosial-bg); color: var(--team-sosial-text); border: 1px solid var(--team-sosial-border);",
         portalUrl: "https://kepsulkab.bps.go.id/publication.html",
         portalJudul: "Publikasi Kesejahteraan Rakyat & Kemiskinan Sula",
         portalPublikasi: ["Statistik Kesejahteraan Rakyat Sula 2025", "Profil Kemiskinan & IPM Sula", "Keadaan Ketenagakerjaan (Sakernas)"],
-        deskripsi: "Tim Statistik Sosial bertanggung jawab atas seluruh pendataan yang bersentuhan langsung dengan kualitas hidup manusia. Data dari tim ini menjadi rujukan tunggal pemerintah dalam penetapan garis kemiskinan makro, penyaluran bansos (PKH, BPNT), evaluasi IPM, ketenagakerjaan, dan perlindungan sosial.",
-        dasarHukum: "Undang-Undang No. 16 Tahun 1997 tentang Statistik; Perpres No. 39 Tahun 2019 tentang Satu Data Indonesia; Perpres Penanggulangan Kemiskinan Ekstrem.",
+        deskripsi: "Tim Statistik Sosial bertanggung jawab atas pengumpulan, pengolahan, dan penyediaan data primer mengenai dinamika kependudukan dan taraf hidup masyarakat di Kabupaten Kepulauan Sula. Cakupan pendataan meliputi indikator demografi, profil ketenagakerjaan dan upah, akses pendidikan dan kesehatan, perumahan, hingga pengukuran angka kemiskinan dan ketahanan sosial-lingkungan. Data yang dihasilkan menjadi fondasi utama intervensi kebijakan sosial, perlindungan sosial, dan evaluasi pembangunan manusia di daerah.",
+        dasarHukum: "UU No. 16 Tahun 1997 tentang Statistik; Peraturan Presiden No. 86 Tahun 2007 tentang Badan Pusat Statistik sebagaimana diubah dengan Peraturan Presiden No. 1 Tahun 2025; Peraturan Badan Pusat Statistik No. 2 Tahun 2025 tentang Organisasi dan Tata Kerja Badan Pusat Statistik.",
         tupoksi: [
-          "Melaksanakan pengumpulan, pengolahan, dan diseminasi data demografi, ketenagakerjaan, kesehatan, dan pendidikan.",
-          "Menghitung angka kemiskinan makro (P0, P1, P2), Garis Kemiskinan (GK), serta ketimpangan pendapatan (Gini Ratio).",
-          "Memantau dinamika ketenagakerjaan: Tingkat Pengangguran Terbuka (TPT), Tingkat Partisipasi Angkatan Kerja (TPAK), dan upah buruh.",
-          "Melakukan pendataan potensi desa di 100% desa/kelurahan melalui PODES.",
-          "Menyelenggarakan pembinaan statistik sektoral melalui Program Desa Cantik."
+          "Menyelenggarakan pencacahan rumah tangga berkala untuk memotret pola konsumsi, pengeluaran, kesehatan, dan pendidikan masyarakat melalui Survei Sosial Ekonomi Nasional (Susenas).",
+          "Melaksanakan pendataan angkatan kerja, tingkat pengangguran terbuka (TPT), dan karakteristik upah/pendapatan tenaga kerja melalui Survei Angkatan Kerja Nasional (Sakernas).",
+          "Mengkoordinasikan pemutakhiran data kependudukan, mobilitas migrasi, dan struktur demografi melalui Sensus Penduduk (SP) maupun survei demografi lanjutan.",
+          "Melaksanakan pendataan potensi wilayah, kerawanan sosial, fasilitas umum, dan ketahanan lingkungan di seluruh desa/kelurahan melalui pendataan Potensi Desa (Podes).",
+          "Mengumpulkan data statistik kesejahteraan sosial dan perumahan untuk mendukung penghitungan Garis Kemiskinan serta Indeks Pembangunan Manusia (IPM) Kabupaten Kepulauan Sula.",
+          "Melakukan pembinaan teknis, rekrutmen, dan pengawasan kualitas lapangan bagi petugas mitra pendata (PCL/PML) pada seluruh survei bidang sosial berbasis aplikasi CAPI FASIH."
         ],
         indikatorKunci: [
           "Angka Kemiskinan Makro (P0/P1/P2)", "Garis Kemiskinan", "Gini Ratio", "TPT Pengangguran", "TPAK", "Indeks Pembangunan Manusia (IPM)", "Indeks Kesulitan Geografis (IKG)"
@@ -3955,14 +4040,15 @@
         portalUrl: "https://kepsulkab.bps.go.id/subject/53/pertanian.html",
         portalJudul: "Publikasi Pertanian, Pangan & Industri Sula",
         portalPublikasi: ["Statistik Pertanian Tanaman Pangan Sula", "Luas Panen & Produksi Padi (KSA)", "Profil Industri Manufaktur & UMKM"],
-        deskripsi: "Tim Statistik Produksi mendata seluruh sektor riil komoditas fisik: tanaman pangan strategis, hortikultura, perkebunan, peternakan, perikanan tangkap/budidaya, kehutanan, industri manufaktur, pertambangan minerba, penggalian kuari, dan konstruksi.",
-        dasarHukum: "UU No. 16 Tahun 1997 tentang Statistik; UU No. 18 Tahun 2012 tentang Pangan; Perpres Satu Data Indonesia.",
+        deskripsi: "Tim Statistik Produksi menangani pendataan sektor riil yang menjadi tulang punggung penggerak ekonomi primer dan sekunder di Kabupaten Kepulauan Sula. Ruang lingkup kerja mencakup statistik sumber daya hayati (tanaman pangan, hortikultura, perkebunan, peternakan, perikanan tangkap/budidaya, dan kehutanan), sektor pertambangan, energi, konstruksi, serta industri manufaktur skala besar hingga mikro-kecil. Data riil ini merekam kapasitas produksi dan ketersediaan komoditas strategis daerah secara berkesinambungan.",
+        dasarHukum: "UU No. 16 Tahun 1997 tentang Statistik; Peraturan Presiden No. 86 Tahun 2007 tentang Badan Pusat Statistik sebagaimana diubah dengan Peraturan Presiden No. 1 Tahun 2025; Peraturan Badan Pusat Statistik No. 2 Tahun 2025 tentang Organisasi dan Tata Kerja Badan Pusat Statistik.",
         tupoksi: [
-          "Menyelenggarakan pengukuran objektif produktivitas panen padi melalui Survei Ubinan.",
-          "Menghitung estimasi luas panen dan produksi beras berbasis citra satelit Kerangka Sampel Area (KSA).",
-          "Memantau pertumbuhan volume produksi industri manufaktur mikro, kecil, sedang, dan besar (IMK/IBS).",
-          "Mendata pemotongan hewan di RPH (LTP), lelang ikan di TPI (PP-TPI), dan budidaya tambak (PIT).",
-          "Mendata profil pertambangan mineral batubara, galian C, dan konstruksi."
+          "Menyelenggarakan pengukuran objektif produktivitas panen komoditas pangan dan estimasi luasan panen riil di lapangan melalui Survei Ubinan dan Kerangka Sampel Area (KSA).",
+          "Melaksanakan pengumpulan data berkala komoditas tanaman perkebunan rakyat (kelapa, cengkeh, pala), populasi ternak, serta produksi perikanan tangkap dan budidaya pesisir kepulauan.",
+          "Melakukan pendataan dan pemutakhiran direktori pelaku usaha manufaktur melalui Survei Industri Mikro dan Kecil (VIMK) serta Survei Industri Besar dan Sedang (IBS).",
+          "Melaksanakan pendataan perkembangan harga bahan bangunan, aktivitas proyek fisik, dan profil perusahaan konstruksi melalui Survei Perusahaan Konstruksi dan survei harga kemahalan konstruksi.",
+          "Mengumpulkan data produksi dan potensi komoditas energi, penggalian, dan pertambangan bahan galian non-logam di wilayah Kabupaten Kepulauan Sula.",
+          "Menyelenggarakan kegiatan sensus pertanian berkala melalui Sensus Pertanian (ST) dan survei ekonomi pertanian terintegrasi untuk menangkap dinamika usaha tani lokal."
         ],
         indikatorKunci: [
           "Produktivitas Padi (Ku/Ha)", "Estimasi Luas Panen & Produksi Beras", "Indeks Produksi Manufaktur", "Nilai Tukar Petani (NTP)", "Produksi Perikanan Tangkap", "Populasi Ternak", "Nilai Tambah Konstruksi"
@@ -4483,20 +4569,21 @@
 
       distribusi: {
         id: "distribusi",
-        nama: "Statistik Distribusi",
-        unitKerja: "Tim Kerja Statistik Distribusi, Harga, Jasa, Perdagangan & Pariwisata",
+        nama: "Statistik Distribusi dan Jasa",
+        unitKerja: "Tim Kerja Statistik Distribusi dan Jasa (Perdagangan, Harga, Keuangan & Jasa)",
         tagStyle: "background-color: var(--team-distribusi-bg); color: var(--team-distribusi-text); border: 1px solid var(--team-distribusi-border);",
         portalUrl: "https://kepsulkab.bps.go.id/subject/8/harga-dan-inflasi.html",
         portalJudul: "Publikasi Inflasi, Pariwisata & Sensus Ekonomi",
         portalPublikasi: ["Laporan Perkembangan Indeks Harga & Inflasi", "Tingkat Penghunian Kamar Hotel (TPK)", "Profil Sensus Ekonomi Sepuluh Tahunan"],
-        deskripsi: "Tim Statistik Distribusi mengelola data peredaran barang, jasa, pariwisata, keuangan, dan seluruh kegiatan ekonomi non-pertanian. Termasuk angka inflasi resmi (IHK), harga perdesaan/produsen, Indeks Kemahalan Konstruksi (IKK), perhotelan, logistik pelabuhan, dan Sensus Ekonomi sepuluh tahunan.",
-        dasarHukum: "UU No. 16 Tahun 1997; UU No. 7 Tahun 2014 tentang Perdagangan; SKB Mendagri & Kepala BPS mengenai Pemantauan Inflasi Daerah.",
+        deskripsi: "Tim Statistik Distribusi dan Jasa mengawal pencatatan arus barang, mata rantai perdagangan, serta dinamika sektor jasa komersial di Kabupaten Kepulauan Sula. Bidang ini berfokus pada pemantauan gejolak harga komoditas pokok di pasar, volume bongkar muat barang dan penumpang di pelabuhan laut/bandara, aktivitas perhotelan dan pariwisata, hingga intermediasi jasa keuangan daerah. Informasi yang disajikan menjadi instrumen krusial dalam pengendalian inflasi dan stabilitas rantai pasok wilayah kepulauan.",
+        dasarHukum: "UU No. 16 Tahun 1997 tentang Statistik; Peraturan Presiden No. 86 Tahun 2007 tentang Badan Pusat Statistik sebagaimana diubah dengan Peraturan Presiden No. 1 Tahun 2025; Peraturan Badan Pusat Statistik No. 2 Tahun 2025 tentang Organisasi dan Tata Kerja Badan Pusat Statistik.",
         tupoksi: [
-          "Melaksanakan Sensus Ekonomi (SE) sepuluh tahunan pemetaan seluruh bisnis non-pertanian.",
-          "Menghitung Indeks Harga Konsumen (IHK) dan laju inflasi bulanan/tahunan.",
-          "Menyusun Indeks Kemahalan Konstruksi (IKK) untuk alokasi Dana Alokasi Umum (DAU) APBN.",
-          "Mendata indikator pariwisata: Tingkat Penghunian Kamar (TPK) Hotel dan rata-rata lama menginap.",
-          "Memantau arus bongkar muat barang dan penumpang di pelabuhan laut Sanana."
+          "Melaksanakan pencatatan rutin harga barang dan komoditas pangan pokok di pasar tradisional dan pedagang eceran melalui Survei Harga Konsumen (SHK/IHK) dan Survei Harga Perdesaan (SHPB).",
+          "Memonitor arus lalu lintas barang logistik antarpulau, kunjungan kapal, dan angkutan penumpang melalui kompilasi data administrasi pelabuhan laut Sanana dan bandar udara.",
+          "Melakukan survei okupansi kamar hotel, tarif akomodasi, dan profil kunjungan wisatawan melalui Survei Jasa Akomodasi dan Pariwisata.",
+          "Mengumpulkan data margin perdagangan dan pola distribusi barang strategis melalui Survei Pola Distribusi Perdagangan (Poldis).",
+          "Menyelenggarakan pendataan statistik keuangan pemerintah daerah, perbankan, dan lembaga keuangan bukan bank guna memetakan likuiditas dan pembiayaan perekonomian daerah.",
+          "Memantau perkembangan harga di tingkat produsen sektor pertanian dan perikanan sebagai dasar penyusunan Indeks Harga yang Diterima/Dibayar Petani (NTP)."
         ],
         indikatorKunci: [
           "Laju Inflasi Bulanan (m-to-m) & Tahunan (y-on-y)", "Indeks Kemahalan Konstruksi (IKK)", "Tingkat Penghunian Kamar Hotel (TPK)", "Populasi Usaha Sensus Ekonomi (SE2026)", "Arus Barang Pelabuhan"
@@ -4779,21 +4866,21 @@
 
       nwas: {
         id: "nwas",
-        nama: "Neraca Wilayah & Analisis Statistik (NWAS)",
-        unitKerja: "Tim Kerja Neraca Wilayah dan Analisis Statistik (NWAS)",
+        nama: "Neraca dan Analisis Statistik",
+        unitKerja: "Tim Kerja Neraca dan Analisis Statistik (Neraca Produksi, Neraca Pengeluaran & Analisis Statistik)",
         tagStyle: "background-color: var(--team-nwas-bg); color: var(--team-nwas-text); border: 1px solid var(--team-nwas-border);",
         portalUrl: "https://kepsulkab.bps.go.id/subject/52/produk-domestik-regional-bruto--lapangan-usaha-.html",
         portalJudul: "Publikasi PDRB 17 Sektor & Analisis Makro",
         portalPublikasi: ["Produk Domestik Regional Bruto (PDRB) Lapangan Usaha", "PDRB Menurut Komponen Pengeluaran", "Tabel Input-Output Perekonomian Sula"],
-        deskripsi: "Tim NWAS bertindak sebagai integrator tertinggi seluruh data sektoral ke dalam kerangka Neraca Nasional (SNA). Menghitung Produk Domestik Regional Bruto (PDRB 17 Sektor), Tabel Input-Output, pembentukan modal (investasi PMTB), dan analisis ekonomi makro daerah.",
-        dasarHukum: "UU No. 16 Tahun 1997 tentang Statistik; Manual SNA 2008 PBB; Perpres Satu Data Indonesia.",
+        deskripsi: "Tim Neraca dan Analisis Statistik berperan sebagai simpul hilir yang mengintegrasikan seluruh data primer dari tim statistik sektoral ke dalam kerangka akuntansi makroekonomi regional yang terstandarisasi. Tim ini bertugas menghitung Produk Domestik Regional Bruto (PDRB) Kabupaten Kepulauan Sula baik dari pendekatan lapangan usaha (neraca produksi) maupun komponen pengeluaran akhir (neraca pengeluaran). Melalui permodelan dan analisis statistik lanjutan, tim ini menerjemahkan angka agregat menjadi kajian tematik dan indikator strategis arah pertumbuhan ekonomi daerah.",
+        dasarHukum: "UU No. 16 Tahun 1997 tentang Statistik; Peraturan Presiden No. 86 Tahun 2007 tentang Badan Pusat Statistik sebagaimana diubah dengan Peraturan Presiden No. 1 Tahun 2025; Peraturan Badan Pusat Statistik No. 2 Tahun 2025 tentang Organisasi dan Tata Kerja Badan Pusat Statistik.",
         tupoksi: [
-          "Menghitung PDRB Lapangan Usaha (17 Sektor) Triwulanan dan Tahunan (ADHB & ADHK).",
-          "Menghitung PDRB Pengeluaran (Konsumsi RT, LNPRT, Pemerintah, PMTB, Ekspor/Impor).",
-          "Melaksanakan Survei Lembaga Non-Profit Rumah Tangga (SKLNPT).",
-          "Melaksanakan Survei Khusus Tabungan dan Penanaman Modal (SKTNP).",
-          "Melaksanakan Survei Perguruan Tinggi & Survei Khusus Non Profit (SKNP).",
-          "Menyusun analisis makro daerah dan Disparitas Antar-Wilayah."
+          "Mengompilasi data output sektoral untuk penyusunan dan penghitungan angka Produk Domestik Regional Bruto (PDRB) menurut Lapangan Usaha secara triwulanan dan tahunan.",
+          "Menghitung PDRB menurut Pengeluaran guna mengukur konsumsi rumah tangga, investasi (PMTB), pengeluaran pemerintah, serta neraca perdagangan ekspor-impor neto antardaerah.",
+          "Mengembangkan dan menyusun Tabel Input-Output (I-O) serta Sistem Neraca Sosial Ekonomi regional untuk simulasi dampak kebijakan ekonomi daerah.",
+          "Menyusun publikasi analisis makroekonomi strategis seperti Indikator Ekonomi, Analisis PDRB, serta telaah tren pertumbuhan dan struktur ekonomi Kabupaten Kepulauan Sula.",
+          "Menyelenggarakan kompilasi Neraca Institusi dan neraca satelit terkait sumber daya alam/lingkungan untuk evaluasi keberlanjutan pembangunan.",
+          "Mengelola data statistik pembangunan dan menyajikan diseminasi indikator makro daerah kepada pemangku kepentingan (Pemda/Bappeda dan publik)."
         ],
         indikatorKunci: [
           "Laju Pertumbuhan Ekonomi Daerah (PDRB Riil %)", "PDRB Per Kapita", "Struktur 17 Lapangan Usaha", "Investasi (PMTB)", "Konsumsi Rumah Tangga", "Tabel Input-Output"
@@ -4912,14 +4999,14 @@
         portalUrl: "https://kepsulkab.bps.go.id/publication.html",
         portalJudul: "Publikasi Induk & Portal Pelayanan PST Sula",
         portalPublikasi: ["Kabupaten Kepulauan Sula Dalam Angka 2026", "Katalog Publikasi & Metadata ROMANTIK SDI", "Layanan Konsultasi PST Online"],
-        deskripsi: "Tim IPDS bertindak sebagai tulang punggung teknologi informasi, integrasi sistem, dan diseminasi resmi BPS. Tim ini tidak melakukan survei lapangan primer, melainkan mengelola seluruh infrastruktur server, CAPI FASIH, basis data geospasial Wilkerstat, layanan Pelayanan Statistik Terpadu (PST), website publikasi, dan koordinasi metadata Satu Data Indonesia.",
-        dasarHukum: "UU No. 16 Tahun 1997; Perpres No. 39 Tahun 2019 (Satu Data Indonesia); Perka BPS No. 4 Tahun 2019 tentang Metadata Statistik.",
+        deskripsi: "Tim IPDS bertindak sebagai tulang punggung teknologi informasi, integrasi sistem, dan diseminasi resmi BPS. Tim ini mengelola seluruh infrastruktur jaringan server, integrasi CAPI FASIH, basis data spasial Wilkerstat, layanan Pelayanan Statistik Terpadu (PST), website publikasi resmi, dan tata kelola Satu Data Indonesia.",
+        dasarHukum: "UU No. 16 Tahun 1997 tentang Statistik; Peraturan Presiden No. 86 Tahun 2007 tentang Badan Pusat Statistik sebagaimana diubah dengan Peraturan Presiden No. 1 Tahun 2025; Peraturan Badan Pusat Statistik No. 2 Tahun 2025 tentang Organisasi dan Tata Kerja Badan Pusat Statistik; Perpres No. 39 Tahun 2019 tentang Satu Data Indonesia.",
         tupoksi: [
           "Mengelola infrastruktur jaringan, server database, keamanan informasi, dan konektivitas CAPI FASIH.",
-          "Menyelenggarakan Pelayanan Statistik Terpadu (PST): konsultasi data, perpustakaan, dan penjualan publikasi resmi.",
+          "Menyelenggarakan Pelayanan Statistik Terpadu (PST): konsultasi statistik, perpustakaan digital, dan rekomendasi kegiatan statistik.",
           "Mengelola pemutakhiran peta spasial digital Wilayah Kerja Statistik (Wilkerstat) dan geotagging wilayah.",
           "Mengelola portal website BPS Kabupaten, rilis Berita Resmi Statistik (BRS), dan media sosial resmi.",
-          "Melakukan pembinaan rekomendasi kegiatan statistik dan validasi metadata (ROMANIK / Satu Data Indonesia)."
+          "Melakukan pembinaan statistik sektoral dan validasi metadata (ROMANTIK / Satu Data Indonesia)."
         ],
         indikatorKunci: [
           "Uptime Server & Keamanan Data (%)", "Tingkat Kepuasan Konsumen PST", "Cakupan Peta Blok Sensus Digital", "Jumlah Rilis BRS & Publikasi Tepat Waktu", "Indeks Pembangunan Statistik (IPS)"
@@ -5556,14 +5643,17 @@
       document.getElementById("surveyHeaderSubtitle").innerHTML = `<i class="fa-solid fa-building-columns"></i> Dikelola oleh Tim ${team.nama} — BPS Kabupaten Kepulauan Sula`;
 
       // Hide or show top hero button based on FASIH
+      const topScrapingWrapper = document.getElementById("topScrapingWrapper");
       const topScrapingBtn = document.getElementById("btnTriggerScraping");
-      if (topScrapingBtn) {
+      if (topScrapingWrapper && topScrapingBtn) {
         if (isFasih) {
-          topScrapingBtn.style.display = "inline-flex";
-          topScrapingBtn.innerHTML = `<i class="fa-solid fa-bolt-lightning"></i> Jalankan Scraping FASIH`;
-          topScrapingBtn.onclick = () => openScrapingModal();
+          topScrapingWrapper.style.display = "inline-flex";
+          topScrapingBtn.disabled = true;
+          topScrapingBtn.classList.add("btn-scraping-disabled");
+          topScrapingBtn.title = "Program dalam pembangunan";
+          topScrapingBtn.innerHTML = `<i class="fa-solid fa-arrows-rotate"></i> Jalankan Scraping FASIH`;
         } else {
-          topScrapingBtn.style.display = "none";
+          topScrapingWrapper.style.display = "none";
         }
       }
 
@@ -5686,9 +5776,11 @@
                 Sumber: <code>FASIH CAPI BPS RI</code>
               </p>
             </div>
-            <button onclick="openScrapingModal()" class="btn-scraping" style="width: 100%; justify-content: center; margin-bottom: 0.75rem;">
-              <i class="fa-solid fa-arrows-rotate"></i> Sinkronisasi Data Sekarang
-            </button>
+            <div class="scraping-tooltip-container" style="width: 100%; margin-bottom: 0.75rem;">
+              <button disabled class="btn-scraping btn-scraping-disabled" style="width: 100%; justify-content: center;" title="Program dalam pembangunan" onclick="openScrapingModal()">
+                <i class="fa-solid fa-arrows-rotate"></i> Sinkronisasi Data Sekarang
+              </button>
+            </div>
             <button onclick="openManualModal()" class="btn-manual-form" style="width: 100%; justify-content: center;">
               <i class="fa-solid fa-pen-to-square"></i> Input Progress Manual
             </button>
@@ -5757,7 +5849,7 @@
       if (isFasih) {
         headerTitle = `<span style="display: inline-flex; align-items: center; gap: 0.5rem;">${getFasihThemedSvg(18)} 5. Monitoring & Rekapitulasi Progres Lapangan (FASIH)</span>`;
         headerDesc = `Sinkronisasi data lapangan CAPI FASIH BPS Kabupaten Kepulauan Sula`;
-        statusBadge = `<div class="telemetry-status-badge"><span class="telemetry-live-dot"></span> Terhubung Live ke Server FASIH</div>`;
+        statusBadge = "";
       } else if (isBelumDiketahui) {
         headerTitle = `<i class="fa-solid fa-circle-question" style="color: #64748B;"></i> 5. Monitoring & Rekapitulasi Progres Lapangan`;
         headerDesc = `Mekanisme pengambilan data kegiatan ini akan ditentukan kemudian`;
@@ -5889,9 +5981,11 @@
 
             <div style="display: flex; justify-content: flex-end; margin-top: 0.75rem; gap: 0.5rem; flex-wrap: wrap;">
               ${isFasih ? `
-                <button onclick="openScrapingModal()" class="btn-scraping" style="padding: 0.45rem 0.95rem; font-size: 0.8125rem;">
-                  <i class="fa-solid fa-arrows-rotate"></i> Sinkronisasi Ulang FASIH
-                </button>
+                <div class="scraping-tooltip-container">
+                  <button disabled class="btn-scraping btn-scraping-disabled" style="padding: 0.45rem 0.95rem; font-size: 0.8125rem;" title="Program dalam pembangunan" onclick="openScrapingModal()">
+                    <i class="fa-solid fa-arrows-rotate"></i> Sinkronisasi Ulang FASIH
+                  </button>
+                </div>
               ` : ''}
               <button onclick="openManualModal()" class="btn-manual-form" style="padding: 0.45rem 1rem; font-size: 0.8125rem; background: #0F172A; color: white; border: none; font-weight: 700;">
                 <i class="fa-solid fa-pen-to-square"></i> Input Progress Manual
@@ -5912,9 +6006,11 @@
             </p>
             <div style="display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
               ${isFasih ? `
-                <button onclick="openScrapingModal()" class="btn-scraping" style="padding: 0.5rem 1rem; font-size: 0.8125rem;">
-                  <i class="fa-solid fa-arrows-rotate"></i> Jalankan Scraping FASIH
-                </button>
+                <div class="scraping-tooltip-container">
+                  <button disabled class="btn-scraping btn-scraping-disabled" style="padding: 0.5rem 1rem; font-size: 0.8125rem;" title="Program dalam pembangunan" onclick="openScrapingModal()">
+                    <i class="fa-solid fa-arrows-rotate"></i> Jalankan Scraping FASIH
+                  </button>
+                </div>
               ` : ''}
               <button onclick="openManualModal()" class="btn-manual-form" style="padding: 0.5rem 1rem; font-size: 0.8125rem; background: #0F172A; color: white; border: none; font-weight: 700;">
                 <i class="fa-solid fa-pen-to-square"></i> Input Progress Manual
@@ -6036,15 +6132,625 @@
       showToast(`Daftar Sampel Dikosongkan (Siap Input Baru dari Awal)`);
     }
 
+    // ─── BANTUAN AI: SALIN-TEMPEL DARI FASIH (SMART IMPORT ENGINE) ───
+    const FASIH_EXAMPLE_RAW_TEXT = `8208
+
+[82] MALUKU UTARA
+[8208] PULAU TALIABU
+[8208010] TALIABU BARAT
+74
+GERAKAN PEMUDA MARHAEN (GPM)
+1. Organisasi Kemasyarakatan (Ormas)
+1. Organisasi Kemasyarakatan (Ormas)
+DESA BOBONG, DUSUN FANGAHU
+1. Dicacah
+completed by admin kabupaten	
+CAPI
+rizasingrapati
+Pengawas
+-	
+	
+
+8208
+
+[82] MALUKU UTARA
+[8208] PULAU TALIABU
+[8208010] TALIABU BARAT
+72
+PARTAI PERINDO
+5. Partai Politik
+5. Partai Politik
+DESA WAYO, KOMPLEKS BUNDARAN.
+1. Dicacah
+completed by admin kabupaten	
+CAPI
+rizasingrapati
+Pengawas
+-	
+	
+
+8208
+
+[82] MALUKU UTARA
+[8208] PULAU TALIABU
+[8208010] TALIABU BARAT
+73
+PENGURUS BESAR HIMPUNAN MAHASISWA TALIABU (PBHMT)
+1. Organisasi Kemasyarakatan (Ormas)
+1. Organisasi Kemasyarakatan (Ormas)
+DUSUN SALENGA, DESA BOBONG
+1. Dicacah
+completed by admin kabupaten	
+CAPI
+rizasingrapati
+Pengawas
+-	
+	
+
+8208
+
+[82] MALUKU UTARA
+[8208] PULAU TALIABU
+[8208010] TALIABU BARAT
+75
+TAMAN PENDIDIKAN AL QURAN NURUL IMAN
+6. Lembaga Keagamaan
+6. Lembaga Keagamaan
+BOBONG, DUSUN SALENGA
+1. Dicacah
+completed by admin kabupaten	
+CAPI
+rizasingrapati
+Pengawas
+-	
+	
+
+8208
+
+[82] MALUKU UTARA
+[8208] PULAU TALIABU
+[8208010] TALIABU BARAT
+76
+CAKRA 01
+1. Organisasi Kemasyarakatan (Ormas)
+1. Organisasi Kemasyarakatan (Ormas)
+DESA BOBONG
+1. Dicacah
+completed by admin kabupaten	
+CAPI
+rizasingrapati
+Pengawas
+-	
+	
+
+8208
+
+[82] MALUKU UTARA
+[8208] PULAU TALIABU
+[8208010] TALIABU BARAT
+77
+Partai Golkar
+5. Partai Politik
+5. Partai Politik
+DESA BOBONG, KEC. TALIABU BARAT
+1. Dicacah
+completed by admin kabupaten	
+CAPI
+rizasingrapati
+Pengawas
+-	
+	
+
+8208
+
+[82] MALUKU UTARA
+[8208] PULAU TALIABU
+[8208010] TALIABU BARAT
+80
+GEREJA EFRATA
+6. Lembaga Keagamaan
+6. Lembaga Keagamaan
+DUSUN TAMUNDO
+1. Dicacah
+completed by admin kabupaten	
+CAPI
+rizasingrapati
+Pengawas
+-	
+	
+
+8208
+
+[82] MALUKU UTARA
+[8208] PULAU TALIABU
+[8208010] TALIABU BARAT
+78
+MASJID AL MUKMIN
+6. Lembaga Keagamaan
+6. Lembaga Keagamaan`;
+
+    let parsedFasihAiSamples = [];
+
+    function switchModalTab(tabKey) {
+      const tabs = [
+        { key: 'fasihAi', btn: 'tabBtnFasihAi', content: 'modalTabContentFasihAi' },
+        { key: 'tableList', btn: 'tabBtnTableList', content: 'modalTabContentTableList' },
+        { key: 'manualForm', btn: 'tabBtnManualForm', content: 'modalTabContentManualForm' }
+      ];
+
+      tabs.forEach(t => {
+        const btnEl = document.getElementById(t.btn);
+        const contentEl = document.getElementById(t.content);
+        if (btnEl) btnEl.classList.toggle('active', t.key === tabKey);
+        if (contentEl) contentEl.classList.toggle('active', t.key === tabKey);
+      });
+    }
+
+    function loadFasihAiExample() {
+      const textarea = document.getElementById("fasihAiRawInput");
+      if (textarea) {
+        textarea.value = FASIH_EXAMPLE_RAW_TEXT;
+        processFasihAiInput();
+        showToast("✨ Contoh data salinan FASIH berhasil dimuat & dianalisis oleh AI!");
+      }
+    }
+
+    function clearFasihAiInput() {
+      const textarea = document.getElementById("fasihAiRawInput");
+      if (textarea) textarea.value = "";
+      parsedFasihAiSamples = [];
+      const resultBox = document.getElementById("fasihAiResultBox");
+      if (resultBox) resultBox.style.display = "none";
+      showToast("Area salinan FASIH telah dibersihkan");
+    }
+
+    function mapFasihStatus(statusRaw, hasilRaw) {
+      const combined = ((statusRaw || '') + ' ' + (hasilRaw || '')).toLowerCase();
+      if (combined.includes('admin') || combined.includes('completed by admin') || combined.includes('approved by admin')) {
+        return 'Approve Admin';
+      }
+      if (combined.includes('pml') || (combined.includes('pengawas') && combined.includes('approve'))) {
+        return 'Approve PML';
+      }
+      if (combined.includes('submitted') || combined.includes('dicacah') || combined.includes('selesai')) {
+        return 'Submitted';
+      }
+      if (combined.includes('reject') || combined.includes('revisi') || combined.includes('anomali') || combined.includes('menolak')) {
+        return 'Rejected';
+      }
+      return 'Open';
+    }
+
+    function capitalizeWords(str) {
+      if (!str || typeof str !== 'string') return '';
+      return str.toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
+    }
+
+    function cleanDesaName(address) {
+      if (!address || typeof address !== 'string') return 'Desa Lapangan';
+      const addr = address.trim();
+
+      // Look for "DESA <nama>"
+      const matchDesa = addr.match(/desa\s+([a-zA-Z0-9\s]+)/i);
+      if (matchDesa) {
+        let name = matchDesa[1].split(',')[0].trim();
+        name = name.replace(/\s+(kec|dusun|kompleks).*$/i, '').trim();
+        return 'Desa ' + capitalizeWords(name);
+      }
+
+      // Look for "DUSUN <nama>"
+      const matchDusun = addr.match(/dusun\s+([a-zA-Z0-9\s]+)/i);
+      if (matchDusun) {
+        let name = matchDusun[1].split(',')[0].trim();
+        name = name.replace(/\s+(kec|desa).*$/i, '').trim();
+        return 'Dusun ' + capitalizeWords(name);
+      }
+
+      // First token before comma
+      const firstToken = addr.split(',')[0].trim();
+      if (firstToken.length > 2) {
+        return capitalizeWords(firstToken);
+      }
+      return 'Desa Wilayah';
+    }
+
+    function parseFasihAiText(rawText) {
+      if (!rawText || !rawText.trim()) return [];
+
+      const rawLines = rawText.split(/\r?\n/).map(l => l.trim()).filter(l => l.length > 0);
+      const results = [];
+
+      // Check if text is tab-delimited
+      const tabLines = rawLines.filter(l => l.includes('\t'));
+      if (tabLines.length >= 2 && tabLines.length >= rawLines.length * 0.3) {
+        tabLines.forEach((tLine, i) => {
+          const cols = tLine.split('\t').map(c => c.trim()).filter(c => c.length > 0);
+          if (cols.some(c => c.toLowerCase().includes('kode identitas') || c.toLowerCase().includes('nama lembaga'))) {
+            return;
+          }
+          if (cols.length < 3) return;
+
+          let name = cols.find(c => c.length > 3 && !c.startsWith('[') && !/^\d+$/.test(c) && !c.toLowerCase().includes('maluku') && !c.toLowerCase().includes('taliabu') && !c.toLowerCase().includes('sula')) || `Sampel FASIH #${i + 1}`;
+          let kec = cols.find(c => c.toLowerCase().includes('kec') || (c.startsWith('[') && c.length > 8)) || 'Kec. Sanana';
+          kec = kec.replace(/\[\d+\]\s*/g, '').trim();
+          if (!kec.toLowerCase().startsWith('kec')) kec = 'Kec. ' + kec;
+
+          let desa = cols.find(c => c.toLowerCase().includes('desa') || c.toLowerCase().includes('dusun') || c.toLowerCase().includes('jl')) || 'Desa Lapangan';
+          desa = cleanDesaName(desa);
+
+          let statusText = cols.find(c => c.toLowerCase().includes('completed') || c.toLowerCase().includes('admin') || c.toLowerCase().includes('pml') || c.toLowerCase().includes('submitted') || c.toLowerCase().includes('open')) || '';
+          let hasilText = cols.find(c => c.toLowerCase().includes('dicacah')) || '';
+          let finalStatus = mapFasihStatus(statusText, hasilText);
+
+          let pcl = cols.find(c => c.toLowerCase().includes('rizasingrapati') || (!c.includes(' ') && c.length > 4 && /^[a-z]+$/.test(c))) || 'Petugas CAPI';
+
+          results.push({
+            id: Date.now() + i,
+            name: name,
+            district: capitalizeWords(kec),
+            desa: desa,
+            pcl: pcl,
+            pml: 'Pengawas Lapangan',
+            status: finalStatus,
+            note: `Import AI FASIH (${new Date().toLocaleDateString('id-ID')})`
+          });
+        });
+
+        if (results.length > 0) return results;
+      }
+
+      // Block-based / Line-by-line parsing
+      const ignoreHeaders = [
+        'semua', 'tipe: target', 'penugasan: semua', 'cari...', 'aksi lainnya', 'kolom',
+        'kode identitas', 'prov', 'kab', 'kec', 'nus', 'nama lembaga',
+        'kode lembaga (prelist)', 'kode lembaga (hasil pendataan)',
+        'alamat', 'hasil pencacahan', 'status', 'mode', 'petugas saat ini', 'keterangan'
+      ];
+
+      const cleanedLines = rawLines.filter(line => !ignoreHeaders.includes(line.toLowerCase()));
+
+      // Chunk lines by starting markers like 4-digit codes or [82] / [xx]
+      const chunks = [];
+      let currentChunk = [];
+
+      for (let i = 0; i < cleanedLines.length; i++) {
+        const line = cleanedLines[i];
+        const isStart = /^\d{4}$/.test(line) || /^\[\d{2}\]/.test(line);
+
+        if (isStart && currentChunk.length >= 3) {
+          chunks.push(currentChunk);
+          currentChunk = [line];
+        } else {
+          currentChunk.push(line);
+        }
+      }
+      if (currentChunk.length > 0) {
+        chunks.push(currentChunk);
+      }
+
+      chunks.forEach((chunk, idx) => {
+        if (chunk.length < 2) return;
+
+        let nus = '';
+        let name = '';
+        let kec = '';
+        let address = '';
+        let hasil = '';
+        let statusRaw = '';
+        let pcl = 'Petugas CAPI';
+        let pml = 'Pengawas Lapangan';
+
+        for (let j = 0; j < chunk.length; j++) {
+          const cl = chunk[j];
+          const clLower = cl.toLowerCase();
+
+          // Sub-district
+          if (/\[\d{7}\]/.test(cl) || (clLower.includes('kec') && !clLower.includes('partai'))) {
+            kec = cl.replace(/\[\d+\]\s*/g, '').trim();
+            if (!kec.toLowerCase().startsWith('kec')) kec = 'Kec. ' + kec;
+          }
+          // Standalone NUS number (1 to 4 digits)
+          else if (/^\d{1,4}$/.test(cl) && !nus && !/^(8208|8207|8200)$/.test(cl)) {
+            nus = cl;
+          }
+          // Institution / Respondent Name
+          else if (!name && nus && !clLower.includes('organisasi') && !clLower.includes('partai') && !clLower.includes('lembaga') && !clLower.includes('desa') && !clLower.includes('dusun')) {
+            name = cl;
+          }
+          // Address / Village
+          else if (clLower.includes('desa') || clLower.includes('dusun') || clLower.includes('jalan') || clLower.includes('kompleks') || clLower.includes('bobong') || clLower.includes('sanana')) {
+            if (!address) address = cl;
+          }
+          // Enumeration result
+          else if (clLower.includes('dicacah') || clLower.includes('menolak') || clLower.includes('tidak ditemukan')) {
+            hasil = cl;
+          }
+          // FASIH Status line
+          else if (clLower.includes('completed') || clLower.includes('admin') || clLower.includes('pml') || clLower.includes('submitted') || clLower.includes('open') || clLower.includes('rejected')) {
+            statusRaw = cl;
+          }
+          // Officer name after CAPI
+          else if (clLower.includes('capi') && j + 1 < chunk.length) {
+            pcl = chunk[j + 1];
+          }
+        }
+
+        // Fallback for name
+        if (!name) {
+          const candidates = chunk.filter(c => !c.startsWith('[') && !/^\d+$/.test(c) && !c.toLowerCase().includes('maluku') && !c.toLowerCase().includes('organisasi') && !c.toLowerCase().includes('partai') && !c.toLowerCase().includes('lembaga'));
+          name = candidates.length > 0 ? candidates[0] : `Sampel Lapangan #${idx + 1}`;
+        }
+
+        if (!kec) {
+          kec = currentActiveSurveyObj ? 'Kec. Sanana' : 'Kec. Sula';
+        }
+
+        const finalStatus = mapFasihStatus(statusRaw, hasil);
+        const finalDesa = cleanDesaName(address);
+
+        results.push({
+          id: Date.now() + idx,
+          nus: nus,
+          name: name,
+          district: capitalizeWords(kec),
+          desa: finalDesa,
+          pcl: pcl || 'Petugas CAPI',
+          pml: pml || 'Pengawas Lapangan',
+          status: finalStatus,
+          note: `Import AI FASIH (${new Date().toLocaleDateString('id-ID')})`
+        });
+      });
+
+      return results;
+    }
+
+    function processFasihAiInput() {
+      const textarea = document.getElementById("fasihAiRawInput");
+      const rawText = textarea ? textarea.value : "";
+
+      if (!rawText || !rawText.trim()) {
+        showToast("⚠️ Silakan tempel (paste) data salinan dari FASIH terlebih dahulu.");
+        return;
+      }
+
+      parsedFasihAiSamples = parseFasihAiText(rawText);
+
+      if (parsedFasihAiSamples.length === 0) {
+        showToast("⚠️ AI belum dapat mengenali struktur data. Pastikan teks mencakup baris identitas & status FASIH.");
+        return;
+      }
+
+      // Render Result Preview Box
+      const resultBox = document.getElementById("fasihAiResultBox");
+      const badgeText = document.getElementById("fasihAiBadgeText");
+      const tbody = document.getElementById("fasihAiPreviewTableBody");
+
+      if (resultBox) resultBox.style.display = "block";
+
+      const adminCount = parsedFasihAiSamples.filter(s => s.status === 'Approve Admin').length;
+      const pmlCount = parsedFasihAiSamples.filter(s => s.status === 'Approve PML').length;
+      const subCount = parsedFasihAiSamples.filter(s => s.status === 'Submitted').length;
+      const openCount = parsedFasihAiSamples.filter(s => s.status === 'Open').length;
+
+      if (badgeText) {
+        badgeText.innerHTML = `<strong>${parsedFasihAiSamples.length} Sampel FASIH Terdeteksi</strong> &bull; Status: ${adminCount} Approve Admin, ${pmlCount} Approve PML, ${subCount} Submitted, ${openCount} Open`;
+      }
+
+      if (tbody) {
+        tbody.innerHTML = parsedFasihAiSamples.map((s, idx) => {
+          return `
+            <tr>
+              <td style="text-align: center; font-weight: 700; color: var(--color-text-muted); font-size: 0.75rem;">${idx + 1}</td>
+              <td>
+                <div style="font-weight: 700; color: #0F172A; font-size: 0.8125rem;">${s.name}</div>
+                <div style="font-size: 0.725rem; color: #64748B; margin-top: 0.15rem;">
+                  ${s.nus ? `<span style="background: #F1F5F9; padding: 0.1rem 0.35rem; border-radius: 4px; font-weight: 600; color: #475569;">NUS: ${s.nus}</span> &bull; ` : ''}
+                  <i class="fa-solid fa-user-gear" style="font-size: 0.65rem;"></i> CAPI: ${s.pcl}
+                </div>
+              </td>
+              <td><span style="font-size: 0.8125rem; color: #334155;">${s.district}</span></td>
+              <td><span style="font-size: 0.8125rem; font-weight: 600; color: #0F172A;">${s.desa}</span></td>
+              <td style="text-align: center;">
+                <select onchange="changeParsedSampleStatus(${idx}, this.value)" style="font-size: 0.75rem; font-weight: 700; padding: 0.28rem 0.5rem; border: 1px solid var(--color-border); border-radius: 6px; background: ${s.status === 'Approve Admin' ? '#F0FDF4' : s.status === 'Approve PML' ? '#FFFBEB' : s.status === 'Submitted' ? '#EFF6FF' : '#F8FAFC'}; color: ${s.status === 'Approve Admin' ? '#166534' : s.status === 'Approve PML' ? '#92400E' : s.status === 'Submitted' ? '#1E40AF' : '#334155'}; cursor: pointer; width: 100%;">
+                  <option value="Approve Admin" ${s.status === 'Approve Admin' ? 'selected' : ''}>🟢 Approve Admin</option>
+                  <option value="Approve PML" ${s.status === 'Approve PML' ? 'selected' : ''}>🟡 Approve PML</option>
+                  <option value="Submitted" ${s.status === 'Submitted' ? 'selected' : ''}>🔵 Submitted by Pencacah</option>
+                  <option value="Open" ${s.status === 'Open' ? 'selected' : ''}>⚪ Open (Belum)</option>
+                  <option value="Rejected" ${s.status === 'Rejected' ? 'selected' : ''}>🔴 Rejected / Revisi</option>
+                </select>
+              </td>
+            </tr>
+          `;
+        }).join('');
+      }
+
+      showToast(`🤖 AI berhasil menganalisis ${parsedFasihAiSamples.length} baris sampel FASIH!`);
+    }
+
+    function changeParsedSampleStatus(index, newStatus) {
+      if (parsedFasihAiSamples[index]) {
+        parsedFasihAiSamples[index].status = newStatus;
+      }
+    }
+
+    function submitFasihAiSamples() {
+      if (!parsedFasihAiSamples || parsedFasihAiSamples.length === 0) {
+        showToast("⚠️ Belum ada data hasil analisis AI untuk disimpan.");
+        return;
+      }
+
+      const surveyId = currentActiveSurveyObj ? currentActiveSurveyObj.id : "kegiatan-statistik";
+      const modeRadio = document.querySelector('input[name="fasihImportMode"]:checked');
+      const mode = modeRadio ? modeRadio.value : 'replace';
+
+      let finalSamples = [];
+      if (mode === 'append') {
+        const existing = getSurveySamples(surveyId, currentMonitoringYear);
+        finalSamples = existing.concat(parsedFasihAiSamples);
+      } else {
+        finalSamples = [...parsedFasihAiSamples];
+      }
+
+      saveSurveySamples(surveyId, finalSamples, currentMonitoringYear);
+      renderModalSamplesTable(surveyId);
+
+      if (currentActiveSurveyObj) {
+        renderSurveyScrapedData(currentActiveTeamKey, currentActiveSurveyObj);
+      }
+
+      // Switch to Table List tab so user can review immediately
+      switchModalTab('tableList');
+
+      showToast(`✨ Sukses! ${parsedFasihAiSamples.length} sampel FASIH berhasil disimpan ke progres lapangan (${currentMonitoringYear}).`);
+    }
+
     function openManualModal() {
       const modal = document.getElementById("manualEntryModal");
       if (!modal) return;
 
+      // Reset the CTA button to initial "Submit" state
+      const cta = document.getElementById("fasihMainCta");
+      const ctaIcon = document.getElementById("fasihCtaIcon");
+      const ctaLabel = document.getElementById("fasihCtaLabel");
+      if (cta) {
+        cta.style.background = "linear-gradient(135deg, #0284C7, #0369A1)";
+        cta.style.boxShadow = "0 4px 14px rgba(2,132,199,0.3)";
+        cta.disabled = false;
+      }
+      if (ctaIcon) ctaIcon.className = "fa-solid fa-floppy-disk";
+      if (ctaLabel) ctaLabel.innerHTML = "&nbsp;Submit";
+
+      // Hide result box & summary grid
+      const resultBox = document.getElementById("fasihAiResultBox");
+      if (resultBox) resultBox.style.display = "none";
+      const summaryGrid = document.getElementById("modalSummaryGrid");
+      if (summaryGrid) summaryGrid.style.display = "none";
+
+      // Update modal title with survey name and year
       const surveyId = currentActiveSurveyObj ? currentActiveSurveyObj.id : "kegiatan-statistik";
       const surveyName = currentActiveSurveyObj ? currentActiveSurveyObj.nama : "Survei Statistik";
+      const titleEl = document.getElementById("modalTitleText");
+      const subtitleEl = document.getElementById("modalSubtitleText");
+      if (titleEl) titleEl.innerText = `Copy Paste dari FASIH`;
+      if (subtitleEl) subtitleEl.innerText = `${surveyName} · Tahun ${currentMonitoringYear}`;
 
-      renderModalSamplesTable(surveyId, surveyName);
       modal.style.display = "flex";
+    }
+
+    // ── Single-click FASIH Submit: Parse → Preview → Save ──────────────────────
+    function fasihSubmitAction() {
+      const textarea = document.getElementById("fasihAiRawInput");
+      const rawText = textarea ? textarea.value : "";
+
+      if (!rawText || !rawText.trim()) {
+        showToast("⚠️ Silakan tempel (paste) data dari FASIH terlebih dahulu.");
+        return;
+      }
+
+      // 1. Parse
+      parsedFasihAiSamples = parseFasihAiText(rawText);
+
+      if (parsedFasihAiSamples.length === 0) {
+        showToast("⚠️ AI tidak dapat mengenali struktur data. Pastikan teks berisi baris status FASIH.");
+        return;
+      }
+
+      // 2. Show preview
+      const resultBox = document.getElementById("fasihAiResultBox");
+      const badgeText = document.getElementById("fasihAiBadgeText");
+      const tbody = document.getElementById("fasihAiPreviewTableBody");
+
+      if (resultBox) resultBox.style.display = "block";
+
+      const adminCount = parsedFasihAiSamples.filter(s => s.status === 'Approve Admin').length;
+      const pmlCount = parsedFasihAiSamples.filter(s => s.status === 'Approve PML').length;
+      const subCount = parsedFasihAiSamples.filter(s => s.status === 'Submitted').length;
+      const openCount = parsedFasihAiSamples.filter(s => s.status === 'Open').length;
+
+      if (badgeText) {
+        badgeText.innerHTML = `<strong>${parsedFasihAiSamples.length} Sampel FASIH Terdeteksi</strong> &bull; ${adminCount} Approve Admin &bull; ${pmlCount} Approve PML &bull; ${subCount} Submitted &bull; ${openCount} Open`;
+      }
+
+      if (tbody) {
+        tbody.innerHTML = parsedFasihAiSamples.map((s, idx) => {
+          const statusColors = {
+            'Approve Admin': { bg: '#F0FDF4', color: '#166534', emoji: '🟢' },
+            'Approve PML':   { bg: '#FFFBEB', color: '#92400E', emoji: '🟡' },
+            'Submitted':     { bg: '#EFF6FF', color: '#1E40AF', emoji: '🔵' },
+            'Open':          { bg: '#F8FAFC', color: '#475569', emoji: '⚪' },
+            'Rejected':      { bg: '#FFF1F2', color: '#9F1239', emoji: '🔴' }
+          };
+          const sc = statusColors[s.status] || statusColors['Open'];
+          return `
+            <tr>
+              <td style="text-align: center; font-weight: 700; color: var(--color-text-muted); font-size: 0.75rem;">${idx + 1}</td>
+              <td>
+                <div style="font-weight: 700; color: #0F172A; font-size: 0.8125rem;">${s.name}</div>
+                <div style="font-size: 0.725rem; color: #64748B; margin-top: 0.1rem;">
+                  ${s.nus ? `NUS: ${s.nus} &bull; ` : ''}CAPI: ${s.pcl}
+                </div>
+              </td>
+              <td style="font-size: 0.8125rem; color: #334155;">${s.district}</td>
+              <td style="font-size: 0.8125rem; font-weight: 600; color: #0F172A;">${s.desa}</td>
+              <td style="text-align: center;">
+                <select onchange="changeParsedSampleStatus(${idx}, this.value)"
+                  style="font-size: 0.75rem; font-weight: 700; padding: 0.28rem 0.45rem; border: 1px solid var(--color-border); border-radius: 6px; background: ${sc.bg}; color: ${sc.color}; cursor: pointer; width: 100%;">
+                  <option value="Approve Admin" ${s.status === 'Approve Admin' ? 'selected' : ''}>🟢 Approve Admin</option>
+                  <option value="Approve PML"   ${s.status === 'Approve PML'   ? 'selected' : ''}>🟡 Approve PML</option>
+                  <option value="Submitted"      ${s.status === 'Submitted'     ? 'selected' : ''}>🔵 Submitted</option>
+                  <option value="Open"           ${s.status === 'Open'          ? 'selected' : ''}>⚪ Open</option>
+                  <option value="Rejected"       ${s.status === 'Rejected'      ? 'selected' : ''}>🔴 Rejected</option>
+                </select>
+              </td>
+            </tr>
+          `;
+        }).join('');
+      }
+
+      // 3. Save to localStorage
+      const surveyId = currentActiveSurveyObj ? currentActiveSurveyObj.id : "kegiatan-statistik";
+      const modeRadio = document.querySelector('input[name="fasihImportMode"]:checked');
+      const mode = modeRadio ? modeRadio.value : 'replace';
+
+      let finalSamples;
+      if (mode === 'append') {
+        const existing = getSurveySamples(surveyId, currentMonitoringYear);
+        finalSamples = existing.concat(parsedFasihAiSamples);
+      } else {
+        finalSamples = [...parsedFasihAiSamples];
+      }
+      saveSurveySamples(surveyId, finalSamples, currentMonitoringYear);
+
+      // 4. Refresh monitoring section (live update)
+      if (currentActiveSurveyObj) {
+        renderSurveyScrapedData(currentActiveTeamKey, currentActiveSurveyObj);
+      }
+
+      // 5. Update summary cards
+      const metrics = calculateMetrics(finalSamples);
+      const summaryGrid = document.getElementById("modalSummaryGrid");
+      if (summaryGrid) summaryGrid.style.display = "grid";
+      const elSampel = document.getElementById("modalSummarySampel");
+      const elSubmitted = document.getElementById("modalSummarySubmitted");
+      const elPml = document.getElementById("modalSummaryPml");
+      const elAdmin = document.getElementById("modalSummaryAdmin");
+      if (elSampel) elSampel.innerHTML = `${metrics.total} <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">Sampel</span>`;
+      if (elSubmitted) elSubmitted.innerHTML = `${metrics.submitted} <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">(${metrics.submittedPercent}%)</span>`;
+      if (elPml) elPml.innerHTML = `${metrics.pmlApproved} <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">(${metrics.pmlPercent}%)</span>`;
+      if (elAdmin) elAdmin.innerHTML = `${metrics.adminApproved} <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">(${metrics.adminPercent}%)</span>`;
+
+      // 6. Change CTA button to success state
+      const cta = document.getElementById("fasihMainCta");
+      const ctaIcon = document.getElementById("fasihCtaIcon");
+      const ctaLabel = document.getElementById("fasihCtaLabel");
+      if (cta) {
+        cta.style.background = "linear-gradient(135deg, #16A34A, #15803D)";
+        cta.style.boxShadow = "0 4px 14px rgba(22,163,74,0.3)";
+      }
+      if (ctaIcon) ctaIcon.className = "fa-solid fa-circle-check";
+      if (ctaLabel) ctaLabel.innerHTML = `&nbsp;${parsedFasihAiSamples.length} Data Tersimpan ✔`;
+
+      showToast(`✨ ${parsedFasihAiSamples.length} sampel FASIH berhasil diproses & disimpan ke progres lapangan ${currentMonitoringYear}!`);
     }
 
     function closeManualModal() {
@@ -6053,44 +6759,8 @@
     }
 
     function handleManualEntrySubmit(event) {
+      // Kept for compatibility in case form exists elsewhere
       event.preventDefault();
-      const kecVal = document.getElementById("modalFormKecamatan").value;
-      const desaVal = document.getElementById("modalFormDesa").value;
-      const sampleNameVal = document.getElementById("modalFormSampleName").value;
-      const statusVal = document.getElementById("modalFormSampleStatus").value;
-      const pclVal = document.getElementById("modalFormPcl").value || "Petugas Mitra BPS";
-      const pmlVal = document.getElementById("modalFormPml").value || "Pengawas BPS";
-
-      const surveyId = currentActiveSurveyObj ? currentActiveSurveyObj.id : "kegiatan-statistik";
-      const samples = getSurveySamples(surveyId, currentMonitoringYear);
-
-      // Create new sample object
-      const newSample = {
-        id: Date.now(),
-        name: sampleNameVal,
-        district: kecVal,
-        desa: desaVal,
-        pcl: pclVal,
-        pml: pmlVal,
-        status: statusVal,
-        note: `Dicatat pada ${new Date().toLocaleDateString('id-ID')}`
-      };
-
-      samples.push(newSample);
-      saveSurveySamples(surveyId, samples, currentMonitoringYear);
-
-      if (currentActiveSurveyObj) {
-        renderSurveyScrapedData(currentActiveTeamKey, currentActiveSurveyObj);
-      }
-
-      renderModalSamplesTable(surveyId);
-      showToast(`Sampel (${desaVal}) Berhasil Ditambahkan dengan Status: ${statusVal}!`);
-
-      // Reset Form fields
-      document.getElementById("modalFormDesa").value = "";
-      document.getElementById("modalFormSampleName").value = "";
-      document.getElementById("modalFormPcl").value = "";
-      document.getElementById("modalFormPml").value = "";
     }
 
     function showToast(message) {
@@ -6108,25 +6778,12 @@
 
     // ─── MODAL SCRAPING LOGIC ───
     function openScrapingModal() {
-      const modal = document.getElementById("scrapingModal");
-      const logs = document.getElementById("terminalLogOutput");
-      modal.style.display = "flex";
-
-      const surveyName = currentActiveSurveyObj ? currentActiveSurveyObj.nama : "Survei Statistik";
-      const surveyKode = currentActiveSurveyObj ? currentActiveSurveyObj.kode : "SURVEI-2026";
-
-      logs.innerHTML = `
-        <div>[00:00:01] <span style="color: #38BDF8;">[INIT]</span> Menghubungkan ke FASIH Backend Server (https://fasih.bps.go.id)...</div>
-        <div>[00:00:02] <span style="color: #4ADE80;">[AUTH]</span> Token Bearer Session BPS Kepulauan Sula terverifikasi.</div>
-        <div>[00:00:03] <span style="color: #F472B6;">[SCRAPE]</span> Mengeksekusi modul adapter KANVAS untuk: <strong>${surveyName}</strong>...</div>
-        <div>[00:00:04] <span style="color: #A78BFA;">[EXTRACT]</span> Mengambil data sampel & dokumen terunggah CAPI dari 12 kecamatan Sula...</div>
-        <div>[00:00:05] <span style="color: #4ADE80;">[SYNC]</span> 100% Data progres berhasil disinkronkan ke basis data KANVAS SULA!</div>
-        <div style="margin-top: 0.5rem; color: #4ADE80; font-weight: bold;">[SUCCESS] Status Realisasi & Monitoring FASIH Berhasil Disinkronkan.</div>
-      `;
+      showToast("🚧 Program dalam pembangunan: Fitur Sinkronisasi & Scraping Otomatis FASIH sedang disiapkan.");
     }
 
     function closeScrapingModal() {
-      document.getElementById("scrapingModal").style.display = "none";
+      const modal = document.getElementById("scrapingModal");
+      if (modal) modal.style.display = "none";
     }
 
     // ─── CHATBOT ASISTEN STATIVA AI LOGIC ───
