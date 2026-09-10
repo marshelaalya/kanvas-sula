@@ -3632,7 +3632,7 @@
             </div>
 
             <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-              <button onclick="openManualModal()" class="btn-manual-form">
+              <button id="btnHeaderManual" onclick="openDynamicProgressModal()" class="btn-manual-form">
                 <i class="fa-solid fa-pen-to-square"></i> Input Progress Manual
               </button>
               <div class="scraping-tooltip-container" id="topScrapingWrapper">
@@ -3738,23 +3738,25 @@
   <!-- ═════════════════════════════════════════════════════════════════════════ -->
   <!-- MODAL FORM INPUT / PEMUTAKHIRAN MANUAL PROGRES SURVEI (STANDAR BPS)       -->
   <!-- ═════════════════════════════════════════════════════════════════════════ -->
-  <div id="manualEntryModal" class="scraping-terminal-modal">
+  <!-- MODAL 1: COPY PASTE DARI FASIH (UNTUK SURVEI DENGAN SUMBER FASIH)        -->
+  <!-- ═════════════════════════════════════════════════════════════════════════ -->
+  <div id="fasihAiModal" class="scraping-terminal-modal">
     <div class="manual-modal-box">
       <div class="manual-modal-header">
         <div style="display: flex; align-items: center; gap: 0.65rem;">
-          <div style="width: 36px; height: 36px; border-radius: 10px; background: #F0F9FF; color: #0369A1; display: flex; align-items: center; justify-content: center; font-size: 1rem; border: 1px solid #BAE6FD;">
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: #F0F9FF; color: #0284C7; display: flex; align-items: center; justify-content: center; font-size: 1rem; border: 1px solid #BAE6FD;">
             <i class="fa-regular fa-clipboard"></i>
           </div>
           <div>
-            <h3 style="font-size: 1.0625rem; font-weight: 700; margin: 0; color: var(--color-text-primary);" id="modalTitleText">
+            <h3 style="font-size: 1.0625rem; font-weight: 700; margin: 0; color: var(--color-text-primary);" id="fasihModalTitleText">
               Copy Paste dari FASIH
             </h3>
-            <p style="font-size: 0.75rem; color: var(--color-text-muted); margin: 0;" id="modalSubtitleText">
+            <p style="font-size: 0.75rem; color: var(--color-text-muted); margin: 0;" id="fasihModalSubtitleText">
               Salin data tabel dari fasih.bps.go.id, tempel di sini, lalu Submit
             </p>
           </div>
         </div>
-        <button onclick="closeManualModal()" style="background: none; border: none; font-size: 1.25rem; color: #94A3B8; cursor: pointer;">
+        <button onclick="closeFasihAiModal()" style="background: none; border: none; font-size: 1.25rem; color: #94A3B8; cursor: pointer;">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
@@ -3764,19 +3766,19 @@
         <div class="manual-status-summary-grid" id="modalSummaryGrid" style="display: none;">
           <div class="manual-summary-card">
             <div class="manual-summary-card-label"><i class="fa-solid fa-layer-group" style="color: var(--color-muted-indigo);"></i> Tersimpan</div>
-            <div class="manual-summary-card-val" id="modalSummarySampel" style="color: #0F172A;">0 <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">Sampel</span></div>
+            <div class="manual-summary-card-val" id="fasihSummarySampel" style="color: #0F172A;">0 <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">Sampel</span></div>
           </div>
           <div class="manual-summary-card">
             <div class="manual-summary-card-label"><span style="color: #2563EB;">●</span> Submitted</div>
-            <div class="manual-summary-card-val" id="modalSummarySubmitted" style="color: #2563EB;">0 <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">Sampel</span></div>
+            <div class="manual-summary-card-val" id="fasihSummarySubmitted" style="color: #2563EB;">0 <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">Sampel</span></div>
           </div>
           <div class="manual-summary-card">
             <div class="manual-summary-card-label"><span style="color: #D97706;">●</span> Approve PML</div>
-            <div class="manual-summary-card-val" id="modalSummaryPml" style="color: #D97706;">0 <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">Sampel</span></div>
+            <div class="manual-summary-card-val" id="fasihSummaryPml" style="color: #D97706;">0 <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">Sampel</span></div>
           </div>
           <div class="manual-summary-card">
             <div class="manual-summary-card-label"><span style="color: #16A34A;">●</span> Approve Admin</div>
-            <div class="manual-summary-card-val" id="modalSummaryAdmin" style="color: #16A34A;">0 <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">Sampel</span></div>
+            <div class="manual-summary-card-val" id="fasihSummaryAdmin" style="color: #16A34A;">0 <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">Sampel</span></div>
           </div>
         </div>
 
@@ -3829,7 +3831,7 @@ Contoh isi: Kode Identitas, Nama Lembaga, Alamat, Status (completed by admin / s
         <div id="fasihAiResultBox" style="display: none; border: 1px solid #BBF7D0; border-radius: 10px; background: #F0FDF4; padding: 1rem 1.25rem; margin-bottom: 1.15rem;">
           <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
             <i class="fa-solid fa-circle-check" style="color: #16A34A; font-size: 1rem;"></i>
-            <span id="fasihAiBadgeText" style="font-size: 0.875rem; font-weight: 700; color: #166534;">8 Sampel Berhasil Dikenali</span>
+            <span id="fasihAiBadgeText" style="font-size: 0.875rem; font-weight: 700; color: #166534;">Sampel Berhasil Dikenali</span>
           </div>
           <div style="max-height: 210px; overflow-y: auto; border: 1px solid #D1FAE5; border-radius: 8px; background: white;">
             <table class="district-progress-table" style="margin-bottom: 0; width: 100%; border-collapse: collapse;">
@@ -3843,7 +3845,6 @@ Contoh isi: Kode Identitas, Nama Lembaga, Alamat, Status (completed by admin / s
                 </tr>
               </thead>
               <tbody id="fasihAiPreviewTableBody">
-                <!-- Injected dynamically -->
               </tbody>
             </table>
           </div>
@@ -3851,13 +3852,207 @@ Contoh isi: Kode Identitas, Nama Lembaga, Alamat, Status (completed by admin / s
 
         <!-- ACTION BUTTONS -->
         <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
-          <button type="button" onclick="closeManualModal()" class="btn btn-secondary" style="padding: 0.6rem 1.25rem; font-size: 0.875rem;">
+          <button type="button" onclick="closeFasihAiModal()" class="btn btn-secondary" style="padding: 0.6rem 1.25rem; font-size: 0.875rem;">
             Tutup
           </button>
           <button type="button" id="fasihMainCta" onclick="fasihSubmitAction()" class="btn"
             style="background: linear-gradient(135deg, #0284C7, #0369A1); color: white; box-shadow: 0 4px 14px rgba(2,132,199,0.3); padding: 0.65rem 1.75rem; font-weight: 700; font-size: 0.875rem; min-width: 140px; transition: all 0.3s ease;">
             <i class="fa-solid fa-floppy-disk" id="fasihCtaIcon"></i>
             <span id="fasihCtaLabel">&nbsp;Submit</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═════════════════════════════════════════════════════════════════════════ -->
+  <!-- MODAL 2: INPUT PROGRESS MANUAL (UNTUK SURVEI DENGAN SUMBER DATA MANUAL)  -->
+  <!-- ═════════════════════════════════════════════════════════════════════════ -->
+  <div id="manualEntryModal" class="scraping-terminal-modal">
+    <div class="manual-modal-box" style="max-width: 820px;">
+      <div class="manual-modal-header">
+        <div style="display: flex; align-items: center; gap: 0.65rem;">
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: #F0F9FF; color: #0369A1; display: flex; align-items: center; justify-content: center; font-size: 1rem; border: 1px solid #BAE6FD;">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </div>
+          <div>
+            <h3 style="font-size: 1.0625rem; font-weight: 700; margin: 0; color: var(--color-text-primary);" id="modalTitleText">
+              Input & Pemutakhiran Progres Manual
+            </h3>
+            <p style="font-size: 0.75rem; color: var(--color-text-muted); margin: 0;" id="modalSubtitleText">
+              Pemutakhiran progres mandiri & tautan lembar kerja BPS Kab. Kepulauan Sula
+            </p>
+          </div>
+        </div>
+        <button onclick="closeManualModal()" style="background: none; border: none; font-size: 1.25rem; color: #94A3B8; cursor: pointer;">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="manual-modal-body">
+        <!-- 1. Tautan / Link Lembar Kerja Progres (Spreadsheet / Drive / Portal) -->
+        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 1.1rem 1.25rem; margin-bottom: 1.25rem;">
+          <div style="font-size: 0.875rem; font-weight: 700; color: #0F172A; margin-bottom: 0.25rem; display: flex; align-items: center; gap: 0.4rem;">
+            <i class="fa-solid fa-link" style="color: #0284C7;"></i> Tautan / Link Lembar Kerja Progres (Spreadsheet / Drive / Portal)
+          </div>
+          <p style="font-size: 0.785rem; color: var(--color-text-muted); margin-bottom: 0.75rem; line-height: 1.45;">
+            Tempelkan link dokumen online (Google Sheets, OneDrive, atau folder Drive). Link ini akan <strong>otomatis terlihat dan dapat langsung diklik</strong> di halaman survei & monitoring.
+          </p>
+
+          <div style="display: grid; grid-template-columns: 1.3fr 1fr auto; gap: 0.5rem; align-items: flex-end; margin-bottom: 0.75rem;">
+            <div class="stativa-form-group" style="margin-bottom: 0;">
+              <label class="stativa-label" style="font-size: 0.75rem; margin-bottom: 0.25rem;">URL Tautan (http / https) *</label>
+              <input type="url" id="manualLinkInputUrl" class="stativa-input" placeholder="https://docs.google.com/spreadsheets/d/..." style="font-size: 0.8125rem;">
+            </div>
+            <div class="stativa-form-group" style="margin-bottom: 0;">
+              <label class="stativa-label" style="font-size: 0.75rem; margin-bottom: 0.25rem;">Label / Judul Tautan (Opsional)</label>
+              <input type="text" id="manualLinkInputLabel" class="stativa-input" placeholder="Misal: Spreadsheet Monitoring Lapangan" style="font-size: 0.8125rem;">
+            </div>
+            <button type="button" onclick="saveManualSurveyLinkAction()" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8125rem; height: 38px; white-space: nowrap;">
+              <i class="fa-solid fa-floppy-disk"></i> Simpan Tautan
+            </button>
+          </div>
+
+          <!-- Active Link Box -->
+          <div id="manualActiveLinkBox" style="display: none; padding: 0.65rem 0.85rem; background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 8px; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.8125rem; min-width: 0; flex: 1;">
+              <span style="background: #2563EB; color: white; font-size: 0.6875rem; padding: 0.15rem 0.45rem; border-radius: 4px; font-weight: 700; white-space: nowrap;"><i class="fa-solid fa-circle-check"></i> Tautan Aktif</span>
+              <strong id="manualActiveLinkLabel" style="color: #1E3A8A; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"></strong>
+              <span id="manualActiveLinkUrl" style="font-size: 0.75rem; color: #3B82F6; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 260px;"></span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.4rem;">
+              <a id="manualActiveLinkBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="font-size: 0.75rem; padding: 0.25rem 0.65rem; color: #1D4ED8; border-color: #93C5FD; background: white; text-decoration: none; font-weight: 600;">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Buka Tautan
+              </a>
+              <button type="button" onclick="deleteManualSurveyLinkAction()" class="btn btn-secondary" style="font-size: 0.75rem; padding: 0.25rem 0.5rem; color: #DC2626; border-color: #FECACA; background: white;" title="Hapus Tautan">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Ringkasan Status Progres Sampel -->
+        <div class="manual-status-summary-grid" style="margin-bottom: 1.25rem;">
+          <div class="manual-summary-card">
+            <div class="manual-summary-card-label"><i class="fa-solid fa-layer-group" style="color: var(--color-muted-indigo);"></i> Sampel</div>
+            <div class="manual-summary-card-val" id="modalSummarySampel" style="color: #0F172A;">0 <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">Sampel</span></div>
+          </div>
+          <div class="manual-summary-card">
+            <div class="manual-summary-card-label"><span style="color: #2563EB;">●</span> Submitted</div>
+            <div class="manual-summary-card-val" id="modalSummarySubmitted" style="color: #2563EB;">0 <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">Sampel</span></div>
+          </div>
+          <div class="manual-summary-card">
+            <div class="manual-summary-card-label"><span style="color: #D97706;">●</span> Approve PML</div>
+            <div class="manual-summary-card-val" id="modalSummaryPml" style="color: #D97706;">0 <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">Sampel</span></div>
+          </div>
+          <div class="manual-summary-card">
+            <div class="manual-summary-card-label"><span style="color: #16A34A;">●</span> Approve Admin</div>
+            <div class="manual-summary-card-val" id="modalSummaryAdmin" style="color: #16A34A;">0 <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">Sampel</span></div>
+          </div>
+        </div>
+
+        <!-- 3. Form Input Baris Sampel Baru (Informasi Mengenai Hasil Pendataan) -->
+        <form id="manualEntryForm" onsubmit="handleManualSampleAdd(event)" style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 1.15rem 1.25rem; margin-bottom: 1.25rem;">
+          <div style="font-size: 0.875rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4rem;">
+            <i class="fa-solid fa-plus-circle" style="color: #0369A1;"></i> Masukkan Informasi Mengenai Hasil Pendataan
+          </div>
+
+          <div class="stativa-form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem;">
+            <div class="stativa-form-group" style="margin-bottom: 0;">
+              <label class="stativa-label" style="font-size: 0.78125rem;">Wilayah Kecamatan *</label>
+              <select id="modalFormKecamatan" class="stativa-select" style="font-size: 0.8125rem;" required>
+                <option value="Kec. Sanana">Kec. Sanana</option>
+                <option value="Kec. Sanana Utara">Kec. Sanana Utara</option>
+                <option value="Kec. Sulabesi Barat">Kec. Sulabesi Barat</option>
+                <option value="Kec. Sulabesi Tengah">Kec. Sulabesi Tengah</option>
+                <option value="Kec. Sulabesi Timur">Kec. Sulabesi Timur</option>
+                <option value="Kec. Sulabesi Selatan">Kec. Sulabesi Selatan</option>
+                <option value="Kec. Mangoli Barat">Kec. Mangoli Barat</option>
+                <option value="Kec. Mangoli Tengah">Kec. Mangoli Tengah</option>
+                <option value="Kec. Mangoli Timur">Kec. Mangoli Timur</option>
+                <option value="Kec. Mangoli Utara">Kec. Mangoli Utara</option>
+                <option value="Kec. Mangoli Selatan">Kec. Mangoli Selatan</option>
+                <option value="Kec. Mangoli Timur Selatan">Kec. Mangoli Timur Selatan</option>
+              </select>
+            </div>
+            <div class="stativa-form-group" style="margin-bottom: 0;">
+              <label class="stativa-label" style="font-size: 0.78125rem;">Nama Desa / Kelurahan *</label>
+              <input type="text" id="modalFormDesa" class="stativa-input" placeholder="Misal: Desa Fagudu, Waibau, Mangon" style="font-size: 0.8125rem;" required>
+            </div>
+          </div>
+
+          <div class="stativa-form-grid" style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem;">
+            <div class="stativa-form-group" style="margin-bottom: 0;">
+              <label class="stativa-label" style="font-size: 0.78125rem;">Nama Sampel / Responden / SLS / Lembaga *</label>
+              <input type="text" id="modalFormSampleName" class="stativa-input" placeholder="Misal: Ruta 01 - Bpk. Usman / CV Mandiri" style="font-size: 0.8125rem;" required>
+            </div>
+            <div class="stativa-form-group" style="margin-bottom: 0;">
+              <label class="stativa-label" style="font-size: 0.78125rem;">Status Progres Pendataan *</label>
+              <select id="modalFormSampleStatus" class="stativa-select" style="font-size: 0.8125rem;" required>
+                <option value="Submitted">🔵 Submitted by Pencacah (Selesai PCL)</option>
+                <option value="Approve PML">🟡 Approve PML (Disetujui Pengawas)</option>
+                <option value="Approve Admin">🟢 Approve Admin (Selesai Final)</option>
+                <option value="Open">⚪ Open / Belum Dicacah</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="stativa-form-grid" style="display: grid; grid-template-columns: 1fr 1fr auto; gap: 0.75rem; align-items: flex-end;">
+            <div class="stativa-form-group" style="margin-bottom: 0;">
+              <label class="stativa-label" style="font-size: 0.78125rem;">Petugas Pencacah (PCL)</label>
+              <input type="text" id="modalFormPcl" class="stativa-input" placeholder="Misal: Budi / Mitra PCL" style="font-size: 0.8125rem;">
+            </div>
+            <div class="stativa-form-group" style="margin-bottom: 0;">
+              <label class="stativa-label" style="font-size: 0.78125rem;">Pengawas (PML)</label>
+              <input type="text" id="modalFormPml" class="stativa-input" placeholder="Misal: Rina / Organik BPS" style="font-size: 0.8125rem;">
+            </div>
+            <button type="submit" class="btn btn-primary" style="padding: 0.5rem 1.25rem; font-size: 0.8125rem; font-weight: 700; height: 38px; white-space: nowrap;">
+              <i class="fa-solid fa-plus"></i> Tambah Sampel
+            </button>
+          </div>
+        </form>
+
+        <!-- 4. Tabel Rincian Data Sampel Tersimpan -->
+        <div style="margin-bottom: 1rem;">
+          <div style="font-size: 0.8125rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.4rem;">
+              <i class="fa-solid fa-list-check" style="color: var(--color-muted-indigo);"></i>
+              <span>Daftar Sampel Lapangan Terdata</span>
+              <span id="modalTableCountBadge" style="font-size: 0.6875rem; background: var(--color-surface-subtle); padding: 0.15rem 0.5rem; border-radius: 4px; border: 1px solid var(--color-border); font-weight: 600;">0 Sampel</span>
+            </div>
+            <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+              <button type="button" onclick="loadSampleTemplate()" class="btn btn-secondary" style="font-size: 0.75rem; padding: 0.25rem 0.65rem;">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> Muat Template Sula
+              </button>
+              <button type="button" onclick="clearAllSamples()" class="btn btn-secondary" style="font-size: 0.75rem; padding: 0.25rem 0.65rem; color: #DC2626;">
+                <i class="fa-solid fa-trash-can"></i> Kosongkan
+              </button>
+            </div>
+          </div>
+
+          <div style="max-height: 240px; overflow-y: auto; border: 1px solid var(--color-border); border-radius: 8px;">
+            <table class="district-progress-table" style="margin-bottom: 0; width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr>
+                  <th style="width: 5%; text-align: center;">No</th>
+                  <th style="width: 28%;">Identitas Responden / SLS</th>
+                  <th style="width: 18%;">Kecamatan</th>
+                  <th style="width: 18%;">Desa</th>
+                  <th style="width: 23%;">Status Progres</th>
+                  <th style="width: 8%; text-align: center;">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="modalSamplesTableBody">
+                <!-- Injected dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Modal Footer -->
+        <div style="display: flex; justify-content: flex-end; gap: 0.5rem; padding-top: 0.75rem; border-top: 1px solid var(--color-border);">
+          <button type="button" onclick="closeManualModal()" class="btn btn-secondary" style="padding: 0.5rem 1.25rem; font-size: 0.8125rem;">
+            Selesai / Tutup
           </button>
         </div>
       </div>
@@ -5642,7 +5837,18 @@ Contoh isi: Kode Identitas, Nama Lembaga, Alamat, Status (completed by admin / s
       document.getElementById("surveyHeaderTitle").innerText = survey.nama;
       document.getElementById("surveyHeaderSubtitle").innerHTML = `<i class="fa-solid fa-building-columns"></i> Dikelola oleh Tim ${team.nama} — BPS Kabupaten Kepulauan Sula`;
 
-      // Hide or show top hero button based on FASIH
+      // Configure top action buttons based on FASIH vs Manual
+      const btnHeaderManual = document.getElementById("btnHeaderManual");
+      if (btnHeaderManual) {
+        if (isFasih) {
+          btnHeaderManual.innerHTML = `<i class="fa-regular fa-clipboard"></i> Copy Paste dari FASIH`;
+          btnHeaderManual.onclick = openFasihAiModal;
+        } else {
+          btnHeaderManual.innerHTML = `<i class="fa-solid fa-pen-to-square"></i> Input Progress Manual`;
+          btnHeaderManual.onclick = openManualModal;
+        }
+      }
+
       const topScrapingWrapper = document.getElementById("topScrapingWrapper");
       const topScrapingBtn = document.getElementById("btnTriggerScraping");
       if (topScrapingWrapper && topScrapingBtn) {
@@ -5778,8 +5984,8 @@ Contoh isi: Kode Identitas, Nama Lembaga, Alamat, Status (completed by admin / s
                 <i class="fa-solid fa-arrows-rotate"></i> Sinkronisasi Data Sekarang
               </button>
             </div>
-            <button onclick="openManualModal()" class="btn-manual-form" style="width: 100%; justify-content: center;">
-              <i class="fa-solid fa-pen-to-square"></i> Input Progress Manual
+            <button onclick="openFasihAiModal()" class="btn-manual-form" style="width: 100%; justify-content: center; background: #0284C7; color: white; border: none; font-weight: 700;">
+              <i class="fa-regular fa-clipboard"></i> Copy Paste dari FASIH
             </button>
           `;
         } else if (isBelumDiketahui) {
@@ -5804,6 +6010,23 @@ Contoh isi: Kode Identitas, Nama Lembaga, Alamat, Status (completed by admin / s
             </button>
           `;
         } else {
+          const linkData = getSurveyManualLink(survey.id || "kegiatan-statistik", currentMonitoringYear);
+          const linkCardHtml = linkData && linkData.url ? `
+            <div style="background: #F0F9FF; border: 1px solid #BAE6FD; border-radius: 8px; padding: 0.85rem 1rem; margin-bottom: 1.15rem;">
+              <div style="font-size: 0.71875rem; color: #0284C7; font-weight: 700; text-transform: uppercase; margin-bottom: 0.25rem;"><i class="fa-solid fa-link"></i> Tautan Lembar Kerja:</div>
+              <p style="font-size: 0.8125rem; font-weight: 700; color: #0F172A; margin: 0.2rem 0 0.6rem 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                ${linkData.label || 'Spreadsheet Monitoring Lapangan'}
+              </p>
+              <a href="${linkData.url}" target="_blank" rel="noopener noreferrer" class="btn" style="background: #0284C7; color: white; width: 100%; justify-content: center; font-size: 0.78125rem; padding: 0.45rem 0.75rem; text-decoration: none; display: flex; align-items: center; gap: 0.35rem; border-radius: 6px; font-weight: 600;">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Buka Tautan Eksternal
+              </a>
+            </div>
+          ` : `
+            <div style="background-color: var(--color-surface-subtle); border: 1px dashed var(--color-border); border-radius: 8px; padding: 0.75rem 0.9rem; margin-bottom: 1.15rem;">
+              <span style="font-size: 0.75rem; color: var(--color-text-muted);"><i class="fa-solid fa-link-slash"></i> Belum ada tautan lembar kerja. Tambahkan tautan via tombol Input Progress Manual.</span>
+            </div>
+          `;
+
           sidebarContainer.innerHTML = `
             <div class="scraping-box-header" style="color: #0369A1; display: flex; align-items: center; gap: 0.45rem;">
               <i class="fa-solid fa-pen-to-square"></i> Entri Data Manual
@@ -5811,6 +6034,7 @@ Contoh isi: Kode Identitas, Nama Lembaga, Alamat, Status (completed by admin / s
             <p style="font-size: 0.8125rem; color: var(--color-text-secondary); line-height: 1.5; margin-bottom: 1.25rem;">
               Kegiatan ini menggunakan mekanisme pengumpulan, pencatatan, atau perhitungan data secara manual oleh operator/petugas daerah.
             </p>
+            ${linkCardHtml}
             <div style="background-color: var(--color-surface-subtle); border: 1px solid var(--color-border); border-radius: 8px; padding: 1rem; margin-bottom: 1.25rem;">
               <span style="font-size: 0.75rem; color: var(--color-text-muted); font-weight: 700; text-transform: uppercase;">Mekanisme Pengisian:</span>
               <p style="font-size: 0.875rem; font-weight: 700; color: #0369A1; margin-top: 0.25rem;">
@@ -5838,6 +6062,7 @@ Contoh isi: Kode Identitas, Nama Lembaga, Alamat, Status (completed by admin / s
       const surveyId = survey.id || "kegiatan-statistik";
       const samples = getSurveySamples(surveyId, currentMonitoringYear);
       const metrics = calculateMetrics(samples);
+      const linkData = getSurveyManualLink(surveyId, currentMonitoringYear);
 
       let headerTitle = "";
       let headerDesc = "";
@@ -5868,6 +6093,11 @@ Contoh isi: Kode Identitas, Nama Lembaga, Alamat, Status (completed by admin / s
 
           <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
             ${statusBadge}
+            ${linkData && linkData.url ? `
+              <a href="${linkData.url}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="font-size: 0.75rem; font-weight: 700; color: #0284C7; border-color: #BAE6FD; background: #F0F9FF; display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.25rem 0.65rem; border-radius: 6px; text-decoration: none;" title="Buka Tautan: ${linkData.url}">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> ${linkData.label || 'Tautan Lembar Kerja'}
+              </a>
+            ` : ''}
             <!-- Dropdown Pilihan Tahun Monitoring -->
             <div style="display: flex; align-items: center; gap: 0.35rem; background: #FFFFFF; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid var(--color-border); box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
               <span style="font-size: 0.75rem; font-weight: 700; color: #475569;"><i class="fa-regular fa-calendar-days" style="color: var(--color-muted-indigo);"></i> Tahun:</span>
@@ -5981,10 +6211,14 @@ Contoh isi: Kode Identitas, Nama Lembaga, Alamat, Status (completed by admin / s
                     <i class="fa-solid fa-arrows-rotate"></i> Sinkronisasi Ulang FASIH
                   </button>
                 </div>
-              ` : ''}
-              <button onclick="openManualModal()" class="btn-manual-form" style="padding: 0.45rem 1rem; font-size: 0.8125rem; background: #0F172A; color: white; border: none; font-weight: 700;">
-                <i class="fa-solid fa-pen-to-square"></i> Input Progress Manual
-              </button>
+                <button onclick="openFasihAiModal()" class="btn-manual-form" style="padding: 0.45rem 1rem; font-size: 0.8125rem; background: #0284C7; color: white; border: none; font-weight: 700;">
+                  <i class="fa-regular fa-clipboard"></i> Copy Paste dari FASIH
+                </button>
+              ` : `
+                <button onclick="openManualModal()" class="btn-manual-form" style="padding: 0.45rem 1rem; font-size: 0.8125rem; background: #0F172A; color: white; border: none; font-weight: 700;">
+                  <i class="fa-solid fa-pen-to-square"></i> Input Progress Manual
+                </button>
+              `}
             </div>
           </div>
         ` : `
@@ -6006,10 +6240,14 @@ Contoh isi: Kode Identitas, Nama Lembaga, Alamat, Status (completed by admin / s
                     <i class="fa-solid fa-arrows-rotate"></i> Jalankan Scraping FASIH
                   </button>
                 </div>
-              ` : ''}
-              <button onclick="openManualModal()" class="btn-manual-form" style="padding: 0.5rem 1rem; font-size: 0.8125rem; background: #0F172A; color: white; border: none; font-weight: 700;">
-                <i class="fa-solid fa-pen-to-square"></i> Input Progress Manual
-              </button>
+                <button onclick="openFasihAiModal()" class="btn-manual-form" style="padding: 0.5rem 1rem; font-size: 0.8125rem; background: #0284C7; color: white; border: none; font-weight: 700;">
+                  <i class="fa-regular fa-clipboard"></i> Copy Paste dari FASIH
+                </button>
+              ` : `
+                <button onclick="openManualModal()" class="btn-manual-form" style="padding: 0.5rem 1rem; font-size: 0.8125rem; background: #0F172A; color: white; border: none; font-weight: 700;">
+                  <i class="fa-solid fa-pen-to-square"></i> Input Progress Manual
+                </button>
+              `}
             </div>
           </div>
         `}
@@ -6599,11 +6837,110 @@ MASJID AL MUKMIN
       showToast(`✨ Sukses! ${parsedFasihAiSamples.length} sampel FASIH berhasil disimpan ke progres lapangan (${currentMonitoringYear}).`);
     }
 
-    function openManualModal() {
-      const modal = document.getElementById("manualEntryModal");
+    // ─── TAUTAN / SPREADSHEET MANUAL STORAGE & ACTIONS ───
+    function getSurveyManualLink(surveyId, year) {
+      try {
+        const raw = localStorage.getItem(`surveyManualLink_${surveyId}_${year}`);
+        return raw ? JSON.parse(raw) : null;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function saveSurveyManualLink(surveyId, year, url, label) {
+      try {
+        const data = {
+          url: url.trim(),
+          label: label && label.trim() ? label.trim() : "Tautan Spreadsheet / Lembar Kerja Progres",
+          updated_at: new Date().toISOString()
+        };
+        localStorage.setItem(`surveyManualLink_${surveyId}_${year}`, JSON.stringify(data));
+        return data;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function removeSurveyManualLink(surveyId, year) {
+      try {
+        localStorage.removeItem(`surveyManualLink_${surveyId}_${year}`);
+      } catch (e) {}
+    }
+
+    function saveManualSurveyLinkAction() {
+      const urlInput = document.getElementById("manualLinkInputUrl");
+      const labelInput = document.getElementById("manualLinkInputLabel");
+      const url = urlInput ? urlInput.value : "";
+      const label = labelInput ? labelInput.value : "";
+
+      if (!url || !url.trim()) {
+        showToast("⚠️ Masukkan URL tautan dokumen online terlebih dahulu (contoh: https://docs.google.com/...)");
+        return;
+      }
+
+      const surveyId = currentActiveSurveyObj ? currentActiveSurveyObj.id : "kegiatan-statistik";
+      const saved = saveSurveyManualLink(surveyId, currentMonitoringYear, url, label);
+
+      if (saved) {
+        renderModalLinkState(saved);
+        if (currentActiveSurveyObj) {
+          renderSurveyScrapedData(currentActiveTeamKey, currentActiveSurveyObj);
+          renderSurveyDetail(currentActiveTeamKey, currentActiveSurveyObj);
+        }
+        showToast("✨ Tautan lembar kerja berhasil disimpan dan ditampilkan!");
+      }
+    }
+
+    function deleteManualSurveyLinkAction() {
+      const surveyId = currentActiveSurveyObj ? currentActiveSurveyObj.id : "kegiatan-statistik";
+      removeSurveyManualLink(surveyId, currentMonitoringYear);
+      renderModalLinkState(null);
+      if (currentActiveSurveyObj) {
+        renderSurveyScrapedData(currentActiveTeamKey, currentActiveSurveyObj);
+        renderSurveyDetail(currentActiveTeamKey, currentActiveSurveyObj);
+      }
+      showToast("Tautan lembar kerja telah dihapus");
+    }
+
+    function renderModalLinkState(linkData) {
+      const box = document.getElementById("manualActiveLinkBox");
+      const labelEl = document.getElementById("manualActiveLinkLabel");
+      const urlEl = document.getElementById("manualActiveLinkUrl");
+      const btnEl = document.getElementById("manualActiveLinkBtn");
+      const urlInput = document.getElementById("manualLinkInputUrl");
+      const labelInput = document.getElementById("manualLinkInputLabel");
+
+      if (linkData && linkData.url) {
+        if (box) box.style.display = "flex";
+        if (labelEl) labelEl.innerText = linkData.label || "Tautan Spreadsheet";
+        if (urlEl) urlEl.innerText = linkData.url;
+        if (btnEl) btnEl.href = linkData.url;
+        if (urlInput) urlInput.value = linkData.url;
+        if (labelInput) labelInput.value = linkData.label || "";
+      } else {
+        if (box) box.style.display = "none";
+        if (urlInput) urlInput.value = "";
+        if (labelInput) labelInput.value = "";
+      }
+    }
+
+    // ─── MODAL CONTROLLER (FASIH VS MANUAL) ───
+    function openDynamicProgressModal() {
+      const isFasih = currentActiveSurveyObj && (
+        (currentActiveSurveyObj.sumber_data || currentActiveSurveyObj.platform || "").toUpperCase() === "FASIH" ||
+        (currentActiveSurveyObj.platform || "").toLowerCase().includes("fasih")
+      );
+      if (isFasih) {
+        openFasihAiModal();
+      } else {
+        openManualModal();
+      }
+    }
+
+    function openFasihAiModal() {
+      const modal = document.getElementById("fasihAiModal");
       if (!modal) return;
 
-      // Reset the CTA button to initial "Submit" state
       const cta = document.getElementById("fasihMainCta");
       const ctaIcon = document.getElementById("fasihCtaIcon");
       const ctaLabel = document.getElementById("fasihCtaLabel");
@@ -6615,21 +6952,109 @@ MASJID AL MUKMIN
       if (ctaIcon) ctaIcon.className = "fa-solid fa-floppy-disk";
       if (ctaLabel) ctaLabel.innerHTML = "&nbsp;Submit";
 
-      // Hide result box & summary grid
       const resultBox = document.getElementById("fasihAiResultBox");
       if (resultBox) resultBox.style.display = "none";
       const summaryGrid = document.getElementById("modalSummaryGrid");
       if (summaryGrid) summaryGrid.style.display = "none";
 
-      // Update modal title with survey name and year
-      const surveyId = currentActiveSurveyObj ? currentActiveSurveyObj.id : "kegiatan-statistik";
       const surveyName = currentActiveSurveyObj ? currentActiveSurveyObj.nama : "Survei Statistik";
-      const titleEl = document.getElementById("modalTitleText");
-      const subtitleEl = document.getElementById("modalSubtitleText");
+      const titleEl = document.getElementById("fasihModalTitleText");
+      const subtitleEl = document.getElementById("fasihModalSubtitleText");
       if (titleEl) titleEl.innerText = `Copy Paste dari FASIH`;
       if (subtitleEl) subtitleEl.innerText = `${surveyName} · Tahun ${currentMonitoringYear}`;
 
       modal.style.display = "flex";
+    }
+
+    function closeFasihAiModal() {
+      const modal = document.getElementById("fasihAiModal");
+      if (modal) modal.style.display = "none";
+    }
+
+    function openManualModal() {
+      const isFasih = currentActiveSurveyObj && (
+        (currentActiveSurveyObj.sumber_data || currentActiveSurveyObj.platform || "").toUpperCase() === "FASIH" ||
+        (currentActiveSurveyObj.platform || "").toLowerCase().includes("fasih")
+      );
+      if (isFasih) {
+        openFasihAiModal();
+        return;
+      }
+
+      const modal = document.getElementById("manualEntryModal");
+      if (!modal) return;
+
+      const surveyId = currentActiveSurveyObj ? currentActiveSurveyObj.id : "kegiatan-statistik";
+      const surveyName = currentActiveSurveyObj ? currentActiveSurveyObj.nama : "Survei Manual";
+
+      const titleEl = document.getElementById("modalTitleText");
+      const subtitleEl = document.getElementById("modalSubtitleText");
+      if (titleEl) titleEl.innerText = `Input & Pemutakhiran Progres: ${surveyName}`;
+      if (subtitleEl) subtitleEl.innerText = `Mekanisme Pengumpulan Data Mandiri · Tahun ${currentMonitoringYear}`;
+
+      const linkData = getSurveyManualLink(surveyId, currentMonitoringYear);
+      renderModalLinkState(linkData);
+
+      renderModalSamplesTable(surveyId, surveyName);
+      modal.style.display = "flex";
+    }
+
+    function closeManualModal() {
+      const modal = document.getElementById("manualEntryModal");
+      if (modal) modal.style.display = "none";
+    }
+
+    // ─── ADD MANUAL SAMPLE (INFORMASI HASIL PENDATAAN) ───
+    function handleManualSampleAdd(event) {
+      if (event) event.preventDefault();
+
+      const surveyId = currentActiveSurveyObj ? currentActiveSurveyObj.id : "kegiatan-statistik";
+      const kecEl = document.getElementById("modalFormKecamatan");
+      const desaEl = document.getElementById("modalFormDesa");
+      const nameEl = document.getElementById("modalFormSampleName");
+      const statusEl = document.getElementById("modalFormSampleStatus");
+      const pclEl = document.getElementById("modalFormPcl");
+      const pmlEl = document.getElementById("modalFormPml");
+
+      const kec = kecEl ? kecEl.value : "Kec. Sanana";
+      const desa = desaEl ? desaEl.value.trim() : "";
+      const sampleName = nameEl ? nameEl.value.trim() : "";
+      const status = statusEl ? statusEl.value : "Submitted";
+      const pcl = pclEl && pclEl.value.trim() ? pclEl.value.trim() : "-";
+      const pml = pmlEl && pmlEl.value.trim() ? pmlEl.value.trim() : "-";
+
+      if (!desa || !sampleName) {
+        showToast("⚠️ Mohon lengkapi nama desa dan identitas responden / sampel.");
+        return;
+      }
+
+      const samples = getSurveySamples(surveyId, currentMonitoringYear);
+      const newSample = {
+        id: Date.now(),
+        name: sampleName,
+        district: kec,
+        desa: desa,
+        status: status,
+        pcl: pcl,
+        pml: pml,
+        nus: "",
+        created_at: new Date().toISOString()
+      };
+
+      samples.push(newSample);
+      saveSurveySamples(surveyId, samples, currentMonitoringYear);
+
+      if (desaEl) desaEl.value = "";
+      if (nameEl) nameEl.value = "";
+      if (pclEl) pclEl.value = "";
+      if (pmlEl) pmlEl.value = "";
+
+      renderModalSamplesTable(surveyId, currentActiveSurveyObj ? currentActiveSurveyObj.nama : "");
+      if (currentActiveSurveyObj) {
+        renderSurveyScrapedData(currentActiveTeamKey, currentActiveSurveyObj);
+      }
+
+      showToast(`✨ Sampel "${sampleName}" (${desa}) berhasil ditambahkan ke progres ${currentMonitoringYear}!`);
     }
 
     // ── Single-click FASIH Submit: Parse → Preview → Save ──────────────────────
@@ -6725,10 +7150,10 @@ MASJID AL MUKMIN
       const metrics = calculateMetrics(finalSamples);
       const summaryGrid = document.getElementById("modalSummaryGrid");
       if (summaryGrid) summaryGrid.style.display = "grid";
-      const elSampel = document.getElementById("modalSummarySampel");
-      const elSubmitted = document.getElementById("modalSummarySubmitted");
-      const elPml = document.getElementById("modalSummaryPml");
-      const elAdmin = document.getElementById("modalSummaryAdmin");
+      const elSampel = document.getElementById("fasihSummarySampel") || document.getElementById("modalSummarySampel");
+      const elSubmitted = document.getElementById("fasihSummarySubmitted") || document.getElementById("modalSummarySubmitted");
+      const elPml = document.getElementById("fasihSummaryPml") || document.getElementById("modalSummaryPml");
+      const elAdmin = document.getElementById("fasihSummaryAdmin") || document.getElementById("modalSummaryAdmin");
       if (elSampel) elSampel.innerHTML = `${metrics.total} <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">Sampel</span>`;
       if (elSubmitted) elSubmitted.innerHTML = `${metrics.submitted} <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">(${metrics.submittedPercent}%)</span>`;
       if (elPml) elPml.innerHTML = `${metrics.pmlApproved} <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">(${metrics.pmlPercent}%)</span>`;
@@ -6746,16 +7171,6 @@ MASJID AL MUKMIN
       if (ctaLabel) ctaLabel.innerHTML = `&nbsp;${parsedFasihAiSamples.length} Data Tersimpan ✔`;
 
       showToast(`✨ ${parsedFasihAiSamples.length} sampel FASIH berhasil diproses & disimpan ke progres lapangan ${currentMonitoringYear}!`);
-    }
-
-    function closeManualModal() {
-      const modal = document.getElementById("manualEntryModal");
-      if (modal) modal.style.display = "none";
-    }
-
-    function handleManualEntrySubmit(event) {
-      // Kept for compatibility in case form exists elsewhere
-      event.preventDefault();
     }
 
     function showToast(message) {
