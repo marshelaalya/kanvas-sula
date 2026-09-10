@@ -1,15 +1,10 @@
 {
-  "version": 2,
-  "builds": [
+  "outputDirectory": "public",
+  "cleanUrls": true,
+  "rewrites": [
     {
-      "src": "public/index.html",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/public/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
