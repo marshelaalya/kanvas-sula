@@ -3679,8 +3679,8 @@
               <div id="surveyDetailIndikator"></div>
             </div>
 
-            <!-- 4. Dokumen & Instrumen Resmi -->
-            <div class="detail-card-box">
+            <!-- 4. Dokumen & Instrumen Resmi (Disabled/Hidden) -->
+            <div class="detail-card-box" style="display: none;">
               <h2 class="detail-section-heading">
                 <i class="fa-solid fa-file-pdf" style="color: var(--color-muted-indigo);"></i> 4. Dokumen & Kuesioner
                 Resmi Terkait
@@ -5847,15 +5847,15 @@ Contoh isi: Kode Identitas, Nama Lembaga, Alamat, Status (completed by admin / s
       let statusBadge = "";
 
       if (isFasih) {
-        headerTitle = `<span style="display: inline-flex; align-items: center; gap: 0.5rem;">${getFasihThemedSvg(18)} 5. Monitoring & Rekapitulasi Progres Lapangan (FASIH)</span>`;
+        headerTitle = `<span style="display: inline-flex; align-items: center; gap: 0.5rem;">${getFasihThemedSvg(18)} 4. Monitoring & Rekapitulasi Progres Lapangan (FASIH)</span>`;
         headerDesc = `Sinkronisasi data lapangan CAPI FASIH BPS Kabupaten Kepulauan Sula`;
         statusBadge = "";
       } else if (isBelumDiketahui) {
-        headerTitle = `<i class="fa-solid fa-circle-question" style="color: #64748B;"></i> 5. Monitoring & Rekapitulasi Progres Lapangan`;
+        headerTitle = `<i class="fa-solid fa-circle-question" style="color: #64748B;"></i> 4. Monitoring & Rekapitulasi Progres Lapangan`;
         headerDesc = `Mekanisme pengambilan data kegiatan ini akan ditentukan kemudian`;
         statusBadge = `<div class="telemetry-status-badge-manual" style="background: #F1F5F9; color: #475569; border-color: #CBD5E1;"><i class="fa-solid fa-circle-question"></i> Belum Ditentukan</div>`;
       } else {
-        headerTitle = `<i class="fa-solid fa-pen-to-square" style="color: #0369A1;"></i> 5. Monitoring & Rekapitulasi Progres Lapangan (Manual)`;
+        headerTitle = `<i class="fa-solid fa-pen-to-square" style="color: #0369A1;"></i> 4. Monitoring & Rekapitulasi Progres Lapangan (Manual)`;
         headerDesc = `Pemutakhiran progres pendataan manual oleh operator BPS Kab. Kepulauan Sula`;
         statusBadge = `<div class="telemetry-status-badge-manual"><i class="fa-solid fa-pen-to-square"></i> Input Progress Manual</div>`;
       }
