@@ -5761,12 +5761,9 @@ Contoh isi: Kode Identitas, Nama Lembaga, Alamat, Status (completed by admin / s
       if (sidebarContainer) {
         if (isFasih) {
           sidebarContainer.innerHTML = `
-            <div class="scraping-box-header" style="display: flex; align-items: center; gap: 0.45rem;">
+            <div class="scraping-box-header" style="display: flex; align-items: center; gap: 0.45rem; margin-bottom: 1rem;">
               ${getFasihThemedSvg(16)} Integrasi Portal FASIH
             </div>
-            <p style="font-size: 0.8125rem; color: var(--color-text-secondary); line-height: 1.5; margin-bottom: 1.25rem;">
-              Data progres realisasi kegiatan ini terhubung langsung ke sistem pengumpulan data mobile FASIH BPS RI.
-            </p>
             <div style="background-color: var(--color-surface-subtle); border: 1px solid var(--color-border); border-radius: 8px; padding: 1rem; margin-bottom: 1.25rem;">
               <span style="font-size: 0.75rem; color: var(--color-text-muted); font-weight: 700; text-transform: uppercase;">Status Integrasi:</span>
               <p style="font-size: 0.875rem; font-weight: 700; color: #16A34A; margin-top: 0.25rem;">
@@ -5848,7 +5845,7 @@ Contoh isi: Kode Identitas, Nama Lembaga, Alamat, Status (completed by admin / s
 
       if (isFasih) {
         headerTitle = `<span style="display: inline-flex; align-items: center; gap: 0.5rem;">${getFasihThemedSvg(18)} 4. Monitoring & Rekapitulasi Progres Lapangan (FASIH)</span>`;
-        headerDesc = `Sinkronisasi data lapangan CAPI FASIH BPS Kabupaten Kepulauan Sula`;
+        headerDesc = "";
         statusBadge = "";
       } else if (isBelumDiketahui) {
         headerTitle = `<i class="fa-solid fa-circle-question" style="color: #64748B;"></i> 4. Monitoring & Rekapitulasi Progres Lapangan`;
@@ -5866,9 +5863,7 @@ Contoh isi: Kode Identitas, Nama Lembaga, Alamat, Status (completed by admin / s
             <h2 class="detail-section-heading" style="margin: 0; display: flex; align-items: center; gap: 0.5rem;">
               ${headerTitle}
             </h2>
-            <div style="font-size: 0.75rem; color: var(--color-text-muted); margin-top: 0.25rem;">
-              ${headerDesc}
-            </div>
+            ${headerDesc ? `<div style="font-size: 0.75rem; color: var(--color-text-muted); margin-top: 0.25rem;">${headerDesc}</div>` : ''}
           </div>
 
           <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
