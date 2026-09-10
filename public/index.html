@@ -2911,7 +2911,6 @@
           <li><a class="nav-link active" onclick="navigateTo('home')">Beranda</a></li>
           <li><a class="nav-link" onclick="navigateTo('tim')">5 Pilar Tim</a></li>
           <li><a class="nav-link" onclick="navigateTo('alur')">Alur Operasional</a></li>
-          <li><a class="nav-link" onclick="navigateTo('arsip')">Pusat Arsip</a></li>
           <li><a class="nav-cta" onclick="navigateTo('asisten')"><i class="fa-solid fa-robot"></i> Tanya Asisten AI</a>
           </li>
         </ul>
@@ -3119,50 +3118,6 @@
                   seluruh dokumen instrumen dan metadata ke KANVAS SULA.
                 </p>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 5. PUSAT ARSIP DIGITAL -->
-      <section class="archive-section reveal-on-scroll" id="arsip-digital"
-        style="padding: 4.5rem 0; background: #FFFFFF;">
-        <div class="container">
-          <div class="section-header" style="margin-bottom: 3rem;">
-            <div class="section-pill">Repositori Memori Institusi</div>
-            <h2 class="section-title">Pusat Arsip & Pengetahuan Digital</h2>
-            <p class="section-subtitle">
-              Penyimpanan terpusat dokumen resmi KAK, SK Tim Pelaksana, Buku Pedoman Pencacah, Kuesioner, dan Publikasi
-              Berita Resmi Statistik (BRS).
-            </p>
-          </div>
-
-          <div class="features-grid" style="margin-bottom: 2rem;">
-            <div class="feature-box reveal-on-scroll reveal-delay-1">
-              <div class="feature-icon-wrapper"><i class="fa-solid fa-file-lines"></i></div>
-              <h3 class="feature-title">Repositori Kuesioner & SK</h3>
-              <p class="feature-text">
-                Penyimpanan terpusat dokumen resmi: Kerangka Acuan Kerja (KAK), SK Penetapan Petugas, Buku Pedoman
-                Pencacah (Buku 1/2), dan formulir kuesioner cetak/digital.
-              </p>
-            </div>
-
-            <div class="feature-box reveal-on-scroll reveal-delay-2">
-              <div class="feature-icon-wrapper"><i class="fa-solid fa-clock-rotate-left"></i></div>
-              <h3 class="feature-title">Changelog Metodologi</h3>
-              <p class="feature-text">
-                Pencatatan riwayat perubahan konsep definisi, pergeseran tahun dasar inflasi, dan pemutakhiran
-                klasifikasi baku (KBLI/KBJI/COICOP) antar-tahun.
-              </p>
-            </div>
-
-            <div class="feature-box reveal-on-scroll reveal-delay-3">
-              <div class="feature-icon-wrapper"><i class="fa-solid fa-robot"></i></div>
-              <h3 class="feature-title">FASIH Data Scraping Bridge</h3>
-              <p class="feature-text">
-                Sinkronisasi otomatis progres realisasi survei lapangan langsung dari portal web FASIH BPS melalui
-                adapter scraper terenkripsi.
-              </p>
             </div>
           </div>
         </div>
@@ -3421,14 +3376,6 @@
     </div>
 
     <!-- ═══════════════════════════════════════════════════════════════════════ -->
-    <!-- VIEW: PUSAT ARSIP DIGITAL (DEDICATED STANDALONE PAGE)                   -->
-    <!-- ═══════════════════════════════════════════════════════════════════════ -->
-    <div id="pageArsip" class="page-view">
-      <div class="page-hero-header">
-        <div class="container">
-          <div class="section-pill">Repositori Memori Institusi</div>
-          <h1 class="section-title" style="margin-bottom: 0.75rem;">Pusat Arsip & Pengetahuan Digital</h1>
-          <p class="section-subtitle" style="max-width: 760px; margin: 0 auto;">
             Penyimpanan terpusat dokumen resmi KAK, SK Tim Pelaksana, Buku Pedoman Pencacah, Kuesioner, dan Publikasi
             Berita Resmi Statistik (BRS).
           </p>
@@ -5702,9 +5649,53 @@ Contoh isi: Kode Identitas, Nama Lembaga, Alamat, Status (completed by admin / s
       }
     }
 
-    // ─── SAMPLE PROGRESS STORE & YEAR MANAGEMENT (STANDAR BPS SULA) ───
+    // ─── SAMPLE PROGRESS STORE & YEAR/PERIOD MANAGEMENT (STANDAR BPS SULA) ───
     let currentMonitoringYear = "2026";
+    let currentMonitoringPeriod = "all";  // 'all' | 'TW1'..'TW4' | 'Jan'..'Des' | 1..12
     const SURVEY_SAMPLES_STORE = {};
+
+    // Tentukan tipe periode berdasarkan frekuensi survei
+    function getPeriodType(survey) {
+      if (!survey) return 'tahunan';
+      const f = (survey.frekuensi || survey.periode || '').toLowerCase();
+      if (f.includes('bulanan') || f.includes('bulan') || f.includes('monthly')) return 'bulanan';
+      if (f.includes('triwulan') || f.includes('kwartal') || f.includes('quarterly')) return 'triwulan';
+      if (f.includes('semester') || f.includes('semesteran')) return 'semester';
+      return 'tahunan';
+    }
+
+    // Opsi periode sesuai tipe
+    function getPeriodOptions(periodType, selectedPeriod) {
+      if (periodType === 'bulanan') {
+        const bulan = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Ags','Sep','Okt','Nov','Des'];
+        return bulan.map((b, i) => {
+          const val = String(i + 1).padStart(2, '0');
+          return `<option value="${val}" ${selectedPeriod === val ? 'selected' : ''}>${b}</option>`;
+        }).join('');
+      }
+      if (periodType === 'triwulan') {
+        return ['TW1','TW2','TW3','TW4'].map(tw =>
+          `<option value="${tw}" ${selectedPeriod === tw ? 'selected' : ''}>${tw} (${tw === 'TW1' ? 'Jan–Mar' : tw === 'TW2' ? 'Apr–Jun' : tw === 'TW3' ? 'Jul–Sep' : 'Okt–Des'})</option>`
+        ).join('');
+      }
+      if (periodType === 'semester') {
+        return [
+          `<option value="S1" ${selectedPeriod === 'S1' ? 'selected' : ''}>Semester 1 (Jan–Jun)</option>`,
+          `<option value="S2" ${selectedPeriod === 'S2' ? 'selected' : ''}>Semester 2 (Jul–Des)</option>`
+        ].join('');
+      }
+      return ''; // tahunan — tidak perlu pilihan periode
+    }
+
+    // Label periode untuk teks display
+    function getPeriodLabel(periodType, period) {
+      if (!period || period === 'all' || periodType === 'tahunan') return '';
+      if (periodType === 'bulanan') {
+        const bulan = ['','Jan','Feb','Mar','Apr','Mei','Jun','Jul','Ags','Sep','Okt','Nov','Des'];
+        return ' / ' + (bulan[parseInt(period)] || period);
+      }
+      return ' / ' + period;
+    }
 
     const DEFAULT_SULA_SAMPLES_TEMPLATE = [
       { id: 1, name: "Ruta 01 - Bpk. Ahmad Dahlan", district: "Kec. Sanana", desa: "Desa Fagudu", pcl: "M. Ridwan", pml: "Fajar S.", status: "Approve Admin", note: "Validasi tuntas" },
@@ -5719,9 +5710,13 @@ Contoh isi: Kode Identitas, Nama Lembaga, Alamat, Status (completed by admin / s
       { id: 10, name: "Ruta 10 - Ibu Maryam", district: "Kec. Mangoli Selatan", desa: "Desa Buya", pcl: "Nur Asia", pml: "Yusuf R.", status: "Approve Admin", note: "Validasi tuntas" }
     ];
 
-    function getSurveyStorageKey(surveyId, year) {
+    function getSurveyStorageKey(surveyId, year, period) {
       const y = year || currentMonitoringYear;
-      return `KANVAS_SAMPLES_${surveyId}_${y}`;
+      const p = period || currentMonitoringPeriod;
+      const periodType = getPeriodType(currentActiveSurveyObj);
+      // Untuk survei tahunan, abaikan period
+      const periodSuffix = (periodType !== 'tahunan' && p && p !== 'all') ? `_${p}` : '';
+      return `KANVAS_SAMPLES_${surveyId}_${y}${periodSuffix}`;
     }
 
     function getSurveySamples(surveyId, year) {
@@ -5790,7 +5785,17 @@ Contoh isi: Kode Identitas, Nama Lembaga, Alamat, Status (completed by admin / s
       currentMonitoringYear = year;
       if (currentActiveSurveyObj) {
         renderSurveyScrapedData(currentActiveTeamKey, currentActiveSurveyObj);
-        showToast(`Tahun Monitoring Beralih ke: Tahun ${year}`);
+        showToast(`Tahun Monitoring: ${year}`);
+      }
+    }
+
+    function changeMonitoringPeriod(period) {
+      currentMonitoringPeriod = period;
+      if (currentActiveSurveyObj) {
+        renderSurveyScrapedData(currentActiveTeamKey, currentActiveSurveyObj);
+        const periodType = getPeriodType(currentActiveSurveyObj);
+        const label = getPeriodLabel(periodType, period);
+        showToast(`Periode: ${currentMonitoringYear}${label}`);
       }
     }
 
@@ -5802,6 +5807,22 @@ Contoh isi: Kode Identitas, Nama Lembaga, Alamat, Status (completed by admin / s
       const isFasih = (survey.sumber_data || survey.platform || "").toUpperCase() === "FASIH" || (survey.platform || "").toLowerCase().includes("fasih");
       const isBelumDiketahui = (survey.sumber_data || "").toLowerCase().includes("belum") || (survey.platform || "").toLowerCase().includes("belum");
       const isManual = (survey.sumber_data || "").toUpperCase() === "MANUAL" || (!isFasih && !isBelumDiketahui);
+
+      // Reset periode ke default yang logis saat buka survei baru
+      (() => {
+        const pt = getPeriodType(survey);
+        const now = new Date();
+        if (pt === 'bulanan') {
+          currentMonitoringPeriod = String(now.getMonth() + 1).padStart(2, '0');
+        } else if (pt === 'triwulan') {
+          const tw = Math.ceil((now.getMonth() + 1) / 3);
+          currentMonitoringPeriod = `TW${tw}`;
+        } else if (pt === 'semester') {
+          currentMonitoringPeriod = now.getMonth() < 6 ? 'S1' : 'S2';
+        } else {
+          currentMonitoringPeriod = 'all';
+        }
+      })();
 
       // Populate Breadcrumbs (Tanpa kode singkatan)
       document.getElementById("surveyBreadcrumbs").innerHTML = `
@@ -6108,6 +6129,21 @@ Contoh isi: Kode Identitas, Nama Lembaga, Alamat, Status (completed by admin / s
                 <option value="2024" ${currentMonitoringYear === '2024' ? 'selected' : ''}>2024</option>
               </select>
             </div>
+            <!-- Dropdown Pilihan Periode (Triwulan/Bulan) — hanya muncul bila bukan Tahunan -->
+            ${(() => {
+              const periodType = getPeriodType(survey);
+              if (periodType === 'tahunan') return '';
+              const icon = periodType === 'bulanan' ? 'fa-calendar-week' : periodType === 'triwulan' ? 'fa-chart-bar' : 'fa-calendar-half';
+              const label = periodType === 'bulanan' ? 'Bulan:' : periodType === 'triwulan' ? 'Triwulan:' : 'Semester:';
+              return `
+              <div style="display: flex; align-items: center; gap: 0.35rem; background: #F0F9FF; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid #BAE6FD; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
+                <span style="font-size: 0.75rem; font-weight: 700; color: #0369A1;"><i class="fa-solid ${icon}" style="color: #0284C7;"></i> ${label}</span>
+                <select id="monitoringPeriodSelector" onchange="changeMonitoringPeriod(this.value)" style="font-size: 0.78125rem; font-weight: 700; border: none; background: transparent; color: #0F172A; cursor: pointer; outline: none;">
+                  ${getPeriodOptions(periodType, currentMonitoringPeriod)}
+                </select>
+              </div>
+              `;
+            })()}
           </div>
         </div>
 
